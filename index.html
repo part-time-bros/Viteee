@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VITEEE 2026 — High-Yield PYQ Compendium</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false});"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#0d1117;--surface:#161b22;--card:#1c2230;--border:#2d3748;--text:#e2e8f0;--muted:#8892a4;--physics:#f6c90e;--chemistry:#4ade80;--math:#60a5fa;--accent:#fb923c;--correct:#34d399;--tag-bg:rgba(246,201,14,0.12);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;font-size:18px;line-height:1.75;min-height:100vh;}
+.topbar{background:linear-gradient(90deg,#0d1117 0%,#1a1440 35%,#1a1440 65%,#0d1117 100%);border-bottom:1px solid var(--border);padding:6px 0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;}
+.hero{background:radial-gradient(ellipse at 50% 0%,rgba(96,165,250,0.10) 0%,transparent 70%),linear-gradient(180deg,#161b22 0%,#0d1117 100%);border-bottom:1px solid var(--border);padding:60px 24px 48px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,0.01) 0px,rgba(255,255,255,0.01) 1px,transparent 1px,transparent 60px);pointer-events:none;}
+.hero-badge{display:inline-block;border:1px solid var(--physics);color:var(--physics);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:2px;margin-bottom:20px;}
+h1.hero-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,5vw,3.6rem);font-weight:700;line-height:1.1;color:#f1f5f9;letter-spacing:-0.02em;margin-bottom:14px;}
+h1.hero-title span{color:var(--physics);}
+.hero-sub{font-style:italic;color:var(--muted);max-width:600px;margin:0 auto 36px;font-size:1.1rem;}
+.stats{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;}
+.stat-item{text-align:center;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 24px;}
+.stat-num{font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:500;line-height:1;margin-bottom:4px;}
+.stat-label{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.notice{background:rgba(246,201,14,0.08);border:1px solid rgba(246,201,14,0.25);border-radius:8px;padding:16px 22px;margin:32px auto;max-width:900px;font-size:0.88rem;color:#d4b44a;font-family:'JetBrains Mono',monospace;line-height:1.6;}
+.notice strong{color:var(--physics);}
+.wrapper{max-width:900px;margin:0 auto;padding:0 20px 80px;}
+.subject-block{margin:48px 0;}
+.subject-header{display:flex;align-items:center;gap:14px;margin-bottom:28px;padding-bottom:14px;border-bottom:2px solid var(--border);}
+.subject-icon{width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
+.subject-icon.phy{background:rgba(246,201,14,0.12);}
+.subject-icon.che{background:rgba(74,222,128,0.12);}
+.subject-icon.mat{background:rgba(96,165,250,0.12);}
+.subject-header h2{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;letter-spacing:-0.01em;line-height:1;}
+.subject-header h2.phy{color:var(--physics);}
+.subject-header h2.che{color:var(--chemistry);}
+.subject-header h2.mat{color:var(--math);}
+.chapter-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:36px;overflow:hidden;}
+.chapter-header{padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--border);}
+.chapter-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:var(--text);}
+.chapter-meta{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);background:var(--card);border:1px solid var(--border);padding:4px 10px;border-radius:4px;white-space:nowrap;}
+.weightage-bar{height:3px;background:var(--border);position:relative;overflow:hidden;}
+.weightage-fill{position:absolute;left:0;top:0;bottom:0;animation:fillBar 1.2s ease-out forwards;width:0;}
+@keyframes fillBar{to{width:var(--w);}}
+.fill-phy{background:linear-gradient(90deg,var(--physics),#f97316);}
+.fill-che{background:linear-gradient(90deg,var(--chemistry),#06b6d4);}
+.fill-mat{background:linear-gradient(90deg,var(--math),#a78bfa);}
+.questions-list{padding:20px 24px;display:flex;flex-direction:column;gap:28px;}
+.question-block{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 22px;transition:box-shadow 0.2s;}
+.question-block:hover{box-shadow:0 4px 24px rgba(0,0,0,0.35);}
+.q-meta{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.q-num{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:500;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:2px 8px;border-radius:4px;}
+.q-year{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--physics);background:var(--tag-bg);border:1px solid rgba(246,201,14,0.2);padding:2px 8px;border-radius:4px;}
+.q-year.che{color:var(--chemistry);background:rgba(74,222,128,0.08);border-color:rgba(74,222,128,0.2);}
+.q-year.mat{color:var(--math);background:rgba(96,165,250,0.08);border-color:rgba(96,165,250,0.2);}
+.q-verified{font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--correct);background:rgba(52,211,153,0.08);border:1px solid rgba(52,211,153,0.2);padding:2px 8px;border-radius:4px;}
+.q-text{font-size:1rem;line-height:1.65;color:var(--text);margin-bottom:14px;}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+@media(max-width:600px){.options{grid-template-columns:1fr;}}
+.option{display:flex;align-items:flex-start;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:10px 14px;font-size:0.95rem;}
+.opt-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);font-weight:500;padding-top:1px;flex-shrink:0;}
+.solutions-section{background:var(--surface);border-top:3px solid var(--physics);padding:48px 0 80px;margin-top:60px;}
+.solutions-section .sol-wrapper{max-width:900px;margin:0 auto;padding:0 20px;}
+.solutions-hero{text-align:center;margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+.sol-badge{display:inline-block;background:rgba(246,201,14,0.1);border:1px solid rgba(246,201,14,0.3);color:var(--physics);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:5px 16px;border-radius:3px;margin-bottom:16px;}
+h2.sol-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--text);margin-bottom:8px;}
+.sol-subtitle{font-style:italic;color:var(--muted);font-size:0.9rem;}
+.sol-chapter{margin-bottom:52px;}
+.sol-chapter-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--text);border-left:4px solid var(--physics);padding-left:16px;margin-bottom:24px;}
+.sol-chapter-title.che{border-color:var(--chemistry);}
+.sol-chapter-title.mat{border-color:var(--math);}
+.sol-card{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:18px;overflow:hidden;}
+.sol-header{display:flex;align-items:center;gap:12px;padding:14px 20px;background:var(--bg);border-bottom:1px solid var(--border);}
+.sol-qnum{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:2px 8px;border-radius:4px;}
+.ans-tag{font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-weight:500;color:var(--bg);background:var(--correct);padding:3px 10px;border-radius:4px;}
+.sol-year{font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--muted);margin-left:auto;}
+.sol-body{padding:16px 20px;}
+.sol-question{font-size:0.9rem;font-style:italic;color:var(--muted);margin-bottom:10px;padding-bottom:10px;border-bottom:1px dashed var(--border);}
+.sol-explanation{font-size:0.95rem;color:var(--text);line-height:1.7;}
+.sol-explanation strong{color:var(--correct);}
+.sol-steps{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:12px 16px;margin-top:10px;font-size:0.95rem;line-height:1.8;color:#c4d0e3;}
+.chapter-intro{padding:16px 24px 0;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px;}
+.intro-tag{background:var(--card);border:1px solid var(--border);padding:3px 10px;border-radius:20px;}
+.intro-tag.hot{border-color:rgba(251,146,60,0.4);color:var(--accent);background:rgba(251,146,60,0.07);}
+.section-divider{height:1px;background:linear-gradient(90deg,transparent 0%,var(--border) 20%,var(--border) 80%,transparent 100%);margin:52px 0;position:relative;}
+.section-divider::after{content:'◆';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--bg);padding:0 12px;color:var(--border);font-size:0.6rem;}
+.subject-nav{position:sticky;top:0;z-index:100;background:rgba(13,17,23,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0;display:flex;justify-content:center;}
+.nav-inner{display:flex;gap:0;max-width:900px;width:100%;}
+.nav-link{flex:1;text-align:center;padding:12px 8px;font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;color:var(--muted);border-bottom:2px solid transparent;transition:all 0.2s;}
+.nav-link:hover{color:var(--text);background:var(--surface);}
+.nav-link.phy:hover{color:var(--physics);border-bottom-color:var(--physics);}
+.nav-link.che:hover{color:var(--chemistry);border-bottom-color:var(--chemistry);}
+.nav-link.mat:hover{color:var(--math);border-bottom-color:var(--math);}
+.nav-link.sol:hover{color:var(--accent);border-bottom-color:var(--accent);}
+footer{text-align:center;padding:28px;font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--border);}
+.insight-box{background:rgba(96,165,250,0.06);border:1px solid rgba(96,165,250,0.2);border-left:3px solid var(--math);border-radius:0 8px 8px 0;padding:14px 18px;margin:20px 24px;font-size:0.88rem;color:#93c5fd;font-family:'JetBrains Mono',monospace;line-height:1.6;}
+.insight-box.phy{border-left-color:var(--physics);color:#fde68a;background:rgba(246,201,14,0.05);border-color:rgba(246,201,14,0.15);}
+.insight-box.che{border-left-color:var(--chemistry);color:#86efac;background:rgba(74,222,128,0.05);border-color:rgba(74,222,128,0.15);}
+</style></head><body>
+<div class="topbar">VITEEE 2026 · High-Yield PYQ Compendium · Physics · Chemistry · Mathematics · Exam: Apr 28–May 3, 2026</div>
+<div class="hero">
+  <div class="hero-badge">Category 1 / 2 Rank Mission</div>
+  <h1 class="hero-title">VITEEE 2026<br/><span>High-Yield PYQ Master Sheet</span></h1>
+  <p class="hero-sub">Make-or-break chapters only. Verified previous year questions, 4-option MCQs, and full step-by-step solutions — all in one file.</p>
+  <div class="stats">
+    <div class="stat-item"><div class="stat-num" style="color:var(--physics)">6</div><div class="stat-label">Top Chapters</div></div>
+    <div class="stat-item"><div class="stat-num" style="color:var(--chemistry)">62</div><div class="stat-label">Questions</div></div>
+    <div class="stat-item"><div class="stat-num" style="color:var(--math)">62</div><div class="stat-label">Detailed Solutions</div></div>
+    <div class="stat-item"><div class="stat-num" style="color:var(--accent)">3</div><div class="stat-label">Subjects</div></div>
+  </div>
+</div>
+<nav class="subject-nav">
+  <div class="nav-inner">
+    <a class="nav-link phy" href="#physics">⚡ Physics</a>
+    <a class="nav-link che" href="#chemistry">⚗️ Chemistry</a>
+    <a class="nav-link mat" href="#mathematics">∑ Mathematics</a>
+    <a class="nav-link sol" href="#solutions">✓ Solutions</a>
+  </div>
+</nav>
+<div class="wrapper">
+<div class="notice">
+<strong>⚠ VERIFICATION NOTE:</strong> VITEEE is a CBT exam and VIT does not release official papers. Questions marked <span style="color:var(--correct)">✔ ExamSIDE Verified</span> are confirmed from the ExamSIDE.com database. All others are widely attributed across Careers360, Vedantu, and Embibe.
+<br/><br/><strong>📋 2026 EXAM PATTERN:</strong> 125 MCQs · 35 Physics + 35 Chemistry + 40 Maths · +4 correct / −1 wrong · Duration: 2h 30min
+</div>
+<!-- PHYSICS -->
+<section id="physics" class="subject-block">
+<div class="subject-header"><div class="subject-icon phy">⚡</div><div><h2 class="phy">Physics</h2><p style="font-size:0.8rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:2px;">35 Questions · ~60% from Class 12</p></div></div>
+
+<!-- P1 Electrostatics -->
+<div class="chapter-card">
+<div class="weightage-bar"><div class="weightage-fill fill-phy" style="--w:85%"></div></div>
+<div class="chapter-header"><span class="chapter-title">Chapter P1 — Electrostatics &amp; Current Electricity</span><span class="chapter-meta">★★★ Critical · ~6–8 Qs</span></div>
+<div class="chapter-intro"><span class="intro-tag hot">🔥 Highest weightage</span><span class="intro-tag">Gauss's Law</span><span class="intro-tag">Capacitors</span><span class="intro-tag">Kirchhoff's Laws</span><span class="intro-tag">Wheatstone Bridge</span></div>
+<div class="insight-box phy">💡 Strategy: Electrostatics numericals (potential, field, flux) + Current electricity circuits account for ~6–8 marks. Do NOT skip internal resistance problems.</div>
+<div class="questions-list">
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q1</span><span class="q-year">VITEEE 2021</span><span class="q-verified">✔ ExamSIDE</span></div>
+<p class="q-text">Eight dipoles of charges of magnitude \(e\) each are placed inside a cube. The total electric flux coming out of the cube will be:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{8e}{\varepsilon_0}\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{16e}{\varepsilon_0}\)</div><div class="option"><span class="opt-label">(C)</span>\(\dfrac{e}{\varepsilon_0}\)</div><div class="option"><span class="opt-label">(D)</span>Zero</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q2</span><span class="q-year">VITEEE 2021</span><span class="q-verified">✔ ExamSIDE</span></div>
+<p class="q-text">The work done in moving a charged particle of charge \(2\times10^{-8}\) C between two points having a potential difference of 36 V is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(2\times10^{-8}\) J</div><div class="option"><span class="opt-label">(B)</span>\(7.2\times10^{-7}\) J</div><div class="option"><span class="opt-label">(C)</span>18 J</div><div class="option"><span class="opt-label">(D)</span>36 J</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q3</span><span class="q-year">VITEEE 2021</span><span class="q-verified">✔ ExamSIDE</span></div>
+<p class="q-text">A hollow sphere of radius 0.1 m has a charge of \(5\times10^{-8}\) C. The potential at a distance of 5 cm from the centre is \(\left(\frac{1}{4\pi\varepsilon_0}=9\times10^9\right)\):</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>9000 V</div><div class="option"><span class="opt-label">(B)</span>4500 V</div><div class="option"><span class="opt-label">(C)</span>900 V</div><div class="option"><span class="opt-label">(D)</span>450 V</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q4</span><span class="q-year">VITEEE 2021</span><span class="q-verified">✔ ExamSIDE</span></div>
+<p class="q-text">The net electric force on a charge of \(+3\,\mu\text{C}\) at the mid-point on the line joining \(+2\,\mu\text{C}\) and \(-2\,\mu\text{C}\) separated by 6 mm is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>Zero</div><div class="option"><span class="opt-label">(B)</span>6000 N</div><div class="option"><span class="opt-label">(C)</span>12000 N</div><div class="option"><span class="opt-label">(D)</span>3000 N</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q5</span><span class="q-year">VITEEE 2019</span></div>
+<p class="q-text">A condenser of capacity \(C_1\) charged to \(V_1\) and another of capacity \(C_2\) charged to \(V_2\) are connected in parallel. The energy lost is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{C_1C_2(V_1-V_2)^2}{2(C_1+C_2)}\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{(C_1+C_2)(V_1+V_2)^2}{2}\)</div><div class="option"><span class="opt-label">(C)</span>\(\dfrac{C_1C_2(V_1+V_2)}{2(C_1+C_2)}\)</div><div class="option"><span class="opt-label">(D)</span>\(\dfrac{C_1C_2}{2(C_1+C_2)}\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q6</span><span class="q-year">VITEEE 2018</span></div>
+<p class="q-text">In a Wheatstone bridge, \(P=10\,\Omega\), \(Q=5\,\Omega\), \(R=4\,\Omega\). For balance (no galvanometer current), \(S\) equals:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(1\,\Omega\)</div><div class="option"><span class="opt-label">(B)</span>\(2\,\Omega\)</div><div class="option"><span class="opt-label">(C)</span>\(4\,\Omega\)</div><div class="option"><span class="opt-label">(D)</span>\(5\,\Omega\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q7</span><span class="q-year">VITEEE 2017</span></div>
+<p class="q-text">If the length of a conductor is doubled and its cross-sectional area is also doubled, the new resistance is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(R/2\)</div><div class="option"><span class="opt-label">(B)</span>\(R\)</div><div class="option"><span class="opt-label">(C)</span>\(2R\)</div><div class="option"><span class="opt-label">(D)</span>\(4R\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q8</span><span class="q-year">VITEEE 2022</span></div>
+<p class="q-text">A cell of EMF \(E\) and internal resistance \(r\) is connected to external resistance \(R\). The power delivered to \(R\) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{E^2R}{(R+r)^2}\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{E^2r}{(R+r)^2}\)</div><div class="option"><span class="opt-label">(C)</span>\(\dfrac{E^2}{R+r}\)</div><div class="option"><span class="opt-label">(D)</span>\(\dfrac{E^2R}{R+r}\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q9</span><span class="q-year">VITEEE 2015</span></div>
+<p class="q-text">Two identical cells each of EMF \(E\) and internal resistance \(r\) are connected in parallel. The effective EMF and effective internal resistance are:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(E,\;r\)</div><div class="option"><span class="opt-label">(B)</span>\(2E,\;r/2\)</div><div class="option"><span class="opt-label">(C)</span>\(E,\;r/2\)</div><div class="option"><span class="opt-label">(D)</span>\(E/2,\;r\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q10</span><span class="q-year">VITEEE 2014</span></div>
+<p class="q-text">A copper wire of length 1 m, cross-sectional area \(0.01\,\text{mm}^2\) and resistivity \(1.7\times10^{-8}\,\Omega\cdot\text{m}\). Its resistance is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(1.7\times10^{-6}\,\Omega\)</div><div class="option"><span class="opt-label">(B)</span>\(1.7\times10^{-3}\,\Omega\)</div><div class="option"><span class="opt-label">(C)</span>\(1.7\,\Omega\)</div><div class="option"><span class="opt-label">(D)</span>\(1.7\times10^{3}\,\Omega\)</div></div></div>
+
+</div></div><!-- /P1 -->
+<!-- P2 Optics -->
+<div class="chapter-card">
+<div class="weightage-bar"><div class="weightage-fill fill-phy" style="--w:78%"></div></div>
+<div class="chapter-header"><span class="chapter-title">Chapter P2 — Optics (Ray Optics &amp; Wave Optics)</span><span class="chapter-meta">★★★ Critical · ~5–7 Qs</span></div>
+<div class="chapter-intro"><span class="intro-tag hot">🔥 Appears every year</span><span class="intro-tag">Lenses &amp; Mirrors</span><span class="intro-tag">TIR</span><span class="intro-tag">YDSE</span><span class="intro-tag">Single Slit</span><span class="intro-tag">Lensmaker's Equation</span></div>
+<div class="insight-box phy">💡 Strategy: Learn all mirror/lens formulae. YDSE fringe width is a guaranteed question. Dispersive power and Lensmaker's equation recur annually.</div>
+<div class="questions-list">
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q1</span><span class="q-year">VITEEE (verified)</span><span class="q-verified">✔ ExamSIDE</span></div>
+<p class="q-text">A light ray of wavelength 546 nm is incident on an air–glass interface. If the refractive index of glass is 1.5, the wavelength in glass is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>364 nm</div><div class="option"><span class="opt-label">(B)</span>819 nm</div><div class="option"><span class="opt-label">(C)</span>546 nm</div><div class="option"><span class="opt-label">(D)</span>182 nm</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q2</span><span class="q-year">VITEEE (verified)</span><span class="q-verified">✔ ExamSIDE</span></div>
+<p class="q-text">The focal lengths of a thin convex lens for red and blue rays are 100 cm and 98.01 cm respectively. The dispersive power of the material is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>0.02</div><div class="option"><span class="opt-label">(B)</span>0.04</div><div class="option"><span class="opt-label">(C)</span>0.20</div><div class="option"><span class="opt-label">(D)</span>0.10</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q3</span><span class="q-year">VITEEE (verified)</span><span class="q-verified">✔ ExamSIDE</span></div>
+<p class="q-text">An object of height 6 cm is viewed through a liquid of refractive index \(\frac{4}{3}\) vertically at a depth of 10 cm. The apparent distance from surface and apparent height are:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>7.5 cm ; 4.5 cm</div><div class="option"><span class="opt-label">(B)</span>10 cm ; 6 cm</div><div class="option"><span class="opt-label">(C)</span>5 cm ; 4 cm</div><div class="option"><span class="opt-label">(D)</span>7.5 cm ; 6 cm</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q4</span><span class="q-year">VITEEE 2019</span></div>
+<p class="q-text">A convex mirror of focal length 20 cm forms an image at 10 cm behind the mirror. The object distance is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>10 cm</div><div class="option"><span class="opt-label">(B)</span>20 cm</div><div class="option"><span class="opt-label">(C)</span>30 cm</div><div class="option"><span class="opt-label">(D)</span>40 cm</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q5</span><span class="q-year">VITEEE 2018</span></div>
+<p class="q-text">A plano-convex lens of refractive index 1.5 has its curved surface with radius of curvature 20 cm. Its focal length is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>20 cm</div><div class="option"><span class="opt-label">(B)</span>30 cm</div><div class="option"><span class="opt-label">(C)</span>40 cm</div><div class="option"><span class="opt-label">(D)</span>80 cm</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q6</span><span class="q-year">VITEEE 2017</span></div>
+<p class="q-text">In Young's double slit experiment, slits separated by 1 mm, screen at 1 m, wavelength 600 nm. The fringe width is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>0.2 mm</div><div class="option"><span class="opt-label">(B)</span>0.4 mm</div><div class="option"><span class="opt-label">(C)</span>0.6 mm</div><div class="option"><span class="opt-label">(D)</span>1.2 mm</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q7</span><span class="q-year">VITEEE 2020</span></div>
+<p class="q-text">When a thin lens is cut into two equal halves by a plane passing through the principal axis, the focal length of each half is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(f/2\)</div><div class="option"><span class="opt-label">(B)</span>\(f\)</div><div class="option"><span class="opt-label">(C)</span>\(2f\)</div><div class="option"><span class="opt-label">(D)</span>\(4f\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q8</span><span class="q-year">VITEEE 2016</span></div>
+<p class="q-text">In single slit diffraction, the width of the central maximum between first minima on both sides (screen at distance \(D\), slit width \(a\), wavelength \(\lambda\)) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{\lambda D}{a}\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{2\lambda D}{a}\)</div><div class="option"><span class="opt-label">(C)</span>\(\dfrac{\lambda a}{D}\)</div><div class="option"><span class="opt-label">(D)</span>\(\dfrac{2\lambda a}{D}\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q9</span><span class="q-year">VITEEE 2015</span></div>
+<p class="q-text">A ray of light passes from glass \((\mu=3/2)\) to air. The critical angle for total internal reflection is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\sin^{-1}\!\left(\dfrac{2}{3}\right)\)</div><div class="option"><span class="opt-label">(B)</span>\(\sin^{-1}\!\left(\dfrac{3}{2}\right)\)</div><div class="option"><span class="opt-label">(C)</span>\(\cos^{-1}\!\left(\dfrac{2}{3}\right)\)</div><div class="option"><span class="opt-label">(D)</span>\(\tan^{-1}\!\left(\dfrac{2}{3}\right)\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q10</span><span class="q-year">VITEEE 2021</span></div>
+<p class="q-text">In a compound microscope, to increase magnifying power one should:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>Decrease \(f_o\) and increase \(f_e\)</div><div class="option"><span class="opt-label">(B)</span>Increase \(f_o\) and decrease \(f_e\)</div><div class="option"><span class="opt-label">(C)</span>Decrease both \(f_o\) and \(f_e\)</div><div class="option"><span class="opt-label">(D)</span>Increase both \(f_o\) and \(f_e\)</div></div></div>
+
+</div></div><!-- /P2 -->
+</section><!-- /physics -->
+<div class="section-divider"></div>
+<!-- CHEMISTRY -->
+<section id="chemistry" class="subject-block">
+<div class="subject-header"><div class="subject-icon che">⚗️</div><div><h2 class="che">Chemistry</h2><p style="font-size:0.8rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:2px;">35 Questions · 40% Organic · 35% Physical · 25% Inorganic</p></div></div>
+
+<!-- C1 Organic -->
+<div class="chapter-card">
+<div class="weightage-bar"><div class="weightage-fill fill-che" style="--w:90%"></div></div>
+<div class="chapter-header"><span class="chapter-title">Chapter C1 — Organic Chemistry (Reactions &amp; Mechanisms)</span><span class="chapter-meta">★★★ Critical · ~10 Qs</span></div>
+<div class="chapter-intro"><span class="intro-tag hot">🔥 Biggest single chapter</span><span class="intro-tag">Named Reactions</span><span class="intro-tag">Mechanisms</span><span class="intro-tag">IUPAC</span><span class="intro-tag">Functional Group Tests</span></div>
+<div class="insight-box che">💡 Organic contributes ~10 questions — the single largest chapter. Focus on EAS, EAR, nucleophilic addition/substitution, and all named reactions (Sandmeyer, Markovnikov, Diazotisation). NCERT is sufficient.</div>
+<div class="questions-list">
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q1</span><span class="q-year che">VITEEE 2022</span></div>
+<p class="q-text">Ethanol is converted to ethylene by reaction with:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>Conc. H₂SO₄ at 170°C</div><div class="option"><span class="opt-label">(B)</span>Conc. HCl at room temperature</div><div class="option"><span class="opt-label">(C)</span>Aqueous NaOH</div><div class="option"><span class="opt-label">(D)</span>SOCl₂</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q2</span><span class="q-year che">VITEEE 2019</span></div>
+<p class="q-text">The IUPAC name of \(\text{CH}_3\text{-CH(OH)-CH}_2\text{-CH}_3\) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>2-methylpropan-1-ol</div><div class="option"><span class="opt-label">(B)</span>Butan-2-ol</div><div class="option"><span class="opt-label">(C)</span>1-methylpropanol</div><div class="option"><span class="opt-label">(D)</span>Butan-1-ol</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q3</span><span class="q-year che">VITEEE 2018</span></div>
+<p class="q-text">Which of the following undergoes nucleophilic addition reaction most readily?</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>CH₃CHO</div><div class="option"><span class="opt-label">(B)</span>CH₃COCH₃</div><div class="option"><span class="opt-label">(C)</span>HCHO</div><div class="option"><span class="opt-label">(D)</span>C₂H₅COC₂H₅</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q4</span><span class="q-year che">VITEEE 2020</span></div>
+<p class="q-text">The product of the reaction of benzene with Cl₂ in the presence of anhydrous FeCl₃ is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>Cyclohexane</div><div class="option"><span class="opt-label">(B)</span>Benzene hexachloride</div><div class="option"><span class="opt-label">(C)</span>Chlorobenzene</div><div class="option"><span class="opt-label">(D)</span>Dichlorobenzene</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q5</span><span class="q-year che">VITEEE 2017</span></div>
+<p class="q-text">The reaction of an aromatic primary amine with NaNO₂ and HCl at 0–5°C gives:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>Secondary amine</div><div class="option"><span class="opt-label">(B)</span>Diazonium salt</div><div class="option"><span class="opt-label">(C)</span>Amide</div><div class="option"><span class="opt-label">(D)</span>Nitrile</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q6</span><span class="q-year che">VITEEE 2016</span></div>
+<p class="q-text">Markovnikov's rule states that in the addition of HX to an unsymmetrical alkene:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>H adds to the carbon bearing more hydrogen atoms</div><div class="option"><span class="opt-label">(B)</span>H adds to the carbon bearing fewer hydrogen atoms</div><div class="option"><span class="opt-label">(C)</span>X adds to the less substituted carbon</div><div class="option"><span class="opt-label">(D)</span>Proceeds via free radical mechanism</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q7</span><span class="q-year che">VITEEE 2021</span></div>
+<p class="q-text">The Sandmeyer reaction involves:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>Conversion of diazonium salt to aryl halide using CuX catalyst</div><div class="option"><span class="opt-label">(B)</span>Reduction of aromatic nitro compound to amine</div><div class="option"><span class="opt-label">(C)</span>Diazotization of an aromatic primary amine</div><div class="option"><span class="opt-label">(D)</span>Hofmann bromamide degradation</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q8</span><span class="q-year che">VITEEE 2019</span></div>
+<p class="q-text">\(\text{CH}_3\text{CH}_2\text{Br}+\text{KOH (alcoholic)}\rightarrow\) the major product is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>CH₃CH₂OH</div><div class="option"><span class="opt-label">(B)</span>CH₂=CH₂</div><div class="option"><span class="opt-label">(C)</span>CH₃CH₂OCH₂CH₃</div><div class="option"><span class="opt-label">(D)</span>CH₃CH₂CN</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q9</span><span class="q-year che">VITEEE 2023</span></div>
+<p class="q-text">Which reagent test distinguishes between aldehydes and ketones?</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>Lucas test</div><div class="option"><span class="opt-label">(B)</span>Iodoform test</div><div class="option"><span class="opt-label">(C)</span>Fehling's test</div><div class="option"><span class="opt-label">(D)</span>Hinsberg test</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q10</span><span class="q-year che">VITEEE 2018</span></div>
+<p class="q-text">Esterification of a carboxylic acid with an alcohol under acid catalysis is classified as:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>Nucleophilic acyl substitution</div><div class="option"><span class="opt-label">(B)</span>Electrophilic aromatic substitution</div><div class="option"><span class="opt-label">(C)</span>Free radical mechanism</div><div class="option"><span class="opt-label">(D)</span>Electrophilic addition</div></div></div>
+
+</div></div><!-- /C1 -->
+
+<!-- C2 Coordination + Electrochemistry -->
+<div class="chapter-card">
+<div class="weightage-bar"><div class="weightage-fill fill-che" style="--w:72%"></div></div>
+<div class="chapter-header"><span class="chapter-title">Chapter C2 — Coordination Compounds &amp; Electrochemistry</span><span class="chapter-meta">★★★ Critical · ~5–7 Qs</span></div>
+<div class="chapter-intro"><span class="intro-tag hot">🔥 D &amp; F Block &gt; P Block in VITEEE</span><span class="intro-tag">IUPAC complexes</span><span class="intro-tag">EAN</span><span class="intro-tag">Hybridization</span><span class="intro-tag">Faraday's Laws</span><span class="intro-tag">Electrochemical cells</span></div>
+<div class="insight-box che">💡 VITEEE consistently favours D/F block over P block. Learn EAN, hybridization of common complexes, CFSE, and Faraday's electrolysis formulae cold.</div>
+<div class="questions-list">
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q1</span><span class="q-year che">VITEEE 2022</span></div>
+<p class="q-text">The IUPAC name of \([\text{Co(NH}_3)_4\text{Cl}_2]\text{Cl}\) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>Tetramminedichlorocobalt(II) chloride</div><div class="option"><span class="opt-label">(B)</span>Tetraamminedichlorocobalt(III) chloride</div><div class="option"><span class="opt-label">(C)</span>Dichloro(tetraammine)cobalt(II) chloride</div><div class="option"><span class="opt-label">(D)</span>Cobalt(III) tetraamminedichloride chloride</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q2</span><span class="q-year che">VITEEE 2019</span></div>
+<p class="q-text">The hybridization of the complex \([\text{Ni(CN)}_4]^{2-}\) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(sp^3\)</div><div class="option"><span class="opt-label">(B)</span>\(dsp^2\)</div><div class="option"><span class="opt-label">(C)</span>\(sp^3d\)</div><div class="option"><span class="opt-label">(D)</span>\(d^2sp^3\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q3</span><span class="q-year che">VITEEE 2018</span></div>
+<p class="q-text">Which of the following are ambidentate ligands?</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\text{CN}^-\) and \(\text{NO}_2^-\)</div><div class="option"><span class="opt-label">(B)</span>\(\text{NH}_3\) and \(\text{H}_2\text{O}\)</div><div class="option"><span class="opt-label">(C)</span>Ethylenediamine and oxalate</div><div class="option"><span class="opt-label">(D)</span>\(\text{Cl}^-\) and \(\text{Br}^-\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q4</span><span class="q-year che">VITEEE 2020</span></div>
+<p class="q-text">The Effective Atomic Number (EAN) of \([\text{Fe(CN)}_6]^{4-}\) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>24</div><div class="option"><span class="opt-label">(B)</span>36</div><div class="option"><span class="opt-label">(C)</span>32</div><div class="option"><span class="opt-label">(D)</span>42</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q5</span><span class="q-year che">VITEEE 2017</span></div>
+<p class="q-text">Given \(E°(\text{Zn}^{2+}/\text{Zn})=-0.76\) V and \(E°(\text{Cu}^{2+}/\text{Cu})=+0.34\) V, the standard EMF of the Daniell cell is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>0.34 V</div><div class="option"><span class="opt-label">(B)</span>1.10 V</div><div class="option"><span class="opt-label">(C)</span>−1.10 V</div><div class="option"><span class="opt-label">(D)</span>−0.42 V</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q6</span><span class="q-year che">VITEEE 2018</span></div>
+<p class="q-text">The charge required to deposit 1.08 g of silver (at. mass = 108) from AgNO₃ solution is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>965 C</div><div class="option"><span class="opt-label">(B)</span>9650 C</div><div class="option"><span class="opt-label">(C)</span>96500 C</div><div class="option"><span class="opt-label">(D)</span>96.5 C</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q7</span><span class="q-year che">VITEEE 2021</span></div>
+<p class="q-text">During electrolysis of dilute H₂SO₄, the gas evolved at the cathode is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>Oxygen (O₂)</div><div class="option"><span class="opt-label">(B)</span>Hydrogen (H₂)</div><div class="option"><span class="opt-label">(C)</span>Sulphur dioxide (SO₂)</div><div class="option"><span class="opt-label">(D)</span>Sulphur trioxide (SO₃)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q8</span><span class="q-year che">VITEEE 2019</span></div>
+<p class="q-text">The spin-only magnetic moment of \([\text{MnCl}_4]^{2-}\) is (Mn: Z=25):</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>1.73 BM</div><div class="option"><span class="opt-label">(B)</span>3.87 BM</div><div class="option"><span class="opt-label">(C)</span>5.92 BM</div><div class="option"><span class="opt-label">(D)</span>4.90 BM</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q9</span><span class="q-year che">VITEEE 2016</span></div>
+<p class="q-text">Standard EMF of the cell \(\text{H}_2|\text{H}^+||\text{Cu}^{2+}|\text{Cu}\) given \(E°(\text{Cu}^{2+}/\text{Cu})=+0.34\) V:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>+0.34 V</div><div class="option"><span class="opt-label">(B)</span>−0.34 V</div><div class="option"><span class="opt-label">(C)</span>+0.68 V</div><div class="option"><span class="opt-label">(D)</span>0 V</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q10</span><span class="q-year che">VITEEE 2023</span></div>
+<p class="q-text">According to Werner's theory, the secondary valency of the central metal atom is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>Satisfied only by negative ions</div><div class="option"><span class="opt-label">(B)</span>Directed towards fixed positions in space and is non-ionizable</div><div class="option"><span class="opt-label">(C)</span>Satisfied by counterions outside the coordination sphere</div><div class="option"><span class="opt-label">(D)</span>Equal to the ionic charge of the metal</div></div></div>
+
+</div></div><!-- /C2 -->
+</section><!-- /chemistry -->
+<div class="section-divider"></div>
+<!-- MATHEMATICS -->
+<section id="mathematics" class="subject-block">
+<div class="subject-header"><div class="subject-icon mat">∑</div><div><h2 class="mat">Mathematics</h2><p style="font-size:0.8rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:2px;">40 Questions · Highest-stakes section · Calculus = 10–12 Qs alone</p></div></div>
+
+<!-- M1 Calculus -->
+<div class="chapter-card">
+<div class="weightage-bar"><div class="weightage-fill fill-mat" style="--w:95%"></div></div>
+<div class="chapter-header"><span class="chapter-title">Chapter M1 — Calculus (Limits, Differentiation &amp; Integration)</span><span class="chapter-meta">★★★ Make-or-Break · ~10–12 Qs</span></div>
+<div class="chapter-intro"><span class="intro-tag hot">🔥 Single most important chapter</span><span class="intro-tag">Definite Integrals</span><span class="intro-tag">Integration by parts</span><span class="intro-tag">Maxima &amp; Minima</span><span class="intro-tag">L'Hôpital</span></div>
+<div class="insight-box">💡 Calculus = 25–30% of the entire Maths section. Master ∫eˣ[f(x)+f'(x)]dx form, Beta function integrals, chain rule, and log differentiation. Every question is accessible with NCERT + PYQ practice.</div>
+<div class="questions-list">
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q1</span><span class="q-year mat">VITEEE 2019</span></div>
+<p class="q-text">\(\displaystyle\int_0^{\pi/2}\sin^2 x\,dx\) equals:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{\pi}{2}\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{\pi}{4}\)</div><div class="option"><span class="opt-label">(C)</span>\(\pi\)</div><div class="option"><span class="opt-label">(D)</span>\(0\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q2</span><span class="q-year mat">VITEEE 2018</span></div>
+<p class="q-text">If \(y=\log(\sin x)\), then \(\dfrac{dy}{dx}\) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\cot x\)</div><div class="option"><span class="opt-label">(B)</span>\(\tan x\)</div><div class="option"><span class="opt-label">(C)</span>\(-\cot x\)</div><div class="option"><span class="opt-label">(D)</span>\(\csc x\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q3</span><span class="q-year mat">VITEEE 2020</span></div>
+<p class="q-text">\(\displaystyle\int e^x(\sin x+\cos x)\,dx\) equals:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(e^x\sin x+C\)</div><div class="option"><span class="opt-label">(B)</span>\(e^x\cos x+C\)</div><div class="option"><span class="opt-label">(C)</span>\(e^x(\sin x-\cos x)+C\)</div><div class="option"><span class="opt-label">(D)</span>\(\dfrac{e^x(\sin x+\cos x)}{2}+C\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q4</span><span class="q-year mat">VITEEE 2017</span></div>
+<p class="q-text">The maximum value of \(f(x)=\sin x+\cos x\) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(1\)</div><div class="option"><span class="opt-label">(B)</span>\(\sqrt{2}\)</div><div class="option"><span class="opt-label">(C)</span>\(2\)</div><div class="option"><span class="opt-label">(D)</span>\(\dfrac{1}{\sqrt{2}}\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q5</span><span class="q-year mat">VITEEE 2022</span></div>
+<p class="q-text">The function \(f(x)=x^2-5x+6\) attains its minimum at \(x=\):</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{5}{2}\)</div><div class="option"><span class="opt-label">(B)</span>\(2\)</div><div class="option"><span class="opt-label">(C)</span>\(3\)</div><div class="option"><span class="opt-label">(D)</span>\(1\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q6</span><span class="q-year mat">VITEEE 2016</span></div>
+<p class="q-text">\(\displaystyle\int\frac{1}{\sqrt{1-x^2}}\,dx\) equals:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\sin^{-1}x+C\)</div><div class="option"><span class="opt-label">(B)</span>\(\cos^{-1}x+C\)</div><div class="option"><span class="opt-label">(C)</span>\(\tan^{-1}x+C\)</div><div class="option"><span class="opt-label">(D)</span>\(\sec^{-1}x+C\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q7</span><span class="q-year mat">VITEEE 2021</span></div>
+<p class="q-text">The derivative of \(\sin^{-1}(2x\sqrt{1-x^2})\) with respect to \(\sin^{-1}x\) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(2\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{1}{2}\)</div><div class="option"><span class="opt-label">(C)</span>\(-2\)</div><div class="option"><span class="opt-label">(D)</span>\(1\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q8</span><span class="q-year mat">VITEEE 2018</span></div>
+<p class="q-text">The slope of the tangent to \(y=x^3\) at \(x=2\) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>4</div><div class="option"><span class="opt-label">(B)</span>8</div><div class="option"><span class="opt-label">(C)</span>12</div><div class="option"><span class="opt-label">(D)</span>16</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q9</span><span class="q-year mat">VITEEE 2023</span></div>
+<p class="q-text">\(\displaystyle\int_0^1 x(1-x)^n\,dx\) equals:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{1}{n+2}\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{1}{(n+1)(n+2)}\)</div><div class="option"><span class="opt-label">(C)</span>\(\dfrac{n}{n+1}\)</div><div class="option"><span class="opt-label">(D)</span>\(\dfrac{1}{n+1}\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q10</span><span class="q-year mat">VITEEE 2015</span></div>
+<p class="q-text">\(\displaystyle\lim_{x\to0}\frac{1-\cos x}{x^2}\) equals:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(0\)</div><div class="option"><span class="opt-label">(B)</span>\(1\)</div><div class="option"><span class="opt-label">(C)</span>\(\dfrac{1}{2}\)</div><div class="option"><span class="opt-label">(D)</span>\(\infty\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q11</span><span class="q-year mat">VITEEE 2020</span></div>
+<p class="q-text">\(\displaystyle\int\tan x\,dx\) equals:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\ln|\cos x|+C\)</div><div class="option"><span class="opt-label">(B)</span>\(-\ln|\cos x|+C\)</div><div class="option"><span class="opt-label">(C)</span>\(\ln|\sin x|+C\)</div><div class="option"><span class="opt-label">(D)</span>\(-\ln|\sin x|+C\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q12</span><span class="q-year mat">VITEEE 2022</span></div>
+<p class="q-text">The function \(f(x)=x^3-3x+2\) is strictly increasing on:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\((-\infty,-1)\cup(1,\infty)\)</div><div class="option"><span class="opt-label">(B)</span>\((-1,1)\)</div><div class="option"><span class="opt-label">(C)</span>\((0,\infty)\)</div><div class="option"><span class="opt-label">(D)</span>\((-\infty,0)\)</div></div></div>
+
+</div></div><!-- /M1 -->
+
+<!-- M2 Coordinate Geometry + Matrices -->
+<div class="chapter-card">
+<div class="weightage-bar"><div class="weightage-fill fill-mat" style="--w:80%"></div></div>
+<div class="chapter-header"><span class="chapter-title">Chapter M2 — Coordinate Geometry &amp; Matrices/Determinants</span><span class="chapter-meta">★★★ Critical · ~8–10 Qs</span></div>
+<div class="chapter-intro"><span class="intro-tag hot">🔥 Conics appear more than Straight Lines</span><span class="intro-tag">Circles</span><span class="intro-tag">Parabola · Ellipse · Hyperbola</span><span class="intro-tag">Determinants</span><span class="intro-tag">Matrix operations</span></div>
+<div class="insight-box">💡 Conic section tangent/normal conditions are frequently tested. Memorise tangent condition for all 4 conics. For matrices, |kA|=kⁿ|A| and singular matrix conditions are exam staples.</div>
+<div class="questions-list">
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q1</span><span class="q-year mat">VITEEE 2018</span></div>
+<p class="q-text">The centre and radius of the circle \(x^2+y^2-6x+8y-11=0\) are:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\((3,-4)\) and 6</div><div class="option"><span class="opt-label">(B)</span>\((-3,4)\) and 6</div><div class="option"><span class="opt-label">(C)</span>\((3,-4)\) and 36</div><div class="option"><span class="opt-label">(D)</span>\((6,8)\) and 11</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q2</span><span class="q-year mat">VITEEE 2020</span></div>
+<p class="q-text">The eccentricity of the ellipse \(\dfrac{x^2}{16}+\dfrac{y^2}{9}=1\) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{\sqrt{7}}{4}\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{\sqrt{7}}{3}\)</div><div class="option"><span class="opt-label">(C)</span>\(\dfrac{3}{4}\)</div><div class="option"><span class="opt-label">(D)</span>\(\dfrac{\sqrt{7}}{16}\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q3</span><span class="q-year mat">VITEEE 2019</span></div>
+<p class="q-text">The condition for the line \(y=mx+c\) to be tangent to the parabola \(y^2=4ax\) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(c=a/m\)</div><div class="option"><span class="opt-label">(B)</span>\(c=am\)</div><div class="option"><span class="opt-label">(C)</span>\(c=m/a\)</div><div class="option"><span class="opt-label">(D)</span>\(c^2=am\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q4</span><span class="q-year mat">VITEEE 2017</span></div>
+<p class="q-text">The focus of the parabola \(y^2=8x\) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\((2,0)\)</div><div class="option"><span class="opt-label">(B)</span>\((0,2)\)</div><div class="option"><span class="opt-label">(C)</span>\((-2,0)\)</div><div class="option"><span class="opt-label">(D)</span>\((4,0)\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q5</span><span class="q-year mat">VITEEE 2021</span></div>
+<p class="q-text">The value of the determinant \(\begin{vmatrix}1&2\\3&4\end{vmatrix}\) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(2\)</div><div class="option"><span class="opt-label">(B)</span>\(-2\)</div><div class="option"><span class="opt-label">(C)</span>\(10\)</div><div class="option"><span class="opt-label">(D)</span>\(14\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q6</span><span class="q-year mat">VITEEE 2018</span></div>
+<p class="q-text">If \(A\) is a \(3\times3\) matrix with \(|A|=5\), then \(|3A|\) equals:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>15</div><div class="option"><span class="opt-label">(B)</span>45</div><div class="option"><span class="opt-label">(C)</span>135</div><div class="option"><span class="opt-label">(D)</span>375</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q7</span><span class="q-year mat">VITEEE 2016</span></div>
+<p class="q-text">The angle between the lines \(3x+4y=5\) and \(4x-3y=6\) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>30°</div><div class="option"><span class="opt-label">(B)</span>45°</div><div class="option"><span class="opt-label">(C)</span>60°</div><div class="option"><span class="opt-label">(D)</span>90°</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q8</span><span class="q-year mat">VITEEE 2019</span></div>
+<p class="q-text">The matrix \(A=\begin{pmatrix}1&2\\k&3\end{pmatrix}\) is singular when \(k\) equals:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{3}{2}\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{2}{3}\)</div><div class="option"><span class="opt-label">(C)</span>\(-\dfrac{3}{2}\)</div><div class="option"><span class="opt-label">(D)</span>\(3\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q9</span><span class="q-year mat">VITEEE 2023</span></div>
+<p class="q-text">The equation of the tangent to the hyperbola \(\dfrac{x^2}{4}-\dfrac{y^2}{3}=1\) at the point \((4,3)\) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(x-y=1\)</div><div class="option"><span class="opt-label">(B)</span>\(x+y=7\)</div><div class="option"><span class="opt-label">(C)</span>\(4x-3y=7\)</div><div class="option"><span class="opt-label">(D)</span>\(3x-4y=0\)</div></div></div>
+
+<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q10</span><span class="q-year mat">VITEEE 2022</span></div>
+<p class="q-text">The equation of a circle centred at the origin and passing through \((3,4)\) is:</p>
+<div class="options"><div class="option"><span class="opt-label">(A)</span>\(x^2+y^2=7\)</div><div class="option"><span class="opt-label">(B)</span>\(x^2+y^2=25\)</div><div class="option"><span class="opt-label">(C)</span>\(x^2+y^2=12\)</div><div class="option"><span class="opt-label">(D)</span>\(x^2+y^2=5\)</div></div></div>
+
+</div></div><!-- /M2 -->
+</section><!-- /mathematics -->
+</div><!-- /wrapper -->
+<!-- SOLUTIONS SECTION -->
+<section id="solutions" class="solutions-section">
+<div class="sol-wrapper">
+<div class="solutions-hero">
+  <div class="sol-badge">Answer Key &amp; Detailed Solutions</div>
+  <h2 class="sol-title">Solutions &amp; Explanations</h2>
+  <p class="sol-subtitle">Step-by-step derivations · All 62 questions · Mathematically verified</p>
+</div>
+
+<!-- P1 Solutions -->
+<div class="sol-chapter"><h3 class="sol-chapter-title">Physics P1 — Electrostatics &amp; Current Electricity</h3>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q1</span><span class="ans-tag">ANS: D</span><span class="sol-year">2021</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Zero</strong></p><div class="sol-steps">A dipole = equal &amp; opposite charges → net charge = 0. For 8 dipoles, net enclosed charge = 0.<br/>By Gauss's Law: \(\Phi=Q_{\text{enc}}/\varepsilon_0 = 0\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q2</span><span class="ans-tag">ANS: B</span><span class="sol-year">2021</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 7.2×10⁻⁷ J</strong></p><div class="sol-steps">\(W=q\Delta V = 2\times10^{-8}\times36 = 7.2\times10^{-7}\text{ J}\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q3</span><span class="ans-tag">ANS: B</span><span class="sol-year">2021</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 4500 V</strong></p><div class="sol-steps">5 cm &lt; R = 10 cm → inside the sphere. E = 0 inside, so potential = surface potential:<br/>\(V=\dfrac{kQ}{R}=\dfrac{9\times10^9\times5\times10^{-8}}{0.1}=4500\text{ V}\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q4</span><span class="ans-tag">ANS: C</span><span class="sol-year">2021</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 12000 N</strong></p><div class="sol-steps">At midpoint, r = 3 mm from each charge. Force from +2μC (repulsion) and −2μC (attraction) both push/pull the +3μC in the SAME direction.<br/>\(F_1=F_2=\dfrac{9\times10^9\times2\times10^{-6}\times3\times10^{-6}}{(3\times10^{-3})^2}=6000\text{ N}\)<br/>Net = 6000+6000 = <strong>12000 N</strong></div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q5</span><span class="ans-tag">ANS: A</span><span class="sol-year">2019</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: C₁C₂(V₁−V₂)²/[2(C₁+C₂)]</strong></p><div class="sol-steps">Common potential after connection: \(V=\dfrac{C_1V_1+C_2V_2}{C_1+C_2}\)<br/>\(\Delta U=U_i-U_f=\dfrac{C_1C_2(V_1-V_2)^2}{2(C_1+C_2)}\) ✓ (standard derivation)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q6</span><span class="ans-tag">ANS: B</span><span class="sol-year">2018</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 2 Ω</strong></p><div class="sol-steps">Balance condition: P/Q = R/S → S = QR/P = (5×4)/10 = <strong>2 Ω</strong></div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q7</span><span class="ans-tag">ANS: B</span><span class="sol-year">2017</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: R (unchanged)</strong></p><div class="sol-steps">\(R=\rho L/A\). New: \(R'=\rho(2L)/(2A)=\rho L/A=R\). Doubling both L and A leaves R unchanged.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q8</span><span class="ans-tag">ANS: A</span><span class="sol-year">2022</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: E²R/(R+r)²</strong></p><div class="sol-steps">\(I=E/(R+r)\) → \(P=I^2R=E^2R/(R+r)^2\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q9</span><span class="ans-tag">ANS: C</span><span class="sol-year">2015</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: EMF = E, r_eff = r/2</strong></p><div class="sol-steps">For n identical cells in parallel: EMF unchanged = E, internal resistance halved = r/n = r/2.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q10</span><span class="ans-tag">ANS: C</span><span class="sol-year">2014</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 1.7 Ω</strong></p><div class="sol-steps">\(R=\rho L/A=\dfrac{1.7\times10^{-8}\times1}{0.01\times10^{-6}}=\dfrac{1.7\times10^{-8}}{10^{-8}}=1.7\,\Omega\)</div></div></div>
+</div><!-- /P1 sol -->
+
+<!-- P2 Solutions -->
+<div class="sol-chapter"><h3 class="sol-chapter-title">Physics P2 — Optics</h3>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q1</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 364 nm</strong></p><div class="sol-steps">\(\lambda_\text{glass}=\lambda_\text{air}/n=546/1.5=364\text{ nm}\). Frequency is constant at an interface.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q2</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 0.02</strong></p><div class="sol-steps">Mean focal length \(f_Y\approx99\) cm. Dispersive power: \(\omega=(f_R-f_B)/f_Y=(100-98.01)/99\approx0.02\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q3</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 7.5 cm ; 4.5 cm</strong></p><div class="sol-steps">Apparent depth = real depth/n.<br/>Bottom (10 cm deep): 10÷(4/3)=7.5 cm from surface.<br/>Top (4 cm deep): 4÷(4/3)=3 cm from surface.<br/>Apparent height = 7.5−3 = <strong>4.5 cm</strong> ✓</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q4</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 20 cm</strong></p><div class="sol-steps">Mirror formula: 1/v+1/u=1/f. Convex: f=+20, v=+10 (behind).<br/>\(1/u=1/20-1/10=-1/20 \Rightarrow u=-20\text{ cm}\) (object is 20 cm in front)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q5</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 40 cm</strong></p><div class="sol-steps">Lensmaker's equation: \(1/f=(\mu-1)(1/R_1-1/R_2)\)<br/>Plano-convex: R₁=20 cm, R₂=∞<br/>\(1/f=(0.5)(1/20)=1/40 \Rightarrow f=40\text{ cm}\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q6</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 0.6 mm</strong></p><div class="sol-steps">\(\beta=\lambda D/d=600\times10^{-9}\times1/(10^{-3})=6\times10^{-4}\text{ m}=0.6\text{ mm}\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q7</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: f (unchanged)</strong></p><div class="sol-steps">Cutting along principal axis: both surfaces and their radii of curvature are preserved in each half. Lensmaker's equation gives same f. (Only intensity is halved due to half aperture.)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q8</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 2λD/a</strong></p><div class="sol-steps">First minima at y=λD/a on each side of centre. Width of central maximum = 2λD/a.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q9</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: sin⁻¹(2/3)</strong></p><div class="sol-steps">\(n\sin\theta_c=1 \Rightarrow \sin\theta_c=1/\mu=2/3 \Rightarrow \theta_c=\sin^{-1}(2/3)\approx41.8°\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q10</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Decrease both f_o and f_e</strong></p><div class="sol-steps">\(M=(L/f_o)(D/f_e)\). To increase M, decrease both \(f_o\) and \(f_e\).</div></div></div>
+</div><!-- /P2 sol -->
+
+<!-- C1 Solutions -->
+<div class="sol-chapter"><h3 class="sol-chapter-title che">Chemistry C1 — Organic Chemistry</h3>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q1</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Conc. H₂SO₄ at 170°C</strong></p><div class="sol-steps">At 170°C: intramolecular dehydration → ethylene (alkene). At 140°C: intermolecular dehydration → diethyl ether.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q2</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Butan-2-ol</strong></p><div class="sol-steps">CH₃−CH(OH)−CH₂−CH₃: longest chain = 4C (butane), −OH on C2 → butan-2-ol.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q3</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: HCHO</strong></p><div class="sol-steps">HCHO has no alkyl groups → zero steric hindrance + zero electron donation to C=O → most electrophilic carbonyl carbon → most reactive toward Nu addition. Reactivity: HCHO &gt; RCHO &gt; RCOR'</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q4</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Chlorobenzene</strong></p><div class="sol-steps">FeCl₃ is Lewis acid catalyst generating Cl⁺ electrophile. EAS on benzene → monosubstitution product = chlorobenzene + HCl.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q5</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Diazonium salt</strong></p><div class="sol-steps">Diazotisation: ArNH₂ + NaNO₂ + HCl → ArN₂⁺Cl⁻ + NaCl + H₂O. Must be kept at 0–5°C to prevent decomposition.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q6</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: H adds to the carbon bearing more hydrogens</strong></p><div class="sol-steps">Markovnikov's rule: H⁺ adds to the less-substituted carbon (more H), carbocation forms at more-substituted carbon (more stable). Then X⁻ attacks that carbon.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q7</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Conversion of diazonium salt to aryl halide using CuX</strong></p><div class="sol-steps">Sandmeyer: ArN₂⁺X⁻ + CuX → Ar−X + N₂↑ (X = Cl, Br). CuCN used for nitriles. Gattermann uses Cu powder.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q8</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: CH₂=CH₂</strong></p><div class="sol-steps">Alcoholic KOH = base → E2 elimination → alkene. Aqueous KOH = nucleophile → SN2 → alcohol. CH₃CH₂Br + KOH(alc.) → CH₂=CH₂ + KBr + H₂O.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q9</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Fehling's test</strong></p><div class="sol-steps">Fehling's solution: alkaline Cu²⁺ → brick-red Cu₂O precipitate with aldehydes ONLY (not ketones). Iodoform test detects CH₃CO− group (works for both CH₃CHO and ketones like CH₃COCH₃).</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q10</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Nucleophilic acyl substitution</strong></p><div class="sol-steps">H⁺ activates C=O → alcohol O attacks (nucleophile) → tetrahedral intermediate → −OH₂ expelled as leaving group. This is nucleophilic substitution at the acyl carbon.</div></div></div>
+</div><!-- /C1 sol -->
+
+<!-- C2 Solutions -->
+<div class="sol-chapter"><h3 class="sol-chapter-title che">Chemistry C2 — Coordination Compounds &amp; Electrochemistry</h3>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q1</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Tetraamminedichlorocobalt(III) chloride</strong></p><div class="sol-steps">OS of Co: x + 0(4) + (−1)(2) = +1 → x = +3 = Co(III). Inner sphere ligands (alphabetical): dichloro, tetraammine → tetraamminedichlorocobalt(III) chloride.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q2</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: dsp²</strong></p><div class="sol-steps">Ni²⁺ = [Ar]3d⁸. CN⁻ = strong field ligand → forces electron pairing → empty 3d available. Hybridisation: dsp² → square planar geometry. [NiCl₄]²⁻ uses sp³ (Cl⁻ = weak field) → tetrahedral.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q3</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: CN⁻ and NO₂⁻</strong></p><div class="sol-steps">Ambidentate = two possible donor atoms, binds through one at a time.<br/>CN⁻: bonds through C (cyano) or N (isocyano).<br/>NO₂⁻: bonds through N (nitro) or O (nitrito).</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q4</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 36</strong></p><div class="sol-steps">Fe²⁺: electrons = 26−2 = 24. Each CN⁻ donates 2e⁻; 6×2=12. EAN = 24+12 = <strong>36</strong> (= krypton, confirms stability by 18-electron rule).</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q5</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 1.10 V</strong></p><div class="sol-steps">\(E°_\text{cell}=E°_\text{cathode}-E°_\text{anode}=+0.34-(-0.76)=+1.10\text{ V}\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q6</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 965 C</strong></p><div class="sol-steps">Moles Ag = 1.08/108 = 0.01 mol. Ag⁺ + e⁻ → Ag (n=1).<br/>Q = nF = 0.01×96500 = <strong>965 C</strong></div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q7</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Hydrogen (H₂)</strong></p><div class="sol-steps">Cathode (reduction): 2H⁺ + 2e⁻ → H₂↑. Anode (oxidation): 2H₂O → O₂ + 4H⁺ + 4e⁻. Volume ratio H₂:O₂ = 2:1.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q8</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 5.92 BM</strong></p><div class="sol-steps">Mn²⁺ = [Ar]3d⁵. Cl⁻ = weak field → no pairing → n=5 unpaired electrons.<br/>\(\mu=\sqrt{n(n+2)}=\sqrt{5\times7}=\sqrt{35}\approx5.92\text{ BM}\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q9</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: +0.34 V</strong></p><div class="sol-steps">\(E°_\text{cell}=E°_\text{cathode}-E°_\text{anode}=0.34-0=+0.34\text{ V}\) (SHE = 0 V by definition)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q10</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Directed towards fixed positions in space and is non-ionizable</strong></p><div class="sol-steps">Werner: Primary valency = ionisable = OS of metal (satisfied by counterions outside sphere). Secondary valency = non-ionisable = coordination number (satisfied by ligands INSIDE sphere, directed to fixed spatial positions).</div></div></div>
+</div><!-- /C2 sol -->
+
+<!-- M1 Solutions -->
+<div class="sol-chapter"><h3 class="sol-chapter-title mat">Mathematics M1 — Calculus</h3>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q1</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: π/4</strong></p><div class="sol-steps">\(\int_0^{\pi/2}\sin^2x\,dx=\int_0^{\pi/2}\dfrac{1-\cos2x}{2}\,dx=\left[\dfrac{x}{2}-\dfrac{\sin2x}{4}\right]_0^{\pi/2}=\dfrac{\pi}{4}-0=\dfrac{\pi}{4}\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q2</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: cot x</strong></p><div class="sol-steps">\(\dfrac{d}{dx}[\log(\sin x)]=\dfrac{1}{\sin x}\cdot\cos x=\cot x\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q3</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: eˣ sin x + C</strong></p><div class="sol-steps">Standard form: \(\int e^x[f(x)+f'(x)]\,dx=e^xf(x)+C\).<br/>Here f(x)=sin x, f'(x)=cos x → both present → \(\int e^x(\sin x+\cos x)\,dx=e^x\sin x+C\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q4</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: √2</strong></p><div class="sol-steps">\(\sin x+\cos x=\sqrt{2}\sin(x+\pi/4)\). Max of sin(·) = 1 → max value = \(\sqrt{2}\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q5</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: x = 5/2</strong></p><div class="sol-steps">\(f'(x)=2x-5=0\Rightarrow x=5/2\). f''(x)=2&gt;0 → minimum confirmed.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q6</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: sin⁻¹x + C</strong></p><div class="sol-steps">Standard result: \(\int\dfrac{dx}{\sqrt{1-x^2}}=\sin^{-1}x+C\). (Let x=sinθ for derivation.)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q7</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 2</strong></p><div class="sol-steps">Let x=sinθ → sin⁻¹x=θ.<br/>\(\sin^{-1}(2x\sqrt{1-x^2})=\sin^{-1}(\sin2\theta)=2\theta=2\sin^{-1}x\)<br/>Derivative of 2sin⁻¹x w.r.t. sin⁻¹x = <strong>2</strong></div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q8</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 12</strong></p><div class="sol-steps">\(dy/dx=3x^2\). At x=2: \(3\times4=12\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q9</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 1/[(n+1)(n+2)]</strong></p><div class="sol-steps">Beta function: \(\int_0^1x^m(1-x)^n\,dx=\dfrac{m!\,n!}{(m+n+1)!}\). With m=1:<br/>\(\dfrac{1!\cdot n!}{(n+2)!}=\dfrac{1}{(n+1)(n+2)}\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q10</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 1/2</strong></p><div class="sol-steps">L'Hôpital (0/0 form): \(\lim\dfrac{\sin x}{2x}\xrightarrow{LH}\lim\dfrac{\cos x}{2}=\dfrac{1}{2}\). Or: use \(1-\cos x\approx x^2/2\) for small x.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q11</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: −ln|cos x| + C</strong></p><div class="sol-steps">\(\int\tan x\,dx=\int\sin x/\cos x\,dx\). Let u=cos x, du=−sinx dx → \(=-\ln|u|+C=-\ln|\cos x|+C\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q12</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: (−∞,−1)∪(1,∞)</strong></p><div class="sol-steps">\(f'(x)=3x^2-3=3(x-1)(x+1)\). f'(x)&gt;0 when x&lt;−1 or x&gt;1. Strictly increasing on \((-\infty,-1)\cup(1,\infty)\).</div></div></div>
+</div><!-- /M1 sol -->
+
+<!-- M2 Solutions -->
+<div class="sol-chapter"><h3 class="sol-chapter-title mat">Mathematics M2 — Coordinate Geometry &amp; Matrices</h3>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q1</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Centre (3,−4), Radius 6</strong></p><div class="sol-steps">Complete the square: (x²−6x+9)+(y²+8y+16)=11+9+16=36<br/>(x−3)²+(y+4)²=6² → Centre: (3,−4), r=6</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q2</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: √7/4</strong></p><div class="sol-steps">\(a^2=16, b^2=9\). \(c^2=a^2-b^2=7\). Eccentricity \(e=c/a=\sqrt{7}/4\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q3</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: c = a/m</strong></p><div class="sol-steps">Substitute y=mx+c into y²=4ax, set discriminant=0 for tangency:<br/>\((2mc-4a)^2-4m^2c^2=0 \Rightarrow 16a^2=16amc \Rightarrow c=a/m\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q4</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: (2, 0)</strong></p><div class="sol-steps">y²=4ax: comparing with y²=8x → 4a=8 → a=2. Focus at (a,0) = <strong>(2,0)</strong>.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q5</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: −2</strong></p><div class="sol-steps">\(\begin{vmatrix}1&2\\3&4\end{vmatrix}=(1)(4)-(2)(3)=4-6=-2\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q6</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 135</strong></p><div class="sol-steps">Property: \(|kA|=k^n|A|\) for n×n matrix. \(|3A|=3^3\times5=27\times5=135\)</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q7</span><span class="ans-tag">ANS: D</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 90°</strong></p><div class="sol-steps">Slopes: m₁=−3/4, m₂=4/3. Product: m₁m₂=(−3/4)(4/3)=−1. Lines are perpendicular → angle = <strong>90°</strong>.</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q8</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: k = 3/2</strong></p><div class="sol-steps">Singular: |A|=0 → (1)(3)−(2)(k)=0 → 3−2k=0 → k=3/2</div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q9</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: x − y = 1</strong></p><div class="sol-steps">Tangent to \(x^2/a^2-y^2/b^2=1\) at (x₁,y₁): \(xx_1/a^2-yy_1/b^2=1\)<br/>a²=4, b²=3, (x₁,y₁)=(4,3): 4x/4−3y/3=1 → <strong>x−y=1</strong></div></div></div>
+
+<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q10</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: x²+y²=25</strong></p><div class="sol-steps">Radius = √(3²+4²) = √25 = 5. Circle: x²+y²=25.</div></div></div>
+</div><!-- /M2 sol -->
+<!-- QUICK ANSWER KEY TABLE -->
+<div style="margin-top:60px;padding-top:40px;border-top:1px solid var(--border);">
+<div class="sol-badge" style="display:block;text-align:center;margin-bottom:24px;">Quick Answer Key</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+<div style="background:var(--card);border:1px solid var(--border);border-top:3px solid var(--physics);border-radius:10px;padding:20px;">
+<p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--physics);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">Physics P1</p>
+<table style="width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
+<tr><td style="padding:4px 6px;color:var(--muted);">Q1</td><td style="color:var(--correct);font-weight:700;">D</td><td style="padding:4px 6px;color:var(--muted);">Q2</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q3</td><td style="color:var(--correct);font-weight:700;">B</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q4</td><td style="color:var(--correct);font-weight:700;">C</td><td style="padding:4px 6px;color:var(--muted);">Q5</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q6</td><td style="color:var(--correct);font-weight:700;">B</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q7</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q8</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q9</td><td style="color:var(--correct);font-weight:700;">C</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q10</td><td style="color:var(--correct);font-weight:700;">C</td></tr>
+</table></div>
+<div style="background:var(--card);border:1px solid var(--border);border-top:3px solid var(--physics);border-radius:10px;padding:20px;">
+<p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--physics);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">Physics P2</p>
+<table style="width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
+<tr><td style="padding:4px 6px;color:var(--muted);">Q1</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q2</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q3</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q4</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q5</td><td style="color:var(--correct);font-weight:700;">C</td><td style="padding:4px 6px;color:var(--muted);">Q6</td><td style="color:var(--correct);font-weight:700;">C</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q7</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q8</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q9</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q10</td><td style="color:var(--correct);font-weight:700;">C</td></tr>
+</table></div>
+<div style="background:var(--card);border:1px solid var(--border);border-top:3px solid var(--chemistry);border-radius:10px;padding:20px;">
+<p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--chemistry);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">Chemistry C1</p>
+<table style="width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
+<tr><td style="padding:4px 6px;color:var(--muted);">Q1</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q2</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q3</td><td style="color:var(--correct);font-weight:700;">C</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q4</td><td style="color:var(--correct);font-weight:700;">C</td><td style="padding:4px 6px;color:var(--muted);">Q5</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q6</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q7</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q8</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q9</td><td style="color:var(--correct);font-weight:700;">C</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q10</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
+</table></div>
+<div style="background:var(--card);border:1px solid var(--border);border-top:3px solid var(--chemistry);border-radius:10px;padding:20px;">
+<p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--chemistry);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">Chemistry C2</p>
+<table style="width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
+<tr><td style="padding:4px 6px;color:var(--muted);">Q1</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q2</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q3</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q4</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q5</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q6</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q7</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q8</td><td style="color:var(--correct);font-weight:700;">C</td><td style="padding:4px 6px;color:var(--muted);">Q9</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q10</td><td style="color:var(--correct);font-weight:700;">B</td></tr>
+</table></div>
+<div style="background:var(--card);border:1px solid var(--border);border-top:3px solid var(--math);border-radius:10px;padding:20px;">
+<p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--math);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">Mathematics M1 (Calculus)</p>
+<table style="width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
+<tr><td style="padding:4px 6px;color:var(--muted);">Q1</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q2</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q3</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q4</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q5</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q6</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q7</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q8</td><td style="color:var(--correct);font-weight:700;">C</td><td style="padding:4px 6px;color:var(--muted);">Q9</td><td style="color:var(--correct);font-weight:700;">B</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q10</td><td style="color:var(--correct);font-weight:700;">C</td><td style="padding:4px 6px;color:var(--muted);">Q11</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q12</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
+</table></div>
+<div style="background:var(--card);border:1px solid var(--border);border-top:3px solid var(--math);border-radius:10px;padding:20px;">
+<p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--math);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">Mathematics M2 (Coord. Geom + Matrices)</p>
+<table style="width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
+<tr><td style="padding:4px 6px;color:var(--muted);">Q1</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q2</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q3</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q4</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q5</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q6</td><td style="color:var(--correct);font-weight:700;">C</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q7</td><td style="color:var(--correct);font-weight:700;">D</td><td style="padding:4px 6px;color:var(--muted);">Q8</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q9</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
+<tr><td style="padding:4px 6px;color:var(--muted);">Q10</td><td style="color:var(--correct);font-weight:700;">B</td></tr>
+</table></div>
+</div><!-- /grid -->
+</div><!-- /quick ref -->
+
+<!-- FINAL STRATEGY BOX -->
+<div style="margin-top:52px;background:linear-gradient(135deg,rgba(246,201,14,0.06),rgba(96,165,250,0.06));border:1px solid rgba(246,201,14,0.2);border-radius:14px;padding:32px 28px;">
+<p style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--physics);margin-bottom:18px;">🎯 Category 1 / 2 Rank — Final Strategy</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;font-size:0.88rem;">
+<div style="background:rgba(0,0,0,0.2);border-radius:8px;padding:16px;"><p style="color:var(--physics);font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:1px;margin-bottom:8px;">PHYSICS</p><p style="color:var(--text);line-height:1.6;">1. Electrostatics + Current Electricity · 2. Optics (lenses, YDSE, TIR) · 3. EMI &amp; AC circuits · 4. Modern Physics · 5. Semiconductors</p></div>
+<div style="background:rgba(0,0,0,0.2);border-radius:8px;padding:16px;"><p style="color:var(--chemistry);font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:1px;margin-bottom:8px;">CHEMISTRY</p><p style="color:var(--text);line-height:1.6;">1. Organic reactions (all named reactions) · 2. Coordination compounds · 3. Electrochemistry (EMF, Faraday) · 4. Chemical Kinetics · 5. Thermodynamics</p></div>
+<div style="background:rgba(0,0,0,0.2);border-radius:8px;padding:16px;"><p style="color:var(--math);font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:1px;margin-bottom:8px;">MATHS</p><p style="color:var(--text);line-height:1.6;">1. Calculus: Integrals + Derivatives (12 Qs!) · 2. Coordinate Geometry: Conics first · 3. Matrices &amp; Determinants · 4. Probability + Vectors · 5. Complex Numbers</p></div>
+</div>
+<p style="margin-top:20px;font-size:0.82rem;color:var(--muted);font-style:italic;text-align:center;">Score ≥ 118 → Rank 1–250 · Score ≥ 100 → Rank ≤ 2000 (Cat 1/2 range) · Score ≥ 80 → Category 2 likely · Marking: +4/−1 · Skip if uncertain.</p>
+</div>
+
+</div></section>
+<footer>VITEEE 2026 PYQ Compendium · Compiled April 2026 · Sources: ExamSIDE, Careers360, Vedantu, Embibe · For educational use only</footer>
+</body></html>
