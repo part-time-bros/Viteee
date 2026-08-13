@@ -1,672 +1,1918 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>VITEEE 2026 — High-Yield PYQ Compendium</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false});"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AURORA EV — Interactive 3D Concept</title>
 <style>
-:root{--bg:#0d1117;--surface:#161b22;--card:#1c2230;--border:#2d3748;--text:#e2e8f0;--muted:#8892a4;--physics:#f6c90e;--chemistry:#4ade80;--math:#60a5fa;--accent:#fb923c;--correct:#34d399;--tag-bg:rgba(246,201,14,0.12);}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;font-size:18px;line-height:1.75;min-height:100vh;}
-.topbar{background:linear-gradient(90deg,#0d1117 0%,#1a1440 35%,#1a1440 65%,#0d1117 100%);border-bottom:1px solid var(--border);padding:6px 0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;}
-.hero{background:radial-gradient(ellipse at 50% 0%,rgba(96,165,250,0.10) 0%,transparent 70%),linear-gradient(180deg,#161b22 0%,#0d1117 100%);border-bottom:1px solid var(--border);padding:60px 24px 48px;text-align:center;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,0.01) 0px,rgba(255,255,255,0.01) 1px,transparent 1px,transparent 60px);pointer-events:none;}
-.hero-badge{display:inline-block;border:1px solid var(--physics);color:var(--physics);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:2px;margin-bottom:20px;}
-h1.hero-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,5vw,3.6rem);font-weight:700;line-height:1.1;color:#f1f5f9;letter-spacing:-0.02em;margin-bottom:14px;}
-h1.hero-title span{color:var(--physics);}
-.hero-sub{font-style:italic;color:var(--muted);max-width:600px;margin:0 auto 36px;font-size:1.1rem;}
-.stats{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;}
-.stat-item{text-align:center;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 24px;}
-.stat-num{font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:500;line-height:1;margin-bottom:4px;}
-.stat-label{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
-.notice{background:rgba(246,201,14,0.08);border:1px solid rgba(246,201,14,0.25);border-radius:8px;padding:16px 22px;margin:32px auto;max-width:900px;font-size:0.88rem;color:#d4b44a;font-family:'JetBrains Mono',monospace;line-height:1.6;}
-.notice strong{color:var(--physics);}
-.wrapper{max-width:900px;margin:0 auto;padding:0 20px 80px;}
-.subject-block{margin:48px 0;}
-.subject-header{display:flex;align-items:center;gap:14px;margin-bottom:28px;padding-bottom:14px;border-bottom:2px solid var(--border);}
-.subject-icon{width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
-.subject-icon.phy{background:rgba(246,201,14,0.12);}
-.subject-icon.che{background:rgba(74,222,128,0.12);}
-.subject-icon.mat{background:rgba(96,165,250,0.12);}
-.subject-header h2{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;letter-spacing:-0.01em;line-height:1;}
-.subject-header h2.phy{color:var(--physics);}
-.subject-header h2.che{color:var(--chemistry);}
-.subject-header h2.mat{color:var(--math);}
-.chapter-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:36px;overflow:hidden;}
-.chapter-header{padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--border);}
-.chapter-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:var(--text);}
-.chapter-meta{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);background:var(--card);border:1px solid var(--border);padding:4px 10px;border-radius:4px;white-space:nowrap;}
-.weightage-bar{height:3px;background:var(--border);position:relative;overflow:hidden;}
-.weightage-fill{position:absolute;left:0;top:0;bottom:0;animation:fillBar 1.2s ease-out forwards;width:0;}
-@keyframes fillBar{to{width:var(--w);}}
-.fill-phy{background:linear-gradient(90deg,var(--physics),#f97316);}
-.fill-che{background:linear-gradient(90deg,var(--chemistry),#06b6d4);}
-.fill-mat{background:linear-gradient(90deg,var(--math),#a78bfa);}
-.questions-list{padding:20px 24px;display:flex;flex-direction:column;gap:28px;}
-.question-block{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 22px;transition:box-shadow 0.2s;}
-.question-block:hover{box-shadow:0 4px 24px rgba(0,0,0,0.35);}
-.q-meta{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
-.q-num{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:500;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:2px 8px;border-radius:4px;}
-.q-year{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--physics);background:var(--tag-bg);border:1px solid rgba(246,201,14,0.2);padding:2px 8px;border-radius:4px;}
-.q-year.che{color:var(--chemistry);background:rgba(74,222,128,0.08);border-color:rgba(74,222,128,0.2);}
-.q-year.mat{color:var(--math);background:rgba(96,165,250,0.08);border-color:rgba(96,165,250,0.2);}
-.q-verified{font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--correct);background:rgba(52,211,153,0.08);border:1px solid rgba(52,211,153,0.2);padding:2px 8px;border-radius:4px;}
-.q-text{font-size:1rem;line-height:1.65;color:var(--text);margin-bottom:14px;}
-.options{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-@media(max-width:600px){.options{grid-template-columns:1fr;}}
-.option{display:flex;align-items:flex-start;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:10px 14px;font-size:0.95rem;}
-.opt-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);font-weight:500;padding-top:1px;flex-shrink:0;}
-.solutions-section{background:var(--surface);border-top:3px solid var(--physics);padding:48px 0 80px;margin-top:60px;}
-.solutions-section .sol-wrapper{max-width:900px;margin:0 auto;padding:0 20px;}
-.solutions-hero{text-align:center;margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border);}
-.sol-badge{display:inline-block;background:rgba(246,201,14,0.1);border:1px solid rgba(246,201,14,0.3);color:var(--physics);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:5px 16px;border-radius:3px;margin-bottom:16px;}
-h2.sol-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--text);margin-bottom:8px;}
-.sol-subtitle{font-style:italic;color:var(--muted);font-size:0.9rem;}
-.sol-chapter{margin-bottom:52px;}
-.sol-chapter-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--text);border-left:4px solid var(--physics);padding-left:16px;margin-bottom:24px;}
-.sol-chapter-title.che{border-color:var(--chemistry);}
-.sol-chapter-title.mat{border-color:var(--math);}
-.sol-card{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:18px;overflow:hidden;}
-.sol-header{display:flex;align-items:center;gap:12px;padding:14px 20px;background:var(--bg);border-bottom:1px solid var(--border);}
-.sol-qnum{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:2px 8px;border-radius:4px;}
-.ans-tag{font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-weight:500;color:var(--bg);background:var(--correct);padding:3px 10px;border-radius:4px;}
-.sol-year{font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--muted);margin-left:auto;}
-.sol-body{padding:16px 20px;}
-.sol-question{font-size:0.9rem;font-style:italic;color:var(--muted);margin-bottom:10px;padding-bottom:10px;border-bottom:1px dashed var(--border);}
-.sol-explanation{font-size:0.95rem;color:var(--text);line-height:1.7;}
-.sol-explanation strong{color:var(--correct);}
-.sol-steps{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:12px 16px;margin-top:10px;font-size:0.95rem;line-height:1.8;color:#c4d0e3;}
-.chapter-intro{padding:16px 24px 0;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px;}
-.intro-tag{background:var(--card);border:1px solid var(--border);padding:3px 10px;border-radius:20px;}
-.intro-tag.hot{border-color:rgba(251,146,60,0.4);color:var(--accent);background:rgba(251,146,60,0.07);}
-.section-divider{height:1px;background:linear-gradient(90deg,transparent 0%,var(--border) 20%,var(--border) 80%,transparent 100%);margin:52px 0;position:relative;}
-.section-divider::after{content:'◆';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--bg);padding:0 12px;color:var(--border);font-size:0.6rem;}
-.subject-nav{position:sticky;top:0;z-index:100;background:rgba(13,17,23,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0;display:flex;justify-content:center;}
-.nav-inner{display:flex;gap:0;max-width:900px;width:100%;}
-.nav-link{flex:1;text-align:center;padding:12px 8px;font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;color:var(--muted);border-bottom:2px solid transparent;transition:all 0.2s;}
-.nav-link:hover{color:var(--text);background:var(--surface);}
-.nav-link.phy:hover{color:var(--physics);border-bottom-color:var(--physics);}
-.nav-link.che:hover{color:var(--chemistry);border-bottom-color:var(--chemistry);}
-.nav-link.mat:hover{color:var(--math);border-bottom-color:var(--math);}
-.nav-link.sol:hover{color:var(--accent);border-bottom-color:var(--accent);}
-footer{text-align:center;padding:28px;font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--border);}
-.insight-box{background:rgba(96,165,250,0.06);border:1px solid rgba(96,165,250,0.2);border-left:3px solid var(--math);border-radius:0 8px 8px 0;padding:14px 18px;margin:20px 24px;font-size:0.88rem;color:#93c5fd;font-family:'JetBrains Mono',monospace;line-height:1.6;}
-.insight-box.phy{border-left-color:var(--physics);color:#fde68a;background:rgba(246,201,14,0.05);border-color:rgba(246,201,14,0.15);}
-.insight-box.che{border-left-color:var(--chemistry);color:#86efac;background:rgba(74,222,128,0.05);border-color:rgba(74,222,128,0.15);}
-</style></head><body>
-<div class="topbar">VITEEE 2026 · High-Yield PYQ Compendium · Physics · Chemistry · Mathematics · Exam: Apr 28–May 3, 2026</div>
-<div class="hero">
-  <div class="hero-badge">Category 1 / 2 Rank Mission</div>
-  <h1 class="hero-title">VITEEE 2026<br/><span>High-Yield PYQ Master Sheet</span></h1>
-  <p class="hero-sub">Make-or-break chapters only. Verified previous year questions, 4-option MCQs, and full step-by-step solutions — all in one file.</p>
-  <div class="stats">
-    <div class="stat-item"><div class="stat-num" style="color:var(--physics)">6</div><div class="stat-label">Top Chapters</div></div>
-    <div class="stat-item"><div class="stat-num" style="color:var(--chemistry)">62</div><div class="stat-label">Questions</div></div>
-    <div class="stat-item"><div class="stat-num" style="color:var(--math)">62</div><div class="stat-label">Detailed Solutions</div></div>
-    <div class="stat-item"><div class="stat-num" style="color:var(--accent)">3</div><div class="stat-label">Subjects</div></div>
+  :root{
+    --fg:#e9eef5;
+    --muted:#93a0b4;
+    --accent:#5ec8ff;
+    --panel:rgba(14,18,26,.72);
+    --panel-hi:rgba(94,200,255,.16);
+    --border:rgba(255,255,255,.12);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;background:#05070b;color:var(--fg);overflow:hidden;
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;overscroll-behavior:none;
+  }
+  #scene{position:fixed;inset:0;display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+  #scene.grabbing{cursor:grabbing}
+  #scene.pointing{cursor:pointer}
+
+  #brand{
+    position:fixed;top:0;left:0;padding:16px 18px;pointer-events:none;
+    text-shadow:0 1px 12px rgba(0,0,0,.6);
+  }
+  #brand h1{
+    margin:0;font-size:15px;font-weight:650;letter-spacing:.34em;text-transform:uppercase;
+  }
+  #brand p{margin:4px 0 0;font-size:11.5px;letter-spacing:.06em;color:var(--muted)}
+
+  #readout{
+    position:fixed;top:0;right:0;padding:16px 18px;text-align:right;pointer-events:none;
+    font-variant-numeric:tabular-nums;font-size:11.5px;letter-spacing:.08em;color:var(--muted);
+    text-shadow:0 1px 12px rgba(0,0,0,.6);
+  }
+  #readout b{display:block;font-size:13px;color:var(--fg);font-weight:600;letter-spacing:.12em}
+
+  #hud{
+    position:fixed;left:0;right:0;bottom:0;z-index:5;
+    padding:0 10px calc(12px + env(safe-area-inset-bottom));
+    display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none;
+  }
+  .row{
+    display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;
+    background:var(--panel);border:1px solid var(--border);border-radius:14px;
+    padding:6px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);pointer-events:auto;
+    max-width:min(980px,100%);
+  }
+  .lab{
+    font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+    padding:0 8px 0 6px;user-select:none;
+  }
+  .sep{width:1px;align-self:stretch;background:var(--border);margin:2px 4px}
+  button.btn{
+    appearance:none;border:1px solid transparent;background:rgba(255,255,255,.06);color:var(--fg);
+    font:inherit;font-size:12px;font-weight:520;letter-spacing:.02em;
+    padding:8px 11px;border-radius:9px;cursor:pointer;white-space:nowrap;
+    transition:background .18s ease,border-color .18s ease,color .18s ease,transform .1s ease;
+  }
+  button.btn:hover{background:rgba(255,255,255,.13)}
+  button.btn:active{transform:translateY(1px)}
+  button.btn[aria-pressed="true"]{
+    background:var(--panel-hi);border-color:rgba(94,200,255,.55);color:#cfeeff;
+    box-shadow:0 0 16px rgba(94,200,255,.18) inset;
+  }
+  button.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .sw{
+    width:26px;height:26px;padding:0;border-radius:50%;border:2px solid rgba(255,255,255,.25);
+    cursor:pointer;background-clip:padding-box;
+  }
+  .sw[aria-pressed="true"]{border-color:#fff;box-shadow:0 0 0 3px rgba(94,200,255,.35)}
+  #hint{
+    font-size:11px;color:var(--muted);letter-spacing:.04em;text-align:center;
+    text-shadow:0 1px 10px rgba(0,0,0,.7);pointer-events:none;padding:0 12px;
+  }
+
+  #loader{
+    position:fixed;inset:0;display:grid;place-content:center;gap:14px;justify-items:center;
+    background:#05070b;z-index:20;transition:opacity .6s ease;font-size:12px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--muted);
+  }
+  #loader.gone{opacity:0;pointer-events:none}
+  .spin{
+    width:34px;height:34px;border-radius:50%;
+    border:2px solid rgba(255,255,255,.14);border-top-color:var(--accent);
+    animation:sp 900ms linear infinite;
+  }
+  @keyframes sp{to{transform:rotate(360deg)}}
+  #err{
+    position:fixed;inset:auto 12px 12px 12px;z-index:40;display:none;
+    background:#3a0d12;border:1px solid #7d2430;color:#ffd9de;border-radius:10px;
+    padding:10px 12px;font-size:12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;
+  }
+  @media (max-width:720px){
+    .lab{display:none}
+    button.btn{font-size:11.5px;padding:8px 9px}
+    #readout{display:none}
+  }
+</style>
+</head>
+<body>
+<canvas id="scene"></canvas>
+
+<div id="brand">
+  <h1>Aurora</h1>
+  <p>Procedural EV — every surface generated in code</p>
+</div>
+
+<div id="readout">
+  <b id="ro-mode">PARKED</b>
+  <span id="ro-sub">motor idle · lights off</span>
+</div>
+
+<div id="hud">
+  <div id="hint">Drag to orbit · scroll or pinch to zoom · click the car body, hood or light bars</div>
+  <div class="row" id="row-panels">
+    <span class="lab">Doors</span>
+    <button class="btn" data-toggle="FL" aria-pressed="false">Front L</button>
+    <button class="btn" data-toggle="FR" aria-pressed="false">Front R</button>
+    <button class="btn" data-toggle="RL" aria-pressed="false">Rear L</button>
+    <button class="btn" data-toggle="RR" aria-pressed="false">Rear R</button>
+    <button class="btn" data-act="alldoors">All</button>
+    <span class="sep"></span>
+    <button class="btn" data-toggle="HOOD" aria-pressed="false">Frunk</button>
+    <button class="btn" data-toggle="TRUNK" aria-pressed="false">Trunk</button>
+  </div>
+  <div class="row" id="row-systems">
+    <span class="lab">Systems</span>
+    <button class="btn" data-act="lights" aria-pressed="false">Lights</button>
+    <button class="btn" data-act="motor" aria-pressed="false">Motor</button>
+    <button class="btn" data-act="drive" aria-pressed="false">Drive</button>
+    <button class="btn" data-act="sound" aria-pressed="false">Sound</button>
+    <span class="sep"></span>
+    <button class="btn" data-act="night" aria-pressed="false">Night</button>
+    <button class="btn" data-act="reset">Reset view</button>
+    <span class="sep"></span>
+    <span class="lab">Paint</span>
+    <span id="swatches"></span>
   </div>
 </div>
-<nav class="subject-nav">
-  <div class="nav-inner">
-    <a class="nav-link phy" href="#physics">⚡ Physics</a>
-    <a class="nav-link che" href="#chemistry">⚗️ Chemistry</a>
-    <a class="nav-link mat" href="#mathematics">∑ Mathematics</a>
-    <a class="nav-link sol" href="#solutions">✓ Solutions</a>
-  </div>
-</nav>
-<div class="wrapper">
-<div class="notice">
-<strong>⚠ VERIFICATION NOTE:</strong> VITEEE is a CBT exam and VIT does not release official papers. Questions marked <span style="color:var(--correct)">✔ ExamSIDE Verified</span> are confirmed from the ExamSIDE.com database. All others are widely attributed across Careers360, Vedantu, and Embibe.
-<br/><br/><strong>📋 2026 EXAM PATTERN:</strong> 125 MCQs · 35 Physics + 35 Chemistry + 40 Maths · +4 correct / −1 wrong · Duration: 2h 30min
-</div>
-<!-- PHYSICS -->
-<section id="physics" class="subject-block">
-<div class="subject-header"><div class="subject-icon phy">⚡</div><div><h2 class="phy">Physics</h2><p style="font-size:0.8rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:2px;">35 Questions · ~60% from Class 12</p></div></div>
-
-<!-- P1 Electrostatics -->
-<div class="chapter-card">
-<div class="weightage-bar"><div class="weightage-fill fill-phy" style="--w:85%"></div></div>
-<div class="chapter-header"><span class="chapter-title">Chapter P1 — Electrostatics &amp; Current Electricity</span><span class="chapter-meta">★★★ Critical · ~6–8 Qs</span></div>
-<div class="chapter-intro"><span class="intro-tag hot">🔥 Highest weightage</span><span class="intro-tag">Gauss's Law</span><span class="intro-tag">Capacitors</span><span class="intro-tag">Kirchhoff's Laws</span><span class="intro-tag">Wheatstone Bridge</span></div>
-<div class="insight-box phy">💡 Strategy: Electrostatics numericals (potential, field, flux) + Current electricity circuits account for ~6–8 marks. Do NOT skip internal resistance problems.</div>
-<div class="questions-list">
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q1</span><span class="q-year">VITEEE 2021</span><span class="q-verified">✔ ExamSIDE</span></div>
-<p class="q-text">Eight dipoles of charges of magnitude \(e\) each are placed inside a cube. The total electric flux coming out of the cube will be:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{8e}{\varepsilon_0}\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{16e}{\varepsilon_0}\)</div><div class="option"><span class="opt-label">(C)</span>\(\dfrac{e}{\varepsilon_0}\)</div><div class="option"><span class="opt-label">(D)</span>Zero</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q2</span><span class="q-year">VITEEE 2021</span><span class="q-verified">✔ ExamSIDE</span></div>
-<p class="q-text">The work done in moving a charged particle of charge \(2\times10^{-8}\) C between two points having a potential difference of 36 V is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(2\times10^{-8}\) J</div><div class="option"><span class="opt-label">(B)</span>\(7.2\times10^{-7}\) J</div><div class="option"><span class="opt-label">(C)</span>18 J</div><div class="option"><span class="opt-label">(D)</span>36 J</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q3</span><span class="q-year">VITEEE 2021</span><span class="q-verified">✔ ExamSIDE</span></div>
-<p class="q-text">A hollow sphere of radius 0.1 m has a charge of \(5\times10^{-8}\) C. The potential at a distance of 5 cm from the centre is \(\left(\frac{1}{4\pi\varepsilon_0}=9\times10^9\right)\):</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>9000 V</div><div class="option"><span class="opt-label">(B)</span>4500 V</div><div class="option"><span class="opt-label">(C)</span>900 V</div><div class="option"><span class="opt-label">(D)</span>450 V</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q4</span><span class="q-year">VITEEE 2021</span><span class="q-verified">✔ ExamSIDE</span></div>
-<p class="q-text">The net electric force on a charge of \(+3\,\mu\text{C}\) at the mid-point on the line joining \(+2\,\mu\text{C}\) and \(-2\,\mu\text{C}\) separated by 6 mm is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>Zero</div><div class="option"><span class="opt-label">(B)</span>6000 N</div><div class="option"><span class="opt-label">(C)</span>12000 N</div><div class="option"><span class="opt-label">(D)</span>3000 N</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q5</span><span class="q-year">VITEEE 2019</span></div>
-<p class="q-text">A condenser of capacity \(C_1\) charged to \(V_1\) and another of capacity \(C_2\) charged to \(V_2\) are connected in parallel. The energy lost is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{C_1C_2(V_1-V_2)^2}{2(C_1+C_2)}\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{(C_1+C_2)(V_1+V_2)^2}{2}\)</div><div class="option"><span class="opt-label">(C)</span>\(\dfrac{C_1C_2(V_1+V_2)}{2(C_1+C_2)}\)</div><div class="option"><span class="opt-label">(D)</span>\(\dfrac{C_1C_2}{2(C_1+C_2)}\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q6</span><span class="q-year">VITEEE 2018</span></div>
-<p class="q-text">In a Wheatstone bridge, \(P=10\,\Omega\), \(Q=5\,\Omega\), \(R=4\,\Omega\). For balance (no galvanometer current), \(S\) equals:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(1\,\Omega\)</div><div class="option"><span class="opt-label">(B)</span>\(2\,\Omega\)</div><div class="option"><span class="opt-label">(C)</span>\(4\,\Omega\)</div><div class="option"><span class="opt-label">(D)</span>\(5\,\Omega\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q7</span><span class="q-year">VITEEE 2017</span></div>
-<p class="q-text">If the length of a conductor is doubled and its cross-sectional area is also doubled, the new resistance is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(R/2\)</div><div class="option"><span class="opt-label">(B)</span>\(R\)</div><div class="option"><span class="opt-label">(C)</span>\(2R\)</div><div class="option"><span class="opt-label">(D)</span>\(4R\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q8</span><span class="q-year">VITEEE 2022</span></div>
-<p class="q-text">A cell of EMF \(E\) and internal resistance \(r\) is connected to external resistance \(R\). The power delivered to \(R\) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{E^2R}{(R+r)^2}\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{E^2r}{(R+r)^2}\)</div><div class="option"><span class="opt-label">(C)</span>\(\dfrac{E^2}{R+r}\)</div><div class="option"><span class="opt-label">(D)</span>\(\dfrac{E^2R}{R+r}\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q9</span><span class="q-year">VITEEE 2015</span></div>
-<p class="q-text">Two identical cells each of EMF \(E\) and internal resistance \(r\) are connected in parallel. The effective EMF and effective internal resistance are:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(E,\;r\)</div><div class="option"><span class="opt-label">(B)</span>\(2E,\;r/2\)</div><div class="option"><span class="opt-label">(C)</span>\(E,\;r/2\)</div><div class="option"><span class="opt-label">(D)</span>\(E/2,\;r\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P1·Q10</span><span class="q-year">VITEEE 2014</span></div>
-<p class="q-text">A copper wire of length 1 m, cross-sectional area \(0.01\,\text{mm}^2\) and resistivity \(1.7\times10^{-8}\,\Omega\cdot\text{m}\). Its resistance is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(1.7\times10^{-6}\,\Omega\)</div><div class="option"><span class="opt-label">(B)</span>\(1.7\times10^{-3}\,\Omega\)</div><div class="option"><span class="opt-label">(C)</span>\(1.7\,\Omega\)</div><div class="option"><span class="opt-label">(D)</span>\(1.7\times10^{3}\,\Omega\)</div></div></div>
-
-</div></div><!-- /P1 -->
-<!-- P2 Optics -->
-<div class="chapter-card">
-<div class="weightage-bar"><div class="weightage-fill fill-phy" style="--w:78%"></div></div>
-<div class="chapter-header"><span class="chapter-title">Chapter P2 — Optics (Ray Optics &amp; Wave Optics)</span><span class="chapter-meta">★★★ Critical · ~5–7 Qs</span></div>
-<div class="chapter-intro"><span class="intro-tag hot">🔥 Appears every year</span><span class="intro-tag">Lenses &amp; Mirrors</span><span class="intro-tag">TIR</span><span class="intro-tag">YDSE</span><span class="intro-tag">Single Slit</span><span class="intro-tag">Lensmaker's Equation</span></div>
-<div class="insight-box phy">💡 Strategy: Learn all mirror/lens formulae. YDSE fringe width is a guaranteed question. Dispersive power and Lensmaker's equation recur annually.</div>
-<div class="questions-list">
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q1</span><span class="q-year">VITEEE (verified)</span><span class="q-verified">✔ ExamSIDE</span></div>
-<p class="q-text">A light ray of wavelength 546 nm is incident on an air–glass interface. If the refractive index of glass is 1.5, the wavelength in glass is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>364 nm</div><div class="option"><span class="opt-label">(B)</span>819 nm</div><div class="option"><span class="opt-label">(C)</span>546 nm</div><div class="option"><span class="opt-label">(D)</span>182 nm</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q2</span><span class="q-year">VITEEE (verified)</span><span class="q-verified">✔ ExamSIDE</span></div>
-<p class="q-text">The focal lengths of a thin convex lens for red and blue rays are 100 cm and 98.01 cm respectively. The dispersive power of the material is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>0.02</div><div class="option"><span class="opt-label">(B)</span>0.04</div><div class="option"><span class="opt-label">(C)</span>0.20</div><div class="option"><span class="opt-label">(D)</span>0.10</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q3</span><span class="q-year">VITEEE (verified)</span><span class="q-verified">✔ ExamSIDE</span></div>
-<p class="q-text">An object of height 6 cm is viewed through a liquid of refractive index \(\frac{4}{3}\) vertically at a depth of 10 cm. The apparent distance from surface and apparent height are:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>7.5 cm ; 4.5 cm</div><div class="option"><span class="opt-label">(B)</span>10 cm ; 6 cm</div><div class="option"><span class="opt-label">(C)</span>5 cm ; 4 cm</div><div class="option"><span class="opt-label">(D)</span>7.5 cm ; 6 cm</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q4</span><span class="q-year">VITEEE 2019</span></div>
-<p class="q-text">A convex mirror of focal length 20 cm forms an image at 10 cm behind the mirror. The object distance is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>10 cm</div><div class="option"><span class="opt-label">(B)</span>20 cm</div><div class="option"><span class="opt-label">(C)</span>30 cm</div><div class="option"><span class="opt-label">(D)</span>40 cm</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q5</span><span class="q-year">VITEEE 2018</span></div>
-<p class="q-text">A plano-convex lens of refractive index 1.5 has its curved surface with radius of curvature 20 cm. Its focal length is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>20 cm</div><div class="option"><span class="opt-label">(B)</span>30 cm</div><div class="option"><span class="opt-label">(C)</span>40 cm</div><div class="option"><span class="opt-label">(D)</span>80 cm</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q6</span><span class="q-year">VITEEE 2017</span></div>
-<p class="q-text">In Young's double slit experiment, slits separated by 1 mm, screen at 1 m, wavelength 600 nm. The fringe width is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>0.2 mm</div><div class="option"><span class="opt-label">(B)</span>0.4 mm</div><div class="option"><span class="opt-label">(C)</span>0.6 mm</div><div class="option"><span class="opt-label">(D)</span>1.2 mm</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q7</span><span class="q-year">VITEEE 2020</span></div>
-<p class="q-text">When a thin lens is cut into two equal halves by a plane passing through the principal axis, the focal length of each half is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(f/2\)</div><div class="option"><span class="opt-label">(B)</span>\(f\)</div><div class="option"><span class="opt-label">(C)</span>\(2f\)</div><div class="option"><span class="opt-label">(D)</span>\(4f\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q8</span><span class="q-year">VITEEE 2016</span></div>
-<p class="q-text">In single slit diffraction, the width of the central maximum between first minima on both sides (screen at distance \(D\), slit width \(a\), wavelength \(\lambda\)) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{\lambda D}{a}\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{2\lambda D}{a}\)</div><div class="option"><span class="opt-label">(C)</span>\(\dfrac{\lambda a}{D}\)</div><div class="option"><span class="opt-label">(D)</span>\(\dfrac{2\lambda a}{D}\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q9</span><span class="q-year">VITEEE 2015</span></div>
-<p class="q-text">A ray of light passes from glass \((\mu=3/2)\) to air. The critical angle for total internal reflection is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\sin^{-1}\!\left(\dfrac{2}{3}\right)\)</div><div class="option"><span class="opt-label">(B)</span>\(\sin^{-1}\!\left(\dfrac{3}{2}\right)\)</div><div class="option"><span class="opt-label">(C)</span>\(\cos^{-1}\!\left(\dfrac{2}{3}\right)\)</div><div class="option"><span class="opt-label">(D)</span>\(\tan^{-1}\!\left(\dfrac{2}{3}\right)\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">P2·Q10</span><span class="q-year">VITEEE 2021</span></div>
-<p class="q-text">In a compound microscope, to increase magnifying power one should:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>Decrease \(f_o\) and increase \(f_e\)</div><div class="option"><span class="opt-label">(B)</span>Increase \(f_o\) and decrease \(f_e\)</div><div class="option"><span class="opt-label">(C)</span>Decrease both \(f_o\) and \(f_e\)</div><div class="option"><span class="opt-label">(D)</span>Increase both \(f_o\) and \(f_e\)</div></div></div>
-
-</div></div><!-- /P2 -->
-</section><!-- /physics -->
-<div class="section-divider"></div>
-<!-- CHEMISTRY -->
-<section id="chemistry" class="subject-block">
-<div class="subject-header"><div class="subject-icon che">⚗️</div><div><h2 class="che">Chemistry</h2><p style="font-size:0.8rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:2px;">35 Questions · 40% Organic · 35% Physical · 25% Inorganic</p></div></div>
-
-<!-- C1 Organic -->
-<div class="chapter-card">
-<div class="weightage-bar"><div class="weightage-fill fill-che" style="--w:90%"></div></div>
-<div class="chapter-header"><span class="chapter-title">Chapter C1 — Organic Chemistry (Reactions &amp; Mechanisms)</span><span class="chapter-meta">★★★ Critical · ~10 Qs</span></div>
-<div class="chapter-intro"><span class="intro-tag hot">🔥 Biggest single chapter</span><span class="intro-tag">Named Reactions</span><span class="intro-tag">Mechanisms</span><span class="intro-tag">IUPAC</span><span class="intro-tag">Functional Group Tests</span></div>
-<div class="insight-box che">💡 Organic contributes ~10 questions — the single largest chapter. Focus on EAS, EAR, nucleophilic addition/substitution, and all named reactions (Sandmeyer, Markovnikov, Diazotisation). NCERT is sufficient.</div>
-<div class="questions-list">
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q1</span><span class="q-year che">VITEEE 2022</span></div>
-<p class="q-text">Ethanol is converted to ethylene by reaction with:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>Conc. H₂SO₄ at 170°C</div><div class="option"><span class="opt-label">(B)</span>Conc. HCl at room temperature</div><div class="option"><span class="opt-label">(C)</span>Aqueous NaOH</div><div class="option"><span class="opt-label">(D)</span>SOCl₂</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q2</span><span class="q-year che">VITEEE 2019</span></div>
-<p class="q-text">The IUPAC name of \(\text{CH}_3\text{-CH(OH)-CH}_2\text{-CH}_3\) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>2-methylpropan-1-ol</div><div class="option"><span class="opt-label">(B)</span>Butan-2-ol</div><div class="option"><span class="opt-label">(C)</span>1-methylpropanol</div><div class="option"><span class="opt-label">(D)</span>Butan-1-ol</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q3</span><span class="q-year che">VITEEE 2018</span></div>
-<p class="q-text">Which of the following undergoes nucleophilic addition reaction most readily?</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>CH₃CHO</div><div class="option"><span class="opt-label">(B)</span>CH₃COCH₃</div><div class="option"><span class="opt-label">(C)</span>HCHO</div><div class="option"><span class="opt-label">(D)</span>C₂H₅COC₂H₅</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q4</span><span class="q-year che">VITEEE 2020</span></div>
-<p class="q-text">The product of the reaction of benzene with Cl₂ in the presence of anhydrous FeCl₃ is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>Cyclohexane</div><div class="option"><span class="opt-label">(B)</span>Benzene hexachloride</div><div class="option"><span class="opt-label">(C)</span>Chlorobenzene</div><div class="option"><span class="opt-label">(D)</span>Dichlorobenzene</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q5</span><span class="q-year che">VITEEE 2017</span></div>
-<p class="q-text">The reaction of an aromatic primary amine with NaNO₂ and HCl at 0–5°C gives:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>Secondary amine</div><div class="option"><span class="opt-label">(B)</span>Diazonium salt</div><div class="option"><span class="opt-label">(C)</span>Amide</div><div class="option"><span class="opt-label">(D)</span>Nitrile</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q6</span><span class="q-year che">VITEEE 2016</span></div>
-<p class="q-text">Markovnikov's rule states that in the addition of HX to an unsymmetrical alkene:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>H adds to the carbon bearing more hydrogen atoms</div><div class="option"><span class="opt-label">(B)</span>H adds to the carbon bearing fewer hydrogen atoms</div><div class="option"><span class="opt-label">(C)</span>X adds to the less substituted carbon</div><div class="option"><span class="opt-label">(D)</span>Proceeds via free radical mechanism</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q7</span><span class="q-year che">VITEEE 2021</span></div>
-<p class="q-text">The Sandmeyer reaction involves:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>Conversion of diazonium salt to aryl halide using CuX catalyst</div><div class="option"><span class="opt-label">(B)</span>Reduction of aromatic nitro compound to amine</div><div class="option"><span class="opt-label">(C)</span>Diazotization of an aromatic primary amine</div><div class="option"><span class="opt-label">(D)</span>Hofmann bromamide degradation</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q8</span><span class="q-year che">VITEEE 2019</span></div>
-<p class="q-text">\(\text{CH}_3\text{CH}_2\text{Br}+\text{KOH (alcoholic)}\rightarrow\) the major product is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>CH₃CH₂OH</div><div class="option"><span class="opt-label">(B)</span>CH₂=CH₂</div><div class="option"><span class="opt-label">(C)</span>CH₃CH₂OCH₂CH₃</div><div class="option"><span class="opt-label">(D)</span>CH₃CH₂CN</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q9</span><span class="q-year che">VITEEE 2023</span></div>
-<p class="q-text">Which reagent test distinguishes between aldehydes and ketones?</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>Lucas test</div><div class="option"><span class="opt-label">(B)</span>Iodoform test</div><div class="option"><span class="opt-label">(C)</span>Fehling's test</div><div class="option"><span class="opt-label">(D)</span>Hinsberg test</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C1·Q10</span><span class="q-year che">VITEEE 2018</span></div>
-<p class="q-text">Esterification of a carboxylic acid with an alcohol under acid catalysis is classified as:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>Nucleophilic acyl substitution</div><div class="option"><span class="opt-label">(B)</span>Electrophilic aromatic substitution</div><div class="option"><span class="opt-label">(C)</span>Free radical mechanism</div><div class="option"><span class="opt-label">(D)</span>Electrophilic addition</div></div></div>
-
-</div></div><!-- /C1 -->
-
-<!-- C2 Coordination + Electrochemistry -->
-<div class="chapter-card">
-<div class="weightage-bar"><div class="weightage-fill fill-che" style="--w:72%"></div></div>
-<div class="chapter-header"><span class="chapter-title">Chapter C2 — Coordination Compounds &amp; Electrochemistry</span><span class="chapter-meta">★★★ Critical · ~5–7 Qs</span></div>
-<div class="chapter-intro"><span class="intro-tag hot">🔥 D &amp; F Block &gt; P Block in VITEEE</span><span class="intro-tag">IUPAC complexes</span><span class="intro-tag">EAN</span><span class="intro-tag">Hybridization</span><span class="intro-tag">Faraday's Laws</span><span class="intro-tag">Electrochemical cells</span></div>
-<div class="insight-box che">💡 VITEEE consistently favours D/F block over P block. Learn EAN, hybridization of common complexes, CFSE, and Faraday's electrolysis formulae cold.</div>
-<div class="questions-list">
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q1</span><span class="q-year che">VITEEE 2022</span></div>
-<p class="q-text">The IUPAC name of \([\text{Co(NH}_3)_4\text{Cl}_2]\text{Cl}\) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>Tetramminedichlorocobalt(II) chloride</div><div class="option"><span class="opt-label">(B)</span>Tetraamminedichlorocobalt(III) chloride</div><div class="option"><span class="opt-label">(C)</span>Dichloro(tetraammine)cobalt(II) chloride</div><div class="option"><span class="opt-label">(D)</span>Cobalt(III) tetraamminedichloride chloride</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q2</span><span class="q-year che">VITEEE 2019</span></div>
-<p class="q-text">The hybridization of the complex \([\text{Ni(CN)}_4]^{2-}\) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(sp^3\)</div><div class="option"><span class="opt-label">(B)</span>\(dsp^2\)</div><div class="option"><span class="opt-label">(C)</span>\(sp^3d\)</div><div class="option"><span class="opt-label">(D)</span>\(d^2sp^3\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q3</span><span class="q-year che">VITEEE 2018</span></div>
-<p class="q-text">Which of the following are ambidentate ligands?</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\text{CN}^-\) and \(\text{NO}_2^-\)</div><div class="option"><span class="opt-label">(B)</span>\(\text{NH}_3\) and \(\text{H}_2\text{O}\)</div><div class="option"><span class="opt-label">(C)</span>Ethylenediamine and oxalate</div><div class="option"><span class="opt-label">(D)</span>\(\text{Cl}^-\) and \(\text{Br}^-\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q4</span><span class="q-year che">VITEEE 2020</span></div>
-<p class="q-text">The Effective Atomic Number (EAN) of \([\text{Fe(CN)}_6]^{4-}\) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>24</div><div class="option"><span class="opt-label">(B)</span>36</div><div class="option"><span class="opt-label">(C)</span>32</div><div class="option"><span class="opt-label">(D)</span>42</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q5</span><span class="q-year che">VITEEE 2017</span></div>
-<p class="q-text">Given \(E°(\text{Zn}^{2+}/\text{Zn})=-0.76\) V and \(E°(\text{Cu}^{2+}/\text{Cu})=+0.34\) V, the standard EMF of the Daniell cell is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>0.34 V</div><div class="option"><span class="opt-label">(B)</span>1.10 V</div><div class="option"><span class="opt-label">(C)</span>−1.10 V</div><div class="option"><span class="opt-label">(D)</span>−0.42 V</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q6</span><span class="q-year che">VITEEE 2018</span></div>
-<p class="q-text">The charge required to deposit 1.08 g of silver (at. mass = 108) from AgNO₃ solution is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>965 C</div><div class="option"><span class="opt-label">(B)</span>9650 C</div><div class="option"><span class="opt-label">(C)</span>96500 C</div><div class="option"><span class="opt-label">(D)</span>96.5 C</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q7</span><span class="q-year che">VITEEE 2021</span></div>
-<p class="q-text">During electrolysis of dilute H₂SO₄, the gas evolved at the cathode is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>Oxygen (O₂)</div><div class="option"><span class="opt-label">(B)</span>Hydrogen (H₂)</div><div class="option"><span class="opt-label">(C)</span>Sulphur dioxide (SO₂)</div><div class="option"><span class="opt-label">(D)</span>Sulphur trioxide (SO₃)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q8</span><span class="q-year che">VITEEE 2019</span></div>
-<p class="q-text">The spin-only magnetic moment of \([\text{MnCl}_4]^{2-}\) is (Mn: Z=25):</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>1.73 BM</div><div class="option"><span class="opt-label">(B)</span>3.87 BM</div><div class="option"><span class="opt-label">(C)</span>5.92 BM</div><div class="option"><span class="opt-label">(D)</span>4.90 BM</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q9</span><span class="q-year che">VITEEE 2016</span></div>
-<p class="q-text">Standard EMF of the cell \(\text{H}_2|\text{H}^+||\text{Cu}^{2+}|\text{Cu}\) given \(E°(\text{Cu}^{2+}/\text{Cu})=+0.34\) V:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>+0.34 V</div><div class="option"><span class="opt-label">(B)</span>−0.34 V</div><div class="option"><span class="opt-label">(C)</span>+0.68 V</div><div class="option"><span class="opt-label">(D)</span>0 V</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">C2·Q10</span><span class="q-year che">VITEEE 2023</span></div>
-<p class="q-text">According to Werner's theory, the secondary valency of the central metal atom is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>Satisfied only by negative ions</div><div class="option"><span class="opt-label">(B)</span>Directed towards fixed positions in space and is non-ionizable</div><div class="option"><span class="opt-label">(C)</span>Satisfied by counterions outside the coordination sphere</div><div class="option"><span class="opt-label">(D)</span>Equal to the ionic charge of the metal</div></div></div>
-
-</div></div><!-- /C2 -->
-</section><!-- /chemistry -->
-<div class="section-divider"></div>
-<!-- MATHEMATICS -->
-<section id="mathematics" class="subject-block">
-<div class="subject-header"><div class="subject-icon mat">∑</div><div><h2 class="mat">Mathematics</h2><p style="font-size:0.8rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:2px;">40 Questions · Highest-stakes section · Calculus = 10–12 Qs alone</p></div></div>
-
-<!-- M1 Calculus -->
-<div class="chapter-card">
-<div class="weightage-bar"><div class="weightage-fill fill-mat" style="--w:95%"></div></div>
-<div class="chapter-header"><span class="chapter-title">Chapter M1 — Calculus (Limits, Differentiation &amp; Integration)</span><span class="chapter-meta">★★★ Make-or-Break · ~10–12 Qs</span></div>
-<div class="chapter-intro"><span class="intro-tag hot">🔥 Single most important chapter</span><span class="intro-tag">Definite Integrals</span><span class="intro-tag">Integration by parts</span><span class="intro-tag">Maxima &amp; Minima</span><span class="intro-tag">L'Hôpital</span></div>
-<div class="insight-box">💡 Calculus = 25–30% of the entire Maths section. Master ∫eˣ[f(x)+f'(x)]dx form, Beta function integrals, chain rule, and log differentiation. Every question is accessible with NCERT + PYQ practice.</div>
-<div class="questions-list">
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q1</span><span class="q-year mat">VITEEE 2019</span></div>
-<p class="q-text">\(\displaystyle\int_0^{\pi/2}\sin^2 x\,dx\) equals:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{\pi}{2}\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{\pi}{4}\)</div><div class="option"><span class="opt-label">(C)</span>\(\pi\)</div><div class="option"><span class="opt-label">(D)</span>\(0\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q2</span><span class="q-year mat">VITEEE 2018</span></div>
-<p class="q-text">If \(y=\log(\sin x)\), then \(\dfrac{dy}{dx}\) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\cot x\)</div><div class="option"><span class="opt-label">(B)</span>\(\tan x\)</div><div class="option"><span class="opt-label">(C)</span>\(-\cot x\)</div><div class="option"><span class="opt-label">(D)</span>\(\csc x\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q3</span><span class="q-year mat">VITEEE 2020</span></div>
-<p class="q-text">\(\displaystyle\int e^x(\sin x+\cos x)\,dx\) equals:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(e^x\sin x+C\)</div><div class="option"><span class="opt-label">(B)</span>\(e^x\cos x+C\)</div><div class="option"><span class="opt-label">(C)</span>\(e^x(\sin x-\cos x)+C\)</div><div class="option"><span class="opt-label">(D)</span>\(\dfrac{e^x(\sin x+\cos x)}{2}+C\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q4</span><span class="q-year mat">VITEEE 2017</span></div>
-<p class="q-text">The maximum value of \(f(x)=\sin x+\cos x\) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(1\)</div><div class="option"><span class="opt-label">(B)</span>\(\sqrt{2}\)</div><div class="option"><span class="opt-label">(C)</span>\(2\)</div><div class="option"><span class="opt-label">(D)</span>\(\dfrac{1}{\sqrt{2}}\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q5</span><span class="q-year mat">VITEEE 2022</span></div>
-<p class="q-text">The function \(f(x)=x^2-5x+6\) attains its minimum at \(x=\):</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{5}{2}\)</div><div class="option"><span class="opt-label">(B)</span>\(2\)</div><div class="option"><span class="opt-label">(C)</span>\(3\)</div><div class="option"><span class="opt-label">(D)</span>\(1\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q6</span><span class="q-year mat">VITEEE 2016</span></div>
-<p class="q-text">\(\displaystyle\int\frac{1}{\sqrt{1-x^2}}\,dx\) equals:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\sin^{-1}x+C\)</div><div class="option"><span class="opt-label">(B)</span>\(\cos^{-1}x+C\)</div><div class="option"><span class="opt-label">(C)</span>\(\tan^{-1}x+C\)</div><div class="option"><span class="opt-label">(D)</span>\(\sec^{-1}x+C\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q7</span><span class="q-year mat">VITEEE 2021</span></div>
-<p class="q-text">The derivative of \(\sin^{-1}(2x\sqrt{1-x^2})\) with respect to \(\sin^{-1}x\) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(2\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{1}{2}\)</div><div class="option"><span class="opt-label">(C)</span>\(-2\)</div><div class="option"><span class="opt-label">(D)</span>\(1\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q8</span><span class="q-year mat">VITEEE 2018</span></div>
-<p class="q-text">The slope of the tangent to \(y=x^3\) at \(x=2\) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>4</div><div class="option"><span class="opt-label">(B)</span>8</div><div class="option"><span class="opt-label">(C)</span>12</div><div class="option"><span class="opt-label">(D)</span>16</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q9</span><span class="q-year mat">VITEEE 2023</span></div>
-<p class="q-text">\(\displaystyle\int_0^1 x(1-x)^n\,dx\) equals:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{1}{n+2}\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{1}{(n+1)(n+2)}\)</div><div class="option"><span class="opt-label">(C)</span>\(\dfrac{n}{n+1}\)</div><div class="option"><span class="opt-label">(D)</span>\(\dfrac{1}{n+1}\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q10</span><span class="q-year mat">VITEEE 2015</span></div>
-<p class="q-text">\(\displaystyle\lim_{x\to0}\frac{1-\cos x}{x^2}\) equals:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(0\)</div><div class="option"><span class="opt-label">(B)</span>\(1\)</div><div class="option"><span class="opt-label">(C)</span>\(\dfrac{1}{2}\)</div><div class="option"><span class="opt-label">(D)</span>\(\infty\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q11</span><span class="q-year mat">VITEEE 2020</span></div>
-<p class="q-text">\(\displaystyle\int\tan x\,dx\) equals:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\ln|\cos x|+C\)</div><div class="option"><span class="opt-label">(B)</span>\(-\ln|\cos x|+C\)</div><div class="option"><span class="opt-label">(C)</span>\(\ln|\sin x|+C\)</div><div class="option"><span class="opt-label">(D)</span>\(-\ln|\sin x|+C\)</div></div></div>
 
-<div class="question-block"><div class="q-meta"><span class="q-num">M1·Q12</span><span class="q-year mat">VITEEE 2022</span></div>
-<p class="q-text">The function \(f(x)=x^3-3x+2\) is strictly increasing on:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\((-\infty,-1)\cup(1,\infty)\)</div><div class="option"><span class="opt-label">(B)</span>\((-1,1)\)</div><div class="option"><span class="opt-label">(C)</span>\((0,\infty)\)</div><div class="option"><span class="opt-label">(D)</span>\((-\infty,0)\)</div></div></div>
-
-</div></div><!-- /M1 -->
-
-<!-- M2 Coordinate Geometry + Matrices -->
-<div class="chapter-card">
-<div class="weightage-bar"><div class="weightage-fill fill-mat" style="--w:80%"></div></div>
-<div class="chapter-header"><span class="chapter-title">Chapter M2 — Coordinate Geometry &amp; Matrices/Determinants</span><span class="chapter-meta">★★★ Critical · ~8–10 Qs</span></div>
-<div class="chapter-intro"><span class="intro-tag hot">🔥 Conics appear more than Straight Lines</span><span class="intro-tag">Circles</span><span class="intro-tag">Parabola · Ellipse · Hyperbola</span><span class="intro-tag">Determinants</span><span class="intro-tag">Matrix operations</span></div>
-<div class="insight-box">💡 Conic section tangent/normal conditions are frequently tested. Memorise tangent condition for all 4 conics. For matrices, |kA|=kⁿ|A| and singular matrix conditions are exam staples.</div>
-<div class="questions-list">
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q1</span><span class="q-year mat">VITEEE 2018</span></div>
-<p class="q-text">The centre and radius of the circle \(x^2+y^2-6x+8y-11=0\) are:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\((3,-4)\) and 6</div><div class="option"><span class="opt-label">(B)</span>\((-3,4)\) and 6</div><div class="option"><span class="opt-label">(C)</span>\((3,-4)\) and 36</div><div class="option"><span class="opt-label">(D)</span>\((6,8)\) and 11</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q2</span><span class="q-year mat">VITEEE 2020</span></div>
-<p class="q-text">The eccentricity of the ellipse \(\dfrac{x^2}{16}+\dfrac{y^2}{9}=1\) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{\sqrt{7}}{4}\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{\sqrt{7}}{3}\)</div><div class="option"><span class="opt-label">(C)</span>\(\dfrac{3}{4}\)</div><div class="option"><span class="opt-label">(D)</span>\(\dfrac{\sqrt{7}}{16}\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q3</span><span class="q-year mat">VITEEE 2019</span></div>
-<p class="q-text">The condition for the line \(y=mx+c\) to be tangent to the parabola \(y^2=4ax\) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(c=a/m\)</div><div class="option"><span class="opt-label">(B)</span>\(c=am\)</div><div class="option"><span class="opt-label">(C)</span>\(c=m/a\)</div><div class="option"><span class="opt-label">(D)</span>\(c^2=am\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q4</span><span class="q-year mat">VITEEE 2017</span></div>
-<p class="q-text">The focus of the parabola \(y^2=8x\) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\((2,0)\)</div><div class="option"><span class="opt-label">(B)</span>\((0,2)\)</div><div class="option"><span class="opt-label">(C)</span>\((-2,0)\)</div><div class="option"><span class="opt-label">(D)</span>\((4,0)\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q5</span><span class="q-year mat">VITEEE 2021</span></div>
-<p class="q-text">The value of the determinant \(\begin{vmatrix}1&2\\3&4\end{vmatrix}\) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(2\)</div><div class="option"><span class="opt-label">(B)</span>\(-2\)</div><div class="option"><span class="opt-label">(C)</span>\(10\)</div><div class="option"><span class="opt-label">(D)</span>\(14\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q6</span><span class="q-year mat">VITEEE 2018</span></div>
-<p class="q-text">If \(A\) is a \(3\times3\) matrix with \(|A|=5\), then \(|3A|\) equals:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>15</div><div class="option"><span class="opt-label">(B)</span>45</div><div class="option"><span class="opt-label">(C)</span>135</div><div class="option"><span class="opt-label">(D)</span>375</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q7</span><span class="q-year mat">VITEEE 2016</span></div>
-<p class="q-text">The angle between the lines \(3x+4y=5\) and \(4x-3y=6\) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>30°</div><div class="option"><span class="opt-label">(B)</span>45°</div><div class="option"><span class="opt-label">(C)</span>60°</div><div class="option"><span class="opt-label">(D)</span>90°</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q8</span><span class="q-year mat">VITEEE 2019</span></div>
-<p class="q-text">The matrix \(A=\begin{pmatrix}1&2\\k&3\end{pmatrix}\) is singular when \(k\) equals:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(\dfrac{3}{2}\)</div><div class="option"><span class="opt-label">(B)</span>\(\dfrac{2}{3}\)</div><div class="option"><span class="opt-label">(C)</span>\(-\dfrac{3}{2}\)</div><div class="option"><span class="opt-label">(D)</span>\(3\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q9</span><span class="q-year mat">VITEEE 2023</span></div>
-<p class="q-text">The equation of the tangent to the hyperbola \(\dfrac{x^2}{4}-\dfrac{y^2}{3}=1\) at the point \((4,3)\) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(x-y=1\)</div><div class="option"><span class="opt-label">(B)</span>\(x+y=7\)</div><div class="option"><span class="opt-label">(C)</span>\(4x-3y=7\)</div><div class="option"><span class="opt-label">(D)</span>\(3x-4y=0\)</div></div></div>
-
-<div class="question-block"><div class="q-meta"><span class="q-num">M2·Q10</span><span class="q-year mat">VITEEE 2022</span></div>
-<p class="q-text">The equation of a circle centred at the origin and passing through \((3,4)\) is:</p>
-<div class="options"><div class="option"><span class="opt-label">(A)</span>\(x^2+y^2=7\)</div><div class="option"><span class="opt-label">(B)</span>\(x^2+y^2=25\)</div><div class="option"><span class="opt-label">(C)</span>\(x^2+y^2=12\)</div><div class="option"><span class="opt-label">(D)</span>\(x^2+y^2=5\)</div></div></div>
-
-</div></div><!-- /M2 -->
-</section><!-- /mathematics -->
-</div><!-- /wrapper -->
-<!-- SOLUTIONS SECTION -->
-<section id="solutions" class="solutions-section">
-<div class="sol-wrapper">
-<div class="solutions-hero">
-  <div class="sol-badge">Answer Key &amp; Detailed Solutions</div>
-  <h2 class="sol-title">Solutions &amp; Explanations</h2>
-  <p class="sol-subtitle">Step-by-step derivations · All 62 questions · Mathematically verified</p>
-</div>
-
-<!-- P1 Solutions -->
-<div class="sol-chapter"><h3 class="sol-chapter-title">Physics P1 — Electrostatics &amp; Current Electricity</h3>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q1</span><span class="ans-tag">ANS: D</span><span class="sol-year">2021</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Zero</strong></p><div class="sol-steps">A dipole = equal &amp; opposite charges → net charge = 0. For 8 dipoles, net enclosed charge = 0.<br/>By Gauss's Law: \(\Phi=Q_{\text{enc}}/\varepsilon_0 = 0\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q2</span><span class="ans-tag">ANS: B</span><span class="sol-year">2021</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 7.2×10⁻⁷ J</strong></p><div class="sol-steps">\(W=q\Delta V = 2\times10^{-8}\times36 = 7.2\times10^{-7}\text{ J}\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q3</span><span class="ans-tag">ANS: B</span><span class="sol-year">2021</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 4500 V</strong></p><div class="sol-steps">5 cm &lt; R = 10 cm → inside the sphere. E = 0 inside, so potential = surface potential:<br/>\(V=\dfrac{kQ}{R}=\dfrac{9\times10^9\times5\times10^{-8}}{0.1}=4500\text{ V}\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q4</span><span class="ans-tag">ANS: C</span><span class="sol-year">2021</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 12000 N</strong></p><div class="sol-steps">At midpoint, r = 3 mm from each charge. Force from +2μC (repulsion) and −2μC (attraction) both push/pull the +3μC in the SAME direction.<br/>\(F_1=F_2=\dfrac{9\times10^9\times2\times10^{-6}\times3\times10^{-6}}{(3\times10^{-3})^2}=6000\text{ N}\)<br/>Net = 6000+6000 = <strong>12000 N</strong></div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q5</span><span class="ans-tag">ANS: A</span><span class="sol-year">2019</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: C₁C₂(V₁−V₂)²/[2(C₁+C₂)]</strong></p><div class="sol-steps">Common potential after connection: \(V=\dfrac{C_1V_1+C_2V_2}{C_1+C_2}\)<br/>\(\Delta U=U_i-U_f=\dfrac{C_1C_2(V_1-V_2)^2}{2(C_1+C_2)}\) ✓ (standard derivation)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q6</span><span class="ans-tag">ANS: B</span><span class="sol-year">2018</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 2 Ω</strong></p><div class="sol-steps">Balance condition: P/Q = R/S → S = QR/P = (5×4)/10 = <strong>2 Ω</strong></div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q7</span><span class="ans-tag">ANS: B</span><span class="sol-year">2017</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: R (unchanged)</strong></p><div class="sol-steps">\(R=\rho L/A\). New: \(R'=\rho(2L)/(2A)=\rho L/A=R\). Doubling both L and A leaves R unchanged.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q8</span><span class="ans-tag">ANS: A</span><span class="sol-year">2022</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: E²R/(R+r)²</strong></p><div class="sol-steps">\(I=E/(R+r)\) → \(P=I^2R=E^2R/(R+r)^2\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q9</span><span class="ans-tag">ANS: C</span><span class="sol-year">2015</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: EMF = E, r_eff = r/2</strong></p><div class="sol-steps">For n identical cells in parallel: EMF unchanged = E, internal resistance halved = r/n = r/2.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P1·Q10</span><span class="ans-tag">ANS: C</span><span class="sol-year">2014</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 1.7 Ω</strong></p><div class="sol-steps">\(R=\rho L/A=\dfrac{1.7\times10^{-8}\times1}{0.01\times10^{-6}}=\dfrac{1.7\times10^{-8}}{10^{-8}}=1.7\,\Omega\)</div></div></div>
-</div><!-- /P1 sol -->
-
-<!-- P2 Solutions -->
-<div class="sol-chapter"><h3 class="sol-chapter-title">Physics P2 — Optics</h3>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q1</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 364 nm</strong></p><div class="sol-steps">\(\lambda_\text{glass}=\lambda_\text{air}/n=546/1.5=364\text{ nm}\). Frequency is constant at an interface.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q2</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 0.02</strong></p><div class="sol-steps">Mean focal length \(f_Y\approx99\) cm. Dispersive power: \(\omega=(f_R-f_B)/f_Y=(100-98.01)/99\approx0.02\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q3</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 7.5 cm ; 4.5 cm</strong></p><div class="sol-steps">Apparent depth = real depth/n.<br/>Bottom (10 cm deep): 10÷(4/3)=7.5 cm from surface.<br/>Top (4 cm deep): 4÷(4/3)=3 cm from surface.<br/>Apparent height = 7.5−3 = <strong>4.5 cm</strong> ✓</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q4</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 20 cm</strong></p><div class="sol-steps">Mirror formula: 1/v+1/u=1/f. Convex: f=+20, v=+10 (behind).<br/>\(1/u=1/20-1/10=-1/20 \Rightarrow u=-20\text{ cm}\) (object is 20 cm in front)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q5</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 40 cm</strong></p><div class="sol-steps">Lensmaker's equation: \(1/f=(\mu-1)(1/R_1-1/R_2)\)<br/>Plano-convex: R₁=20 cm, R₂=∞<br/>\(1/f=(0.5)(1/20)=1/40 \Rightarrow f=40\text{ cm}\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q6</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 0.6 mm</strong></p><div class="sol-steps">\(\beta=\lambda D/d=600\times10^{-9}\times1/(10^{-3})=6\times10^{-4}\text{ m}=0.6\text{ mm}\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q7</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: f (unchanged)</strong></p><div class="sol-steps">Cutting along principal axis: both surfaces and their radii of curvature are preserved in each half. Lensmaker's equation gives same f. (Only intensity is halved due to half aperture.)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q8</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 2λD/a</strong></p><div class="sol-steps">First minima at y=λD/a on each side of centre. Width of central maximum = 2λD/a.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q9</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: sin⁻¹(2/3)</strong></p><div class="sol-steps">\(n\sin\theta_c=1 \Rightarrow \sin\theta_c=1/\mu=2/3 \Rightarrow \theta_c=\sin^{-1}(2/3)\approx41.8°\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">P2·Q10</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Decrease both f_o and f_e</strong></p><div class="sol-steps">\(M=(L/f_o)(D/f_e)\). To increase M, decrease both \(f_o\) and \(f_e\).</div></div></div>
-</div><!-- /P2 sol -->
-
-<!-- C1 Solutions -->
-<div class="sol-chapter"><h3 class="sol-chapter-title che">Chemistry C1 — Organic Chemistry</h3>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q1</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Conc. H₂SO₄ at 170°C</strong></p><div class="sol-steps">At 170°C: intramolecular dehydration → ethylene (alkene). At 140°C: intermolecular dehydration → diethyl ether.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q2</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Butan-2-ol</strong></p><div class="sol-steps">CH₃−CH(OH)−CH₂−CH₃: longest chain = 4C (butane), −OH on C2 → butan-2-ol.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q3</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: HCHO</strong></p><div class="sol-steps">HCHO has no alkyl groups → zero steric hindrance + zero electron donation to C=O → most electrophilic carbonyl carbon → most reactive toward Nu addition. Reactivity: HCHO &gt; RCHO &gt; RCOR'</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q4</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Chlorobenzene</strong></p><div class="sol-steps">FeCl₃ is Lewis acid catalyst generating Cl⁺ electrophile. EAS on benzene → monosubstitution product = chlorobenzene + HCl.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q5</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Diazonium salt</strong></p><div class="sol-steps">Diazotisation: ArNH₂ + NaNO₂ + HCl → ArN₂⁺Cl⁻ + NaCl + H₂O. Must be kept at 0–5°C to prevent decomposition.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q6</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: H adds to the carbon bearing more hydrogens</strong></p><div class="sol-steps">Markovnikov's rule: H⁺ adds to the less-substituted carbon (more H), carbocation forms at more-substituted carbon (more stable). Then X⁻ attacks that carbon.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q7</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Conversion of diazonium salt to aryl halide using CuX</strong></p><div class="sol-steps">Sandmeyer: ArN₂⁺X⁻ + CuX → Ar−X + N₂↑ (X = Cl, Br). CuCN used for nitriles. Gattermann uses Cu powder.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q8</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: CH₂=CH₂</strong></p><div class="sol-steps">Alcoholic KOH = base → E2 elimination → alkene. Aqueous KOH = nucleophile → SN2 → alcohol. CH₃CH₂Br + KOH(alc.) → CH₂=CH₂ + KBr + H₂O.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q9</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Fehling's test</strong></p><div class="sol-steps">Fehling's solution: alkaline Cu²⁺ → brick-red Cu₂O precipitate with aldehydes ONLY (not ketones). Iodoform test detects CH₃CO− group (works for both CH₃CHO and ketones like CH₃COCH₃).</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C1·Q10</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Nucleophilic acyl substitution</strong></p><div class="sol-steps">H⁺ activates C=O → alcohol O attacks (nucleophile) → tetrahedral intermediate → −OH₂ expelled as leaving group. This is nucleophilic substitution at the acyl carbon.</div></div></div>
-</div><!-- /C1 sol -->
-
-<!-- C2 Solutions -->
-<div class="sol-chapter"><h3 class="sol-chapter-title che">Chemistry C2 — Coordination Compounds &amp; Electrochemistry</h3>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q1</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Tetraamminedichlorocobalt(III) chloride</strong></p><div class="sol-steps">OS of Co: x + 0(4) + (−1)(2) = +1 → x = +3 = Co(III). Inner sphere ligands (alphabetical): dichloro, tetraammine → tetraamminedichlorocobalt(III) chloride.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q2</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: dsp²</strong></p><div class="sol-steps">Ni²⁺ = [Ar]3d⁸. CN⁻ = strong field ligand → forces electron pairing → empty 3d available. Hybridisation: dsp² → square planar geometry. [NiCl₄]²⁻ uses sp³ (Cl⁻ = weak field) → tetrahedral.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q3</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: CN⁻ and NO₂⁻</strong></p><div class="sol-steps">Ambidentate = two possible donor atoms, binds through one at a time.<br/>CN⁻: bonds through C (cyano) or N (isocyano).<br/>NO₂⁻: bonds through N (nitro) or O (nitrito).</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q4</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 36</strong></p><div class="sol-steps">Fe²⁺: electrons = 26−2 = 24. Each CN⁻ donates 2e⁻; 6×2=12. EAN = 24+12 = <strong>36</strong> (= krypton, confirms stability by 18-electron rule).</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q5</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 1.10 V</strong></p><div class="sol-steps">\(E°_\text{cell}=E°_\text{cathode}-E°_\text{anode}=+0.34-(-0.76)=+1.10\text{ V}\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q6</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 965 C</strong></p><div class="sol-steps">Moles Ag = 1.08/108 = 0.01 mol. Ag⁺ + e⁻ → Ag (n=1).<br/>Q = nF = 0.01×96500 = <strong>965 C</strong></div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q7</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Hydrogen (H₂)</strong></p><div class="sol-steps">Cathode (reduction): 2H⁺ + 2e⁻ → H₂↑. Anode (oxidation): 2H₂O → O₂ + 4H⁺ + 4e⁻. Volume ratio H₂:O₂ = 2:1.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q8</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 5.92 BM</strong></p><div class="sol-steps">Mn²⁺ = [Ar]3d⁵. Cl⁻ = weak field → no pairing → n=5 unpaired electrons.<br/>\(\mu=\sqrt{n(n+2)}=\sqrt{5\times7}=\sqrt{35}\approx5.92\text{ BM}\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q9</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: +0.34 V</strong></p><div class="sol-steps">\(E°_\text{cell}=E°_\text{cathode}-E°_\text{anode}=0.34-0=+0.34\text{ V}\) (SHE = 0 V by definition)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">C2·Q10</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Directed towards fixed positions in space and is non-ionizable</strong></p><div class="sol-steps">Werner: Primary valency = ionisable = OS of metal (satisfied by counterions outside sphere). Secondary valency = non-ionisable = coordination number (satisfied by ligands INSIDE sphere, directed to fixed spatial positions).</div></div></div>
-</div><!-- /C2 sol -->
-
-<!-- M1 Solutions -->
-<div class="sol-chapter"><h3 class="sol-chapter-title mat">Mathematics M1 — Calculus</h3>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q1</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: π/4</strong></p><div class="sol-steps">\(\int_0^{\pi/2}\sin^2x\,dx=\int_0^{\pi/2}\dfrac{1-\cos2x}{2}\,dx=\left[\dfrac{x}{2}-\dfrac{\sin2x}{4}\right]_0^{\pi/2}=\dfrac{\pi}{4}-0=\dfrac{\pi}{4}\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q2</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: cot x</strong></p><div class="sol-steps">\(\dfrac{d}{dx}[\log(\sin x)]=\dfrac{1}{\sin x}\cdot\cos x=\cot x\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q3</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: eˣ sin x + C</strong></p><div class="sol-steps">Standard form: \(\int e^x[f(x)+f'(x)]\,dx=e^xf(x)+C\).<br/>Here f(x)=sin x, f'(x)=cos x → both present → \(\int e^x(\sin x+\cos x)\,dx=e^x\sin x+C\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q4</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: √2</strong></p><div class="sol-steps">\(\sin x+\cos x=\sqrt{2}\sin(x+\pi/4)\). Max of sin(·) = 1 → max value = \(\sqrt{2}\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q5</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: x = 5/2</strong></p><div class="sol-steps">\(f'(x)=2x-5=0\Rightarrow x=5/2\). f''(x)=2&gt;0 → minimum confirmed.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q6</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: sin⁻¹x + C</strong></p><div class="sol-steps">Standard result: \(\int\dfrac{dx}{\sqrt{1-x^2}}=\sin^{-1}x+C\). (Let x=sinθ for derivation.)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q7</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 2</strong></p><div class="sol-steps">Let x=sinθ → sin⁻¹x=θ.<br/>\(\sin^{-1}(2x\sqrt{1-x^2})=\sin^{-1}(\sin2\theta)=2\theta=2\sin^{-1}x\)<br/>Derivative of 2sin⁻¹x w.r.t. sin⁻¹x = <strong>2</strong></div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q8</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 12</strong></p><div class="sol-steps">\(dy/dx=3x^2\). At x=2: \(3\times4=12\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q9</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 1/[(n+1)(n+2)]</strong></p><div class="sol-steps">Beta function: \(\int_0^1x^m(1-x)^n\,dx=\dfrac{m!\,n!}{(m+n+1)!}\). With m=1:<br/>\(\dfrac{1!\cdot n!}{(n+2)!}=\dfrac{1}{(n+1)(n+2)}\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q10</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 1/2</strong></p><div class="sol-steps">L'Hôpital (0/0 form): \(\lim\dfrac{\sin x}{2x}\xrightarrow{LH}\lim\dfrac{\cos x}{2}=\dfrac{1}{2}\). Or: use \(1-\cos x\approx x^2/2\) for small x.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q11</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: −ln|cos x| + C</strong></p><div class="sol-steps">\(\int\tan x\,dx=\int\sin x/\cos x\,dx\). Let u=cos x, du=−sinx dx → \(=-\ln|u|+C=-\ln|\cos x|+C\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M1·Q12</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: (−∞,−1)∪(1,∞)</strong></p><div class="sol-steps">\(f'(x)=3x^2-3=3(x-1)(x+1)\). f'(x)&gt;0 when x&lt;−1 or x&gt;1. Strictly increasing on \((-\infty,-1)\cup(1,\infty)\).</div></div></div>
-</div><!-- /M1 sol -->
-
-<!-- M2 Solutions -->
-<div class="sol-chapter"><h3 class="sol-chapter-title mat">Mathematics M2 — Coordinate Geometry &amp; Matrices</h3>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q1</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: Centre (3,−4), Radius 6</strong></p><div class="sol-steps">Complete the square: (x²−6x+9)+(y²+8y+16)=11+9+16=36<br/>(x−3)²+(y+4)²=6² → Centre: (3,−4), r=6</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q2</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: √7/4</strong></p><div class="sol-steps">\(a^2=16, b^2=9\). \(c^2=a^2-b^2=7\). Eccentricity \(e=c/a=\sqrt{7}/4\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q3</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: c = a/m</strong></p><div class="sol-steps">Substitute y=mx+c into y²=4ax, set discriminant=0 for tangency:<br/>\((2mc-4a)^2-4m^2c^2=0 \Rightarrow 16a^2=16amc \Rightarrow c=a/m\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q4</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: (2, 0)</strong></p><div class="sol-steps">y²=4ax: comparing with y²=8x → 4a=8 → a=2. Focus at (a,0) = <strong>(2,0)</strong>.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q5</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: −2</strong></p><div class="sol-steps">\(\begin{vmatrix}1&2\\3&4\end{vmatrix}=(1)(4)-(2)(3)=4-6=-2\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q6</span><span class="ans-tag">ANS: C</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 135</strong></p><div class="sol-steps">Property: \(|kA|=k^n|A|\) for n×n matrix. \(|3A|=3^3\times5=27\times5=135\)</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q7</span><span class="ans-tag">ANS: D</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: 90°</strong></p><div class="sol-steps">Slopes: m₁=−3/4, m₂=4/3. Product: m₁m₂=(−3/4)(4/3)=−1. Lines are perpendicular → angle = <strong>90°</strong>.</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q8</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: k = 3/2</strong></p><div class="sol-steps">Singular: |A|=0 → (1)(3)−(2)(k)=0 → 3−2k=0 → k=3/2</div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q9</span><span class="ans-tag">ANS: A</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: x − y = 1</strong></p><div class="sol-steps">Tangent to \(x^2/a^2-y^2/b^2=1\) at (x₁,y₁): \(xx_1/a^2-yy_1/b^2=1\)<br/>a²=4, b²=3, (x₁,y₁)=(4,3): 4x/4−3y/3=1 → <strong>x−y=1</strong></div></div></div>
-
-<div class="sol-card"><div class="sol-header"><span class="sol-qnum">M2·Q10</span><span class="ans-tag">ANS: B</span></div><div class="sol-body"><p class="sol-explanation"><strong>Answer: x²+y²=25</strong></p><div class="sol-steps">Radius = √(3²+4²) = √25 = 5. Circle: x²+y²=25.</div></div></div>
-</div><!-- /M2 sol -->
-<!-- QUICK ANSWER KEY TABLE -->
-<div style="margin-top:60px;padding-top:40px;border-top:1px solid var(--border);">
-<div class="sol-badge" style="display:block;text-align:center;margin-bottom:24px;">Quick Answer Key</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
-<div style="background:var(--card);border:1px solid var(--border);border-top:3px solid var(--physics);border-radius:10px;padding:20px;">
-<p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--physics);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">Physics P1</p>
-<table style="width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
-<tr><td style="padding:4px 6px;color:var(--muted);">Q1</td><td style="color:var(--correct);font-weight:700;">D</td><td style="padding:4px 6px;color:var(--muted);">Q2</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q3</td><td style="color:var(--correct);font-weight:700;">B</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q4</td><td style="color:var(--correct);font-weight:700;">C</td><td style="padding:4px 6px;color:var(--muted);">Q5</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q6</td><td style="color:var(--correct);font-weight:700;">B</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q7</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q8</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q9</td><td style="color:var(--correct);font-weight:700;">C</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q10</td><td style="color:var(--correct);font-weight:700;">C</td></tr>
-</table></div>
-<div style="background:var(--card);border:1px solid var(--border);border-top:3px solid var(--physics);border-radius:10px;padding:20px;">
-<p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--physics);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">Physics P2</p>
-<table style="width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
-<tr><td style="padding:4px 6px;color:var(--muted);">Q1</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q2</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q3</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q4</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q5</td><td style="color:var(--correct);font-weight:700;">C</td><td style="padding:4px 6px;color:var(--muted);">Q6</td><td style="color:var(--correct);font-weight:700;">C</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q7</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q8</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q9</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q10</td><td style="color:var(--correct);font-weight:700;">C</td></tr>
-</table></div>
-<div style="background:var(--card);border:1px solid var(--border);border-top:3px solid var(--chemistry);border-radius:10px;padding:20px;">
-<p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--chemistry);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">Chemistry C1</p>
-<table style="width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
-<tr><td style="padding:4px 6px;color:var(--muted);">Q1</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q2</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q3</td><td style="color:var(--correct);font-weight:700;">C</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q4</td><td style="color:var(--correct);font-weight:700;">C</td><td style="padding:4px 6px;color:var(--muted);">Q5</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q6</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q7</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q8</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q9</td><td style="color:var(--correct);font-weight:700;">C</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q10</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
-</table></div>
-<div style="background:var(--card);border:1px solid var(--border);border-top:3px solid var(--chemistry);border-radius:10px;padding:20px;">
-<p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--chemistry);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">Chemistry C2</p>
-<table style="width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
-<tr><td style="padding:4px 6px;color:var(--muted);">Q1</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q2</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q3</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q4</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q5</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q6</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q7</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q8</td><td style="color:var(--correct);font-weight:700;">C</td><td style="padding:4px 6px;color:var(--muted);">Q9</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q10</td><td style="color:var(--correct);font-weight:700;">B</td></tr>
-</table></div>
-<div style="background:var(--card);border:1px solid var(--border);border-top:3px solid var(--math);border-radius:10px;padding:20px;">
-<p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--math);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">Mathematics M1 (Calculus)</p>
-<table style="width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
-<tr><td style="padding:4px 6px;color:var(--muted);">Q1</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q2</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q3</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q4</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q5</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q6</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q7</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q8</td><td style="color:var(--correct);font-weight:700;">C</td><td style="padding:4px 6px;color:var(--muted);">Q9</td><td style="color:var(--correct);font-weight:700;">B</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q10</td><td style="color:var(--correct);font-weight:700;">C</td><td style="padding:4px 6px;color:var(--muted);">Q11</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q12</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
-</table></div>
-<div style="background:var(--card);border:1px solid var(--border);border-top:3px solid var(--math);border-radius:10px;padding:20px;">
-<p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--math);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">Mathematics M2 (Coord. Geom + Matrices)</p>
-<table style="width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
-<tr><td style="padding:4px 6px;color:var(--muted);">Q1</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q2</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q3</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q4</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q5</td><td style="color:var(--correct);font-weight:700;">B</td><td style="padding:4px 6px;color:var(--muted);">Q6</td><td style="color:var(--correct);font-weight:700;">C</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q7</td><td style="color:var(--correct);font-weight:700;">D</td><td style="padding:4px 6px;color:var(--muted);">Q8</td><td style="color:var(--correct);font-weight:700;">A</td><td style="padding:4px 6px;color:var(--muted);">Q9</td><td style="color:var(--correct);font-weight:700;">A</td></tr>
-<tr><td style="padding:4px 6px;color:var(--muted);">Q10</td><td style="color:var(--correct);font-weight:700;">B</td></tr>
-</table></div>
-</div><!-- /grid -->
-</div><!-- /quick ref -->
-
-<!-- FINAL STRATEGY BOX -->
-<div style="margin-top:52px;background:linear-gradient(135deg,rgba(246,201,14,0.06),rgba(96,165,250,0.06));border:1px solid rgba(246,201,14,0.2);border-radius:14px;padding:32px 28px;">
-<p style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--physics);margin-bottom:18px;">🎯 Category 1 / 2 Rank — Final Strategy</p>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;font-size:0.88rem;">
-<div style="background:rgba(0,0,0,0.2);border-radius:8px;padding:16px;"><p style="color:var(--physics);font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:1px;margin-bottom:8px;">PHYSICS</p><p style="color:var(--text);line-height:1.6;">1. Electrostatics + Current Electricity · 2. Optics (lenses, YDSE, TIR) · 3. EMI &amp; AC circuits · 4. Modern Physics · 5. Semiconductors</p></div>
-<div style="background:rgba(0,0,0,0.2);border-radius:8px;padding:16px;"><p style="color:var(--chemistry);font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:1px;margin-bottom:8px;">CHEMISTRY</p><p style="color:var(--text);line-height:1.6;">1. Organic reactions (all named reactions) · 2. Coordination compounds · 3. Electrochemistry (EMF, Faraday) · 4. Chemical Kinetics · 5. Thermodynamics</p></div>
-<div style="background:rgba(0,0,0,0.2);border-radius:8px;padding:16px;"><p style="color:var(--math);font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:1px;margin-bottom:8px;">MATHS</p><p style="color:var(--text);line-height:1.6;">1. Calculus: Integrals + Derivatives (12 Qs!) · 2. Coordinate Geometry: Conics first · 3. Matrices &amp; Determinants · 4. Probability + Vectors · 5. Complex Numbers</p></div>
-</div>
-<p style="margin-top:20px;font-size:0.82rem;color:var(--muted);font-style:italic;text-align:center;">Score ≥ 118 → Rank 1–250 · Score ≥ 100 → Rank ≤ 2000 (Cat 1/2 range) · Score ≥ 80 → Category 2 likely · Marking: +4/−1 · Skip if uncertain.</p>
-</div>
-
-</div></section>
-<footer>VITEEE 2026 PYQ Compendium · Compiled April 2026 · Sources: ExamSIDE, Careers360, Vedantu, Embibe · For educational use only</footer>
-</body></html>
+<div id="loader"><div class="spin"></div><div>Generating geometry</div></div>
+<div id="err"></div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls }            from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment }          from 'three/addons/environments/RoomEnvironment.js';
+import { RectAreaLightUniformsLib } from 'three/addons/lights/RectAreaLightUniformsLib.js';
+import { EffectComposer }           from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass }               from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass }          from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass }               from 'three/addons/postprocessing/OutputPass.js';
+
+window.addEventListener('error', e => showError(e.message));
+function showError(msg){
+  const el = document.getElementById('err');
+  el.style.display = 'block';
+  el.textContent = 'Error: ' + msg;
+}
+
+/* ============================================================================
+   1. SMALL MATH HELPERS
+   ========================================================================== */
+
+const clamp = (v, a, b) => v < a ? a : (v > b ? b : v);
+const lerp  = (a, b, t) => a + (b - a) * t;
+const easeInOutCubic = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
+/** Frame-rate independent exponential approach. */
+const approach = (cur, target, rate, dt) => lerp(cur, target, 1 - Math.exp(-rate * dt));
+
+/**
+ * Builds a smooth 1D curve through a table of [x, y] samples using
+ * Catmull-Rom style Hermite interpolation. Used for every silhouette line of
+ * the car (roof height, beltline, half-width, ...).
+ */
+function makeCurve(pts){
+  const n = pts.length;
+  const xs = pts.map(p => p[0]);
+  const ys = pts.map(p => p[1]);
+  const m  = new Array(n);
+  for (let i = 0; i < n; i++){
+    const a = Math.max(0, i - 1), b = Math.min(n - 1, i + 1);
+    m[i] = (ys[b] - ys[a]) / ((xs[b] - xs[a]) || 1);
+  }
+  return function(x){
+    if (x <= xs[0])     return ys[0];
+    if (x >= xs[n - 1]) return ys[n - 1];
+    let i = 0;
+    while (i < n - 2 && x > xs[i + 1]) i++;
+    const h = xs[i + 1] - xs[i];
+    const t = (x - xs[i]) / h, t2 = t * t, t3 = t2 * t;
+    return (2*t3 - 3*t2 + 1) * ys[i]
+         + (t3 - 2*t2 + t) * h * m[i]
+         + (-2*t3 + 3*t2) * ys[i + 1]
+         + (t3 - t2) * h * m[i + 1];
+  };
+}
+
+/* ============================================================================
+   2. PROCEDURAL TEXTURES  (canvas only — no image files anywhere)
+   ========================================================================== */
+
+function canvasTexture(w, h, draw, { srgb = false, repeat = null, aniso = 4 } = {}){
+  const c = document.createElement('canvas');
+  c.width = w; c.height = h;
+  draw(c.getContext('2d'), w, h);
+  const t = new THREE.CanvasTexture(c);
+  if (srgb) t.colorSpace = THREE.SRGBColorSpace;
+  if (repeat){
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    t.repeat.set(repeat[0], repeat[1]);
+  }
+  t.anisotropy = aniso;
+  return t;
+}
+
+/** Fine grey noise — drives the metallic-flake micro roughness on the paint. */
+function makeFlakeTexture(){
+  return canvasTexture(256, 256, (ctx, w, h) => {
+    const img = ctx.createImageData(w, h);
+    for (let i = 0; i < w * h; i++){
+      const v = 198 + Math.random() * 57;
+      img.data[i*4] = img.data[i*4+1] = img.data[i*4+2] = v;
+      img.data[i*4+3] = 255;
+    }
+    ctx.putImageData(img, 0, 0);
+  }, { repeat: [14, 9] });
+}
+
+/**
+ * Tyre bump map. On a torus U runs around the circumference and V around the
+ * tube, so V ≈ 0 / 1 is the centre of the tread, V ≈ 0.25 / 0.75 the sidewalls
+ * and V ≈ 0.5 the inner bore. The pattern is drawn to match that layout.
+ */
+function makeTreadTexture(){
+  return canvasTexture(256, 256, (ctx, w, h) => {
+    ctx.fillStyle = '#7d7d7d'; ctx.fillRect(0, 0, w, h);
+    const treadBands = [[-38, 38], [h - 38, h + 38]];
+    for (const [y0, y1] of treadBands){
+      ctx.fillStyle = '#efefef';
+      for (let k = 0; k < 22; k++){                       // tread blocks
+        const x = (k / 22) * w;
+        ctx.fillRect(x, y0, w / 44, y1 - y0);
+      }
+      ctx.fillStyle = '#1a1a1a';                          // circumferential grooves
+      ctx.fillRect(0, y0 + (y1 - y0) * 0.30 - 3, w, 6);
+      ctx.fillRect(0, y0 + (y1 - y0) * 0.70 - 3, w, 6);
+    }
+    ctx.fillStyle = '#6a6a6a';                            // sidewall ribs
+    for (const yc of [h * 0.26, h * 0.74]){
+      for (let k = 0; k < 5; k++) ctx.fillRect(0, yc - 22 + k * 10, w, 3);
+    }
+    ctx.fillStyle = '#4a4a4a'; ctx.fillRect(0, h * 0.44, w, h * 0.12);  // bore
+    for (let i = 0; i < 12000; i++){                      // grain
+      ctx.fillStyle = `rgba(255,255,255,${Math.random() * 0.10})`;
+      ctx.fillRect(Math.random() * w, Math.random() * h, 1, 1);
+    }
+  }, { repeat: [22, 1] });
+}
+
+/** Studio floor: soft radial falloff plus a very faint grain so it isn't flat. */
+function makeFloorTexture(){
+  return canvasTexture(1024, 1024, (ctx, w, h) => {
+    const g = ctx.createRadialGradient(w/2, h/2, w*0.04, w/2, h/2, w*0.52);
+    g.addColorStop(0.00, '#39414e');
+    g.addColorStop(0.28, '#252c36');
+    g.addColorStop(0.62, '#12161c');
+    g.addColorStop(1.00, '#080a0e');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+    for (let i = 0; i < 26000; i++){
+      ctx.fillStyle = `rgba(255,255,255,${Math.random() * 0.035})`;
+      ctx.fillRect(Math.random() * w, Math.random() * h, 1.4, 1.4);
+    }
+  }, { srgb: true });
+}
+
+/** Blurred elliptical blob used as the soft contact shadow under the car. */
+function makeContactShadowTexture(){
+  return canvasTexture(512, 256, (ctx, w, h) => {
+    ctx.clearRect(0, 0, w, h);
+    const g = ctx.createRadialGradient(w/2, h/2, 0, w/2, h/2, w/2);
+    g.addColorStop(0.00, 'rgba(0,0,0,0.92)');
+    g.addColorStop(0.38, 'rgba(0,0,0,0.62)');
+    g.addColorStop(0.70, 'rgba(0,0,0,0.20)');
+    g.addColorStop(1.00, 'rgba(0,0,0,0)');
+    ctx.save();
+    ctx.translate(w/2, h/2); ctx.scale(1, 0.52); ctx.translate(-w/2, -h/2);
+    ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+    ctx.restore();
+  });
+}
+
+/* ============================================================================
+   3. CAR PARAMETERS + CROSS-SECTION PROFILE
+   ------------------------------------------------------------------------
+   Length runs along +X (nose at +X), width along Z, height along Y with the
+   ground plane at Y = 0. Every panel of the shell comes from lofting one
+   parametric cross-section along X, so the whole body is a single (i, j) grid:
+     i = station index along the length
+     j = index around the closed section loop
+   Panels (doors, hood, glass, ...) are just sub-rectangles of that grid, which
+   guarantees they line up with their own openings exactly.
+   ========================================================================== */
+
+const CAR = {
+  length: 4.90, width: 1.85, height: 1.45,
+  frontAxle:  1.49, rearAxle: -1.44,   // wheelbase 2.93
+  track: 1.60,                          // wheel centre at z = ±0.80
+  wheelR: 0.34, wheelW: 0.235, rimR: 0.242,
+  nose: 2.45, tail: -2.45
+};
+
+const K    = 6;          // samples per profile segment
+const LOOP = 14 * K;     // points around the closed cross-section
+
+// Named "bands" — an index into the +Z half of the section (0 = underbody centre).
+// Everything downstream is expressed in these so the resolution can be retuned.
+const BND = {
+  sill: 2*K,             // rocker
+  wide: 3*K,             // widest point
+  belt: 4*K,             // beltline crease
+  rail: 5*K,             // roof rail / top of the side glass
+  max : 7*K - 1          // roof centre
+};
+const DOOR_B0  = BND.sill + 1, DOOR_B1  = BND.belt - 1;   // door skin
+const GLASS_B0 = BND.belt,     GLASS_B1 = BND.rail - 1;   // side glass
+const ROOF_B0  = BND.rail + 1;                            // panoramic roof
+const ROCKER_B0 = Math.round(1.4 * K), ROCKER_B1 = BND.sill - 1;
+const GLOW_B0   = K, GLOW_B1 = Math.round(1.25 * K);
+
+// --- silhouette curves -------------------------------------------------------
+const fTop = makeCurve([                    // roof / decklid / hood centre line
+  [-2.45,0.905],[-2.25,0.985],[-1.95,1.040],[-1.70,1.075],[-1.45,1.135],
+  [-1.15,1.240],[-0.85,1.348],[-0.50,1.428],[-0.10,1.450],[ 0.25,1.442],
+  [ 0.55,1.396],[ 0.85,1.296],[ 1.05,1.178],[ 1.30,1.062],[ 1.60,1.014],
+  [ 1.95,0.988],[ 2.20,0.950],[ 2.45,0.872]
+]);
+const fBelt = makeCurve([                   // beltline / shoulder crease
+  [-2.45,0.845],[-2.10,0.905],[-1.70,0.930],[-1.20,0.925],[-0.40,0.900],
+  [ 0.30,0.895],[ 0.90,0.912],[ 1.25,0.945],[ 1.70,0.960],[ 2.10,0.940],[ 2.45,0.855]
+]);
+const fRail = makeCurve([                   // roof rail / top of the side glass
+  [-2.45,0.875],[-2.05,0.950],[-1.75,1.000],[-1.45,1.075],[-1.15,1.185],
+  [-0.85,1.290],[-0.50,1.375],[-0.10,1.400],[ 0.30,1.390],[ 0.60,1.340],
+  [ 0.90,1.238],[ 1.10,1.130],[ 1.40,1.035],[ 1.80,0.995],[ 2.15,0.940],[ 2.45,0.860]
+]);
+const fHalf = makeCurve([                   // body half-width
+  [-2.45,0.640],[-2.28,0.790],[-2.05,0.878],[-1.75,0.914],[-1.20,0.925],
+  [ 0.00,0.925],[ 0.90,0.925],[ 1.50,0.918],[ 1.90,0.892],[ 2.15,0.832],
+  [ 2.32,0.722],[ 2.45,0.560]
+]);
+const fFloor = makeCurve([                  // underbody centre height
+  [-2.45,0.455],[-2.20,0.290],[-1.95,0.180],[-1.60,0.145],[-1.00,0.138],
+  [ 1.00,0.138],[ 1.60,0.145],[ 1.95,0.185],[ 2.20,0.300],[ 2.45,0.470]
+]);
+const fSill = makeCurve([                   // rocker / lower bumper edge
+  [-2.45,0.560],[-2.10,0.395],[-1.75,0.300],[-1.30,0.272],[ 0.00,0.266],
+  [ 1.30,0.272],[ 1.75,0.302],[ 2.10,0.400],[ 2.45,0.575]
+]);
+const fTumble = makeCurve([                 // greenhouse width / body width
+  [-2.45,0.480],[-2.10,0.590],[-1.75,0.700],[-1.35,0.780],[-0.60,0.812],
+  [ 0.30,0.812],[ 0.80,0.795],[ 1.10,0.740],[ 1.45,0.640],[ 1.90,0.540],[ 2.45,0.440]
+]);
+
+/** One half cross-section (+Z side) as 7*K + 1 points, from underbody centre to roof centre. */
+function halfSection(x){
+  const hw    = fHalf(x);
+  const yTop  = fTop(x);
+  let   yBelt = fBelt(x);
+  let   ySill = fSill(x);
+  let   yFloor= fFloor(x);
+  // keep the control points strictly ordered in Y so the section can never fold
+  yBelt  = Math.min(yBelt, yTop - 0.05);
+  ySill  = Math.min(ySill, yBelt - 0.10);
+  yFloor = Math.min(yFloor, ySill - 0.05);
+  const yRail = clamp(fRail(x), yBelt + 0.035, yTop - 0.012);
+  const yWide = lerp(ySill, yBelt, 0.55);
+  const hwRail = hw * fTumble(x);
+
+  const cps = [
+    new THREE.Vector3(0, yFloor,         0),
+    new THREE.Vector3(0, yFloor + 0.012, hw * 0.50),
+    new THREE.Vector3(0, ySill,          hw * 0.930),   // BAND.sill
+    new THREE.Vector3(0, yWide,          hw),           // BAND.wide (widest point)
+    new THREE.Vector3(0, yBelt,          hw * 0.985),   // BAND.belt
+    new THREE.Vector3(0, yRail,          hwRail),       // BAND.rail
+    new THREE.Vector3(0, lerp(yRail, yTop, 0.88), hwRail * 0.62),
+    new THREE.Vector3(0, yTop,           0)             // BAND.top
+  ];
+  const curve = new THREE.CatmullRomCurve3(cps, false, 'catmullrom', 0.5);
+  const out = new Array(7*K + 1);
+  for (let j = 0; j <= 7*K; j++) out[j] = curve.getPoint(j / (7*K));
+  return out;
+}
+
+/** Full closed section loop at station x, optionally pinched for the nose/tail caps. */
+function sectionLoop(x, sy, sz){
+  const half = halfSection(x);
+  if (sy !== 1 || sz !== 1){
+    const yc = lerp(half[0].y, half[7*K].y, 0.62);
+    for (const p of half){ p.y = yc + (p.y - yc) * sy; p.z *= sz; }
+  }
+  const loop = new Array(LOOP);
+  for (let j = 0; j <= 7*K; j++) loop[j] = new THREE.Vector3(x, half[j].y, half[j].z);
+  for (let j = 7*K + 1; j < LOOP; j++){
+    const m = half[LOOP - j];
+    loop[j] = new THREE.Vector3(x, m.y, -m.z);
+  }
+  return loop;
+}
+
+/* --- station list -----------------------------------------------------------
+   Uniform stations through the middle, extra stations inserted exactly on every
+   shut line so panel gaps land where they are supposed to, plus quarter-circle
+   cap stations that round the nose and tail off. */
+const KEY_X = [
+   0.960, 0.975, -0.120, -0.105, -1.000, -0.985, -0.040, -0.160,
+   1.050, 1.065,  2.060,  2.075, -1.590, -1.575, -2.100, -2.085,
+   1.180, -1.180,  0.720, -0.720
+];
+const BODY_X0 = -2.28, BODY_X1 = 2.28;
+
+function buildStations(){
+  const set = new Set();
+  for (let x = BODY_X0; x <= BODY_X1 + 1e-9; x += 0.036) set.add(+x.toFixed(4));
+  set.add(+BODY_X1.toFixed(4));
+  KEY_X.forEach(x => set.add(+x.toFixed(4)));
+  const mid = [...set].sort((a, b) => a - b).map(x => ({ x, sy: 1, sz: 1 }));
+
+  const cap = (base, tip, n) => {
+    const out = [];
+    for (let s = 1; s <= n; s++){
+      const u = s / n, v = Math.sin(u * Math.PI / 2);
+      out.push({ x: base + (tip - base) * v, sy: 1 - 0.10 * v * v, sz: Math.cos(u * Math.PI / 2) });
+    }
+    return out;
+  };
+  const rear  = cap(BODY_X0, CAR.tail, 7).reverse();
+  const front = cap(BODY_X1, CAR.nose, 7);
+  return [...rear, ...mid, ...front];
+}
+
+/* ============================================================================
+   4. LOFTED GRID + SOLID BUILDER
+   ========================================================================== */
+
+const stations = buildStations();
+const NI = stations.length;
+const grid = stations.map(s => sectionLoop(s.x, s.sy, s.sz));
+const gridN = computeGridNormals(grid);
+
+/** Area-weighted vertex normals over the (i, j) grid, with j wrapping. */
+function computeGridNormals(g){
+  const ni = g.length;
+  const nrm = g.map(row => row.map(() => new THREE.Vector3()));
+  const e1 = new THREE.Vector3(), e2 = new THREE.Vector3(), n = new THREE.Vector3();
+  for (let i = 0; i < ni - 1; i++){
+    for (let j = 0; j < LOOP; j++){
+      const j2 = (j + 1) % LOOP;
+      const a = g[i][j], b = g[i+1][j], d = g[i][j2];
+      e1.subVectors(b, a); e2.subVectors(d, a);
+      n.crossVectors(e1, e2);                       // points outward
+      nrm[i][j].add(n); nrm[i+1][j].add(n);
+      nrm[i+1][j2].add(n); nrm[i][j2].add(n);
+    }
+  }
+  const tmp = new THREE.Vector3();
+  for (let i = 0; i < ni; i++){
+    // section centroid, used as a fallback where the loft degenerates (nose tip)
+    const c = new THREE.Vector3();
+    for (let j = 0; j < LOOP; j++) c.add(g[i][j]);
+    c.divideScalar(LOOP);
+    for (let j = 0; j < LOOP; j++){
+      const v = nrm[i][j];
+      if (v.lengthSq() < 1e-12){
+        tmp.subVectors(g[i][j], c);
+        if (tmp.lengthSq() < 1e-12) tmp.set(1, 0, 0);
+        v.copy(tmp);
+      }
+      v.normalize();
+    }
+  }
+  return nrm;
+}
+
+const innerPt = (i, j, t) => new THREE.Vector3(
+  grid[i][j].x - gridN[i][j].x * t,
+  grid[i][j].y - gridN[i][j].y * t,
+  grid[i][j].z - gridN[i][j].z * t
+);
+
+/**
+ * Turns a masked set of grid cells into a watertight-looking solid panel:
+ * outer skin (material 0) + inward-offset inner skin and edge rims (material 1).
+ * Passing thickness = 0 yields a single-sided skin only (used for glass).
+ */
+function buildSolid(owner, id, thickness){
+  const P = [], N = [], U = [], P2 = [], N2 = [], U2 = [];
+  const has = (i, j) => i >= 0 && i < NI - 1 && owner[i][(j + LOOP) % LOOP] === id;
+  const uvOf = (i, j) => [i / (NI - 1), (j % (LOOP + 1)) / LOOP];
+
+  const tri = (arrP, arrN, arrU, p, n, uv) => {
+    for (let k = 0; k < 3; k++){
+      arrP.push(p[k].x, p[k].y, p[k].z);
+      arrN.push(n[k].x, n[k].y, n[k].z);
+      arrU.push(uv[k][0], uv[k][1]);
+    }
+  };
+
+  const ab = new THREE.Vector3(), ac = new THREE.Vector3(), fn = new THREE.Vector3();
+  const dir = new THREE.Vector3(), mid = new THREE.Vector3(), cen = new THREE.Vector3();
+
+  for (let i = 0; i < NI - 1; i++){
+    for (let j = 0; j < LOOP; j++){
+      if (owner[i][j] !== id) continue;
+      const j2 = (j + 1) % LOOP;
+      const a = grid[i][j],  b = grid[i+1][j],  c = grid[i+1][j2], d = grid[i][j2];
+      const na = gridN[i][j], nb = gridN[i+1][j], nc = gridN[i+1][j2], nd = gridN[i][j2];
+      const ua = uvOf(i, j), ub = uvOf(i+1, j), uc = uvOf(i+1, j+1), ud = uvOf(i, j+1);
+
+      tri(P, N, U, [a, b, c], [na, nb, nc], [ua, ub, uc]);
+      tri(P, N, U, [a, c, d], [na, nc, nd], [ua, uc, ud]);
+
+      if (thickness > 0){
+        const A = innerPt(i, j, thickness),   B = innerPt(i+1, j, thickness);
+        const C = innerPt(i+1, j2, thickness), D = innerPt(i, j2, thickness);
+        const iA = na.clone().negate(), iB = nb.clone().negate();
+        const iC = nc.clone().negate(), iD = nd.clone().negate();
+        tri(P2, N2, U2, [A, C, B], [iA, iC, iB], [ua, uc, ub]);
+        tri(P2, N2, U2, [A, D, C], [iA, iD, iC], [ua, ud, uc]);
+
+        cen.copy(a).add(b).add(c).add(d).multiplyScalar(0.25);
+        const rim = (p0, p1, q0, q1, u0, u1) => {
+          mid.copy(p0).add(p1).multiplyScalar(0.5);
+          dir.subVectors(mid, cen);
+          ab.subVectors(p1, p0); ac.subVectors(q1, p0); fn.crossVectors(ab, ac);
+          let A0 = p0, A1 = p1, B0 = q0, B1 = q1, V0 = u0, V1 = u1;
+          if (fn.dot(dir) < 0){ A0 = p1; A1 = p0; B0 = q1; B1 = q0; V0 = u1; V1 = u0; }
+          ab.subVectors(A1, A0); ac.subVectors(B1, A0);
+          fn.crossVectors(ab, ac).normalize();
+          tri(P2, N2, U2, [A0, A1, B1], [fn, fn, fn], [V0, V1, V1]);
+          tri(P2, N2, U2, [A0, B1, B0], [fn, fn, fn], [V0, V1, V0]);
+        };
+        if (!has(i - 1, j))  rim(a, d, A, D, ua, ud);
+        if (!has(i + 1, j))  rim(b, c, B, C, ub, uc);
+        if (owner[i][(j - 1 + LOOP) % LOOP] !== id) rim(a, b, A, B, ua, ub);
+        if (owner[i][j2] !== id)                    rim(d, c, D, C, ud, uc);
+      }
+    }
+  }
+  if (!P.length) return null;
+
+  const geo = new THREE.BufferGeometry();
+  const pos = P.concat(P2), nor = N.concat(N2), uv = U.concat(U2);
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  geo.setAttribute('normal',   new THREE.Float32BufferAttribute(nor, 3));
+  geo.setAttribute('uv',       new THREE.Float32BufferAttribute(uv, 2));
+  geo.addGroup(0, P.length / 3, 0);
+  if (P2.length) geo.addGroup(P.length / 3, P2.length / 3, 1);
+  geo.computeBoundingSphere();
+  return geo;
+}
+
+/** Thin decal skin lying just above the shell — pillars, trims, character lines. */
+function buildPatch(owner, test, offset){
+  const P = [], N = [], U = [];
+  const pt = (i, j) => new THREE.Vector3(
+    grid[i][j].x + gridN[i][j].x * offset,
+    grid[i][j].y + gridN[i][j].y * offset,
+    grid[i][j].z + gridN[i][j].z * offset
+  );
+  for (let i = 0; i < NI - 1; i++){
+    for (let j = 0; j < LOOP; j++){
+      if (!test(i, j, owner[i][j])) continue;
+      const j2 = (j + 1) % LOOP;
+      const q = [pt(i, j), pt(i+1, j), pt(i+1, j2), pt(i, j2)];
+      const n = [gridN[i][j], gridN[i+1][j], gridN[i+1][j2], gridN[i][j2]];
+      const idx = [0,1,2, 0,2,3];
+      for (const k of idx){
+        P.push(q[k].x, q[k].y, q[k].z);
+        N.push(n[k].x, n[k].y, n[k].z);
+        U.push(i / (NI - 1), j / LOOP);
+      }
+    }
+  }
+  if (!P.length) return null;
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(P, 3));
+  geo.setAttribute('normal',   new THREE.Float32BufferAttribute(N, 3));
+  geo.setAttribute('uv',       new THREE.Float32BufferAttribute(U, 2));
+  geo.computeBoundingSphere();
+  return geo;
+}
+
+/* ============================================================================
+   5. PANEL LAYOUT — which grid cell belongs to which body panel
+   ========================================================================== */
+
+// vertical shut lines: [xMin, xMax, bandMin, bandMax]
+const SHUT_LINES = [
+  [ 0.960,  0.975, DOOR_B0, GLASS_B1],     // front door leading edge
+  [-0.120, -0.105, DOOR_B0, DOOR_B1],      // front / rear door split (B-pillar base)
+  [-1.000, -0.985, DOOR_B0, DOOR_B1],      // rear door trailing edge
+  [ 1.050,  1.065, BND.belt, BND.max],     // hood at the cowl
+  [ 2.060,  2.075, BND.belt, BND.max],     // hood at the nose
+  [-1.590, -1.575, BND.belt, BND.max],     // decklid at the rear glass
+  [-2.100, -2.085, BND.belt, BND.max]      // decklid at the tail
+];
+
+// Horizontal shut lines are left as coincident edges rather than open slots: a
+// whole band is ~5 cm tall, which would read as a trench instead of a panel gap.
+function shutLine(x, band){
+  for (const [x0, x1, b0, b1] of SHUT_LINES)
+    if (x > x0 && x < x1 && band >= b0 && band <= b1) return true;
+  return false;
+}
+
+const ARCH = { a: 0.425, b: 0.375, yMin: 0.40 };
+function archCut(x, y, z){
+  if (Math.abs(z) < 0.45 || y < ARCH.yMin) return false;
+  for (const ax of [CAR.frontAxle, CAR.rearAxle]){
+    const dx = (x - ax) / ARCH.a, dy = (y - CAR.wheelR) / ARCH.b;
+    if (dx*dx + dy*dy < 1) return true;
+  }
+  return false;
+}
+
+// +Z is the right-hand side of the car (forward = +X, up = +Y)
+const DOOR_DEFS = [
+  { id:'FL', side:-1, paint:[-0.08, 0.96], glass:[-0.04, 0.96], hinge:[ 0.96,-0.95], angle:-1.00 },
+  { id:'FR', side:+1, paint:[-0.08, 0.96], glass:[-0.04, 0.96], hinge:[ 0.96, 0.95], angle: 1.00 },
+  { id:'RL', side:-1, paint:[-0.96,-0.12], glass:[-0.96,-0.16], hinge:[-0.12,-0.95], angle:-1.00 },
+  { id:'RR', side:+1, paint:[-0.96,-0.12], glass:[-0.96,-0.16], hinge:[-0.12, 0.95], angle: 1.00 }
+];
+
+function cellOwner(x, y, z, band, side){
+  if (archCut(x, y, z)) return null;
+  if (shutLine(x, band)) return null;
+
+  for (const d of DOOR_DEFS){
+    if (side !== d.side) continue;
+    if (band >= DOOR_B0  && band <= DOOR_B1  && x > d.paint[0] && x < d.paint[1]) return 'door' + d.id;
+    if (band >= GLASS_B0 && band <= GLASS_B1 && x > d.glass[0] && x < d.glass[1]) return 'glass' + d.id;
+  }
+  if (band >= BND.belt){
+    if (x > 1.09 && x < 2.06)   return 'hood';
+    if (x > -2.06 && x < -1.59) return 'trunk';
+    if (x > -1.55 && x < 1.05)
+      return (band >= ROOF_B0 && x > -1.28 && x < 0.62) ? 'roof' : 'canopy';
+  }
+  return 'body';
+}
+
+// owner[i][j] for every cell of the loft
+const owner = [];
+{
+  const c = new THREE.Vector3();
+  for (let i = 0; i < NI - 1; i++){
+    const row = new Array(LOOP);
+    for (let j = 0; j < LOOP; j++){
+      const j2 = (j + 1) % LOOP;
+      c.copy(grid[i][j]).add(grid[i+1][j]).add(grid[i+1][j2]).add(grid[i][j2]).multiplyScalar(0.25);
+      const side = j < LOOP/2 ? 1 : -1;
+      const band = side > 0 ? j : LOOP - 1 - j;
+      row[j] = cellOwner(c.x, c.y, c.z, band, side);
+    }
+    owner.push(row);
+  }
+}
+const cellBand = j => (j < LOOP/2 ? j : LOOP - 1 - j);
+const cellSide = j => (j < LOOP/2 ? 1 : -1);
+const cellX = i => (stations[i].x + stations[i+1].x) * 0.5;
+
+/* ============================================================================
+   6. MATERIALS
+   ========================================================================== */
+
+const flakeTex = makeFlakeTexture();
+const treadTex = makeTreadTexture();
+
+const PAINTS = [
+  { name:'Pearl',   color:0xe9ecef, metal:0.28, rough:0.24 },
+  { name:'Midnight',color:0x11223f, metal:0.55, rough:0.20 },
+  { name:'Crimson', color:0x8c0f1c, metal:0.50, rough:0.22 },
+  { name:'Graphite',color:0x30353b, metal:0.62, rough:0.26 },
+  { name:'Sea',     color:0x1d5f5a, metal:0.52, rough:0.22 }
+];
+
+const M = {
+  paint: new THREE.MeshPhysicalMaterial({
+    color: PAINTS[0].color, metalness: PAINTS[0].metal, roughness: PAINTS[0].rough,
+    clearcoat: 1.0, clearcoatRoughness: 0.035,
+    roughnessMap: flakeTex, envMapIntensity: 0.85
+  }),
+  shellInner: new THREE.MeshStandardMaterial({ color:0x15171c, roughness:0.88, metalness:0.10 }),
+  cabinInner: new THREE.MeshStandardMaterial({ color:0x23262d, roughness:0.92, metalness:0.03 }),
+  glass: new THREE.MeshPhysicalMaterial({
+    color:0xd9eaf5, metalness:0, roughness:0.055, transmission:0.94, thickness:0.28,
+    ior:1.5, side:THREE.DoubleSide, envMapIntensity:1.4,
+    attenuationColor:new THREE.Color(0x8fb3c9), attenuationDistance:2.4
+  }),
+  roofGlass: new THREE.MeshPhysicalMaterial({
+    color:0x5e7385, metalness:0, roughness:0.075, transmission:0.72, thickness:0.35,
+    ior:1.5, side:THREE.DoubleSide, envMapIntensity:1.5,
+    attenuationColor:new THREE.Color(0x24303c), attenuationDistance:0.9
+  }),
+  trimDark: new THREE.MeshPhysicalMaterial({ color:0x0b0d11, metalness:0.42, roughness:0.34, clearcoat:0.7 }),
+  chrome:   new THREE.MeshStandardMaterial({ color:0xcfd6de, metalness:1.0, roughness:0.13 }),
+  tyre:     new THREE.MeshStandardMaterial({ color:0x0a0b0d, roughness:0.96, metalness:0.02,
+                                             bumpMap: treadTex, bumpScale:0.004 }),
+  rim:      new THREE.MeshStandardMaterial({ color:0xb9c0c8, metalness:0.95, roughness:0.24 }),
+  rimFace:  new THREE.MeshStandardMaterial({ color:0x8d949c, metalness:0.9,  roughness:0.35 }),
+  disc:     new THREE.MeshStandardMaterial({ color:0x565b62, metalness:0.85, roughness:0.55 }),
+  caliper:  new THREE.MeshStandardMaterial({ color:0xc2312b, metalness:0.45, roughness:0.35 }),
+  well:     new THREE.MeshStandardMaterial({ color:0x0c0e12, roughness:1.0, metalness:0, side:THREE.DoubleSide }),
+  seat:     new THREE.MeshStandardMaterial({ color:0x2e3138, roughness:0.95, metalness:0.02 }),
+  seatAlt:  new THREE.MeshStandardMaterial({ color:0x3b3f47, roughness:0.9,  metalness:0.02 }),
+  metalDark:new THREE.MeshStandardMaterial({ color:0x3a3f47, metalness:0.85, roughness:0.35 }),
+  motorCase:new THREE.MeshStandardMaterial({ color:0x9aa3ad, metalness:0.9,  roughness:0.32 }),
+  coil:     new THREE.MeshStandardMaterial({ color:0xb46a2a, metalness:0.75, roughness:0.35,
+                                             emissive:0xff7a1a, emissiveIntensity:0.0 }),
+  magnet:   new THREE.MeshStandardMaterial({ color:0x22262c, metalness:0.7, roughness:0.4 }),
+  headlight:new THREE.MeshStandardMaterial({ color:0x9fb4c4, roughness:0.25, metalness:0.2,
+                                             emissive:0xdfefff, emissiveIntensity:0.06 }),
+  taillight:new THREE.MeshStandardMaterial({ color:0x59151a, roughness:0.25, metalness:0.2,
+                                             emissive:0xff2233, emissiveIntensity:0.10 }),
+  battery:  new THREE.MeshStandardMaterial({ color:0x14171c, roughness:0.7, metalness:0.4 }),
+  batteryGlow: new THREE.MeshStandardMaterial({ color:0x0a2230, roughness:0.4, metalness:0.1,
+                                             emissive:0x27c6ff, emissiveIntensity:0.35 })
+};
+const PAINT_MATS = [M.paint, M.shellInner];
+
+/* ============================================================================
+   7. CAR ASSEMBLY — shell, doors, hood, decklid, trims
+   ========================================================================== */
+
+const car     = new THREE.Group();          // everything
+const chassis = new THREE.Group();          // body + interior (bobs on its springs)
+const wheelsG = new THREE.Group();          // wheels stay on the ground
+car.add(chassis, wheelsG);
+
+const pickables = [];                       // raycast targets
+function pick(mesh, action){ mesh.userData.action = action; pickables.push(mesh); return mesh; }
+function shadowy(m){ m.castShadow = true; m.receiveShadow = true; return m; }
+
+const SHELL_T = 0.036;                      // sheet-metal thickness
+
+// --- main shell --------------------------------------------------------------
+const bodyMesh = shadowy(new THREE.Mesh(buildSolid(owner, 'body', SHELL_T), PAINT_MATS));
+bodyMesh.name = 'body';
+chassis.add(pick(bodyMesh, null));
+
+// --- fixed glazing -----------------------------------------------------------
+const canopyMesh = new THREE.Mesh(buildSolid(owner, 'canopy', 0), M.glass);
+const roofMesh   = new THREE.Mesh(buildSolid(owner, 'roof', 0), M.roofGlass);
+canopyMesh.renderOrder = 2; roofMesh.renderOrder = 2;
+chassis.add(canopyMesh, roofMesh);
+
+// --- pillars & trims (thin decals sitting just above the shell) ---------------
+function trimBand(parent, test, mat, offset = 0.006){
+  const g = buildPatch(owner, test, offset);
+  if (g) parent.add(new THREE.Mesh(g, mat));
+  return g;
+}
+// A / B / C pillars — opaque strips over the fixed glazing
+trimBand(chassis, (i, j, o) => {
+  const b = cellBand(j), x = cellX(i);
+  if (b < BND.belt || b > BND.rail) return false;
+  if (o !== 'canopy') return false;
+  return (x > 0.955 && x < 1.055) || (x > -0.125 && x < -0.035) || (x > -1.20 && x < -0.955);
+}, M.trimDark, 0.007);
+
+// roof-rail seal along the top of the door glass
+trimBand(chassis, (i, j, o) => cellBand(j) === BND.rail && o === 'canopy' &&
+         cellX(i) > -1.55 && cellX(i) < 1.05, M.trimDark, 0.006);
+
+// beltline chrome on the fixed glazing sections
+trimBand(chassis, (i, j, o) => cellBand(j) === BND.belt && o === 'canopy', M.chrome, 0.007);
+
+// rocker sill accent along the lower body
+trimBand(chassis, (i, j, o) => o === 'body' && cellBand(j) >= ROCKER_B0 && cellBand(j) <= ROCKER_B1 &&
+         Math.abs(cellX(i)) < 1.35, M.trimDark, 0.005);
+
+// Fender flares: a smooth elliptical lip swept around each arch. The masked cut
+// can only ever land within half a cell of the true ellipse, so this covers the
+// stair-stepping of the opening completely.
+for (const ax of [CAR.frontAxle, CAR.rearAxle]){
+  for (const sz of [1, -1]){
+    const lip = new THREE.TorusGeometry(ARCH.a, 0.070, 8, 34, Math.PI - 0.26);
+    lip.scale(1, ARCH.b / ARCH.a, 0.58);
+    lip.rotateZ(0.13);
+    const mesh = new THREE.Mesh(lip, M.trimDark);
+    mesh.position.set(ax, CAR.wheelR, sz * 0.893);
+    mesh.castShadow = true;
+    chassis.add(mesh);
+  }
+}
+
+// --- doors -------------------------------------------------------------------
+const doors = {};
+for (const d of DOOR_DEFS){
+  const grp = new THREE.Group();
+  const px = d.hinge[0], pz = d.hinge[1];
+  grp.position.set(px, 0, pz);
+
+  const skin = buildSolid(owner, 'door' + d.id, SHELL_T);
+  skin.translate(-px, 0, -pz);
+  const skinMesh = shadowy(new THREE.Mesh(skin, [M.paint, M.cabinInner]));
+  grp.add(pick(skinMesh, 'door' + d.id));
+
+  const gl = buildSolid(owner, 'glass' + d.id, 0);
+  if (gl){
+    gl.translate(-px, 0, -pz);
+    const glMesh = new THREE.Mesh(gl, M.glass);
+    glMesh.renderOrder = 2;
+    grp.add(pick(glMesh, 'door' + d.id));
+  }
+  // beltline chrome that travels with the door
+  const bt = buildPatch(owner, (i, j, o) => cellBand(j) === BND.belt && o === 'glass' + d.id, 0.007);
+  if (bt){ bt.translate(-px, 0, -pz); grp.add(new THREE.Mesh(bt, M.chrome)); }
+
+  // --- door card: armrest + switch pod + speaker, visible when open ---
+  const cardX = (d.paint[0] + d.paint[1]) / 2 - px;
+  const inZ   = (d.side > 0 ? 0.86 : -0.86) - pz;
+  const card  = new THREE.Group();
+  card.position.set(cardX, 0, inZ);
+  const arm = new THREE.Mesh(roundedBoxGeom(0.46, 0.075, 0.10, 0.03), M.seatAlt);
+  arm.position.set(0, 0.70, d.side > 0 ? -0.055 : 0.055);
+  const pod = new THREE.Mesh(roundedBoxGeom(0.15, 0.05, 0.055, 0.018), M.trimDark);
+  pod.position.set(0.13, 0.755, d.side > 0 ? -0.045 : 0.045);
+  const spk = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.075, 0.015, 20), M.trimDark);
+  spk.rotation.x = Math.PI / 2;
+  spk.position.set(-0.10, 0.50, d.side > 0 ? -0.02 : 0.02);
+  card.add(arm, pod, spk);
+  grp.add(card);
+
+  // --- flush handle that pops out on hover ---
+  const handle = new THREE.Mesh(roundedBoxGeom(0.20, 0.045, 0.03, 0.014), M.chrome);
+  const hx = (d.id[0] === 'F' ? d.paint[1] - 0.22 : d.paint[1] - 0.20) - px;
+  handle.position.set(hx, 0.88 - 0.02, (d.side > 0 ? 0.925 : -0.925) - pz);
+  handle.userData.restZ = handle.position.z;
+  handle.userData.side  = d.side;
+  handle.userData.out   = 0;
+  grp.add(pick(handle, 'door' + d.id));
+
+  doors[d.id] = { def:d, group:grp, handle, t:0, target:0, state:'closed' };
+  chassis.add(grp);
+}
+
+// --- hood / frunk ------------------------------------------------------------
+const hoodPivot = new THREE.Vector3(1.11, 1.02, 0);
+const hoodGroup = new THREE.Group();
+hoodGroup.position.copy(hoodPivot);
+{
+  const g = buildSolid(owner, 'hood', SHELL_T);
+  g.translate(-hoodPivot.x, -hoodPivot.y, -hoodPivot.z);
+  const m = shadowy(new THREE.Mesh(g, [M.paint, M.shellInner]));
+  hoodGroup.add(pick(m, 'hood'));
+}
+chassis.add(hoodGroup);
+
+// --- decklid / trunk ---------------------------------------------------------
+const trunkPivot = new THREE.Vector3(-1.57, 1.00, 0);
+const trunkGroup = new THREE.Group();
+trunkGroup.position.copy(trunkPivot);
+{
+  const g = buildSolid(owner, 'trunk', SHELL_T);
+  g.translate(-trunkPivot.x, -trunkPivot.y, -trunkPivot.z);
+  const m = shadowy(new THREE.Mesh(g, [M.paint, M.shellInner]));
+  trunkGroup.add(pick(m, 'trunk'));
+}
+chassis.add(trunkGroup);
+
+/**
+ * Soft-cornered box, exactly w × h × d. The outline is inset by the bevel size
+ * first because ExtrudeGeometry's bevel grows the profile outwards — skipping
+ * that inset makes every box 2r too big in X and Y.
+ */
+function roundedBoxGeom(W, H, D, r = 0.03){
+  const bev = Math.min(r, W/2 - 1e-3, H/2 - 1e-3, D/2 - 1e-3);
+  const w = W - 2*bev, h = H - 2*bev, d = D;
+  const rr = Math.min(r, w/2 - 1e-4, h/2 - 1e-4);
+  const s = new THREE.Shape();
+  const x = -w/2, y = -h/2;
+  s.moveTo(x + rr, y);
+  s.lineTo(x + w - rr, y); s.quadraticCurveTo(x + w, y, x + w, y + rr);
+  s.lineTo(x + w, y + h - rr); s.quadraticCurveTo(x + w, y + h, x + w - rr, y + h);
+  s.lineTo(x + rr, y + h); s.quadraticCurveTo(x, y + h, x, y + h - rr);
+  s.lineTo(x, y + rr); s.quadraticCurveTo(x, y, x + rr, y);
+  const g = new THREE.ExtrudeGeometry(s, {
+    depth: d - 2*bev, bevelEnabled: true, bevelSize: bev, bevelThickness: bev,
+    bevelSegments: 3, curveSegments: 5
+  });
+  g.translate(0, 0, -(d - 2*bev) / 2);
+  g.computeVertexNormals();
+  return g;
+}
+
+/* ============================================================================
+   8. WHEELS — every wheel spins around its own hub pivot
+   ========================================================================== */
+
+const SPOKES = 5;
+const wheels = [];
+
+function createWheel(px, pz, side){
+  const hub = new THREE.Group();                 // sits at the hub centre
+  hub.position.set(px, CAR.wheelR, pz);
+  const steer = new THREE.Group();               // front wheels steer inside this
+  const spin  = new THREE.Group();               // rotates about its own axle (local Z)
+  steer.add(spin); hub.add(steer);
+  if (side < 0) steer.rotation.y = Math.PI;      // mirror so +Z is always outboard
+
+  // --- tyre: torus flattened along the axle into a realistic section ---
+  const tyreGeo = new THREE.TorusGeometry(0.262, 0.080, 18, 46);
+  tyreGeo.scale(1, 1, CAR.wheelW / 2 / 0.080);
+  const tyre = shadowy(new THREE.Mesh(tyreGeo, M.tyre));
+  spin.add(tyre);
+
+  // --- rim barrel + face ---
+  const barrel = new THREE.Mesh(
+    new THREE.CylinderGeometry(CAR.rimR, CAR.rimR, CAR.wheelW * 0.92, 34, 1, true), M.rimFace);
+  barrel.rotation.x = Math.PI / 2;
+  const face = new THREE.Mesh(
+    new THREE.CylinderGeometry(CAR.rimR, CAR.rimR * 0.98, 0.018, 34), M.rim);
+  face.rotation.x = Math.PI / 2;
+  face.position.z = CAR.wheelW * 0.44;
+  const hubCap = new THREE.Mesh(new THREE.CylinderGeometry(0.062, 0.070, 0.03, 20), M.rim);
+  hubCap.rotation.x = Math.PI / 2;
+  hubCap.position.z = CAR.wheelW * 0.47;
+  spin.add(barrel, face, hubCap);
+
+  // --- turbine spokes: one shape, instanced around the hub ---
+  const sp = new THREE.Shape();
+  sp.moveTo(0.058, -0.082);
+  sp.lineTo(0.232, -0.056);
+  sp.quadraticCurveTo(0.248, 0, 0.232, 0.056);
+  sp.lineTo(0.058, 0.082);
+  sp.quadraticCurveTo(0.044, 0, 0.058, -0.082);
+  const spokeGeo = new THREE.ExtrudeGeometry(sp, {
+    depth: 0.034, bevelEnabled: true, bevelSize: 0.009, bevelThickness: 0.009,
+    bevelSegments: 2, curveSegments: 5
+  });
+  spokeGeo.translate(0, 0, -0.015);
+  const spokes = new THREE.InstancedMesh(spokeGeo, M.rim, SPOKES);
+  const mtx = new THREE.Matrix4(), rot = new THREE.Matrix4();
+  for (let k = 0; k < SPOKES; k++){
+    mtx.makeRotationZ((k / SPOKES) * Math.PI * 2);
+    rot.makeRotationX(0.34);                     // turbine twist
+    mtx.multiply(rot);
+    mtx.setPosition(0, 0, CAR.wheelW * 0.36);
+    spokes.setMatrixAt(k, mtx);
+  }
+  spokes.instanceMatrix.needsUpdate = true;
+  spokes.castShadow = true;
+  spin.add(spokes);
+
+  // --- lug nuts ---
+  const lugGeo = new THREE.CylinderGeometry(0.017, 0.017, 0.022, 6);
+  lugGeo.rotateX(Math.PI / 2);
+  const lugs = new THREE.InstancedMesh(lugGeo, M.metalDark, SPOKES);
+  for (let k = 0; k < SPOKES; k++){
+    const a = (k / SPOKES) * Math.PI * 2 + 0.6;
+    mtx.identity().setPosition(Math.cos(a) * 0.085, Math.sin(a) * 0.085, CAR.wheelW * 0.47);
+    lugs.setMatrixAt(k, mtx);
+  }
+  lugs.instanceMatrix.needsUpdate = true;
+  spin.add(lugs);
+
+  // --- brake disc (spins) + caliper (does not) ---
+  const disc = new THREE.Mesh(new THREE.CylinderGeometry(0.196, 0.196, 0.020, 30), M.disc);
+  disc.rotation.x = Math.PI / 2;
+  disc.position.z = CAR.wheelW * 0.10;
+  spin.add(disc);
+
+  const calGeo = new THREE.TorusGeometry(0.182, 0.030, 8, 10, Math.PI * 0.55);
+  calGeo.scale(1, 1, 1.7);
+  const caliper = new THREE.Mesh(calGeo, M.caliper);
+  caliper.rotation.z = Math.PI * 0.30;           // sits behind / above the hub
+  caliper.position.z = CAR.wheelW * 0.10;
+  steer.add(caliper);
+
+  wheelsG.add(hub);
+  const w = { hub, steer, spin, side, front: px > 0 };
+  wheels.push(w);
+  return w;
+}
+
+createWheel( CAR.frontAxle,  CAR.track/2,  1);
+createWheel( CAR.frontAxle, -CAR.track/2, -1);
+createWheel( CAR.rearAxle,   CAR.track/2,  1);
+createWheel( CAR.rearAxle,  -CAR.track/2, -1);
+
+// --- wheel wells so you never see daylight through the arches -----------------
+for (const ax of [CAR.frontAxle, CAR.rearAxle]){
+  for (const sz of [1, -1]){
+    // half-cylinder domed over the top of the wheel, axle along Z
+    const tub = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.478, 0.478, 0.27, 22, 1, true, Math.PI/2, Math.PI), M.well);
+    tub.rotation.x = Math.PI / 2;
+    tub.position.set(ax, CAR.wheelR, sz * 0.795);
+    const inner = new THREE.Mesh(
+      new THREE.RingGeometry(0.0, 0.478, 22, 1, 0, Math.PI), M.well);
+    inner.position.set(ax, CAR.wheelR, sz * (0.795 - 0.135));
+    chassis.add(tub, inner);
+  }
+}
+
+/* ============================================================================
+   9. INTERIOR + BATTERY
+   ========================================================================== */
+
+const interior = new THREE.Group();
+chassis.add(interior);
+
+const FLOOR_Y = 0.425;
+{
+  // cabin floor, firewall, rear bulkhead
+  const floor = new THREE.Mesh(new THREE.BoxGeometry(2.62, 0.03, 1.62), M.cabinInner);
+  floor.position.set(-0.25, FLOOR_Y, 0);
+  const fire = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.62, 1.60), M.cabinInner);
+  fire.position.set(1.045, 0.73, 0);
+  const bulk = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.54, 1.58), M.cabinInner);
+  bulk.position.set(-1.56, 0.70, 0);
+  interior.add(floor, fire, bulk);
+
+  // battery pack slab under the cabin floor
+  const pack = new THREE.Mesh(new THREE.BoxGeometry(3.30, 0.16, 1.50), M.battery);
+  pack.position.set(-0.20, 0.30, 0);
+  interior.add(pack);
+  // module ribs, only ever glimpsed from very low angles
+  const ribGeo = new THREE.BoxGeometry(0.05, 0.17, 1.50);
+  const ribs = new THREE.InstancedMesh(ribGeo, M.metalDark, 9);
+  const m4 = new THREE.Matrix4();
+  for (let k = 0; k < 9; k++){ m4.identity().setPosition(-1.75 + k * 0.39, 0.30, 0); ribs.setMatrixAt(k, m4); }
+  ribs.instanceMatrix.needsUpdate = true;
+  interior.add(ribs);
+}
+
+/** Simplified but unmistakably seat-shaped. */
+function createSeat(x, z, scale = 1, drop = 0){
+  const g = new THREE.Group();
+  g.position.set(x, FLOOR_Y - drop, z);
+  g.scale.setScalar(scale);
+
+  const cushion = new THREE.Mesh(roundedBoxGeom(0.54, 0.12, 0.50, 0.05), M.seat);
+  cushion.position.set(0, 0.14, 0);
+  const bolsterL = new THREE.Mesh(roundedBoxGeom(0.52, 0.09, 0.07, 0.03), M.seatAlt);
+  bolsterL.position.set(0, 0.19, 0.235);
+  const bolsterR = bolsterL.clone(); bolsterR.position.z = -0.235;
+
+  const back = new THREE.Mesh(roundedBoxGeom(0.14, 0.66, 0.50, 0.055), M.seat);
+  back.position.set(-0.24, 0.50, 0);
+  back.rotation.z = 0.16;
+  const wingL = new THREE.Mesh(roundedBoxGeom(0.11, 0.56, 0.07, 0.03), M.seatAlt);
+  wingL.position.set(-0.20, 0.50, 0.225); wingL.rotation.z = 0.16;
+  const wingR = wingL.clone(); wingR.position.z = -0.225;
+
+  const head = new THREE.Mesh(roundedBoxGeom(0.11, 0.17, 0.26, 0.05), M.seat);
+  head.position.set(-0.33, 0.90, 0); head.rotation.z = 0.16;
+  const post = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.10, 8), M.metalDark);
+  post.position.set(-0.30, 0.82, 0);
+
+  const base = new THREE.Mesh(new THREE.BoxGeometry(0.40, 0.08, 0.34), M.metalDark);
+  base.position.set(0, 0.05, 0);
+
+  g.add(cushion, bolsterL, bolsterR, back, wingL, wingR, head, post, base);
+  g.traverse(o => { if (o.isMesh) o.castShadow = false; });
+  return g;
+}
+interior.add(createSeat(0.30, -0.40), createSeat(0.30, 0.40));
+interior.add(createSeat(-0.74, -0.42, 0.84, 0.03), createSeat(-0.74, 0.42, 0.84, 0.03));
+
+// centre console
+{
+  const con = new THREE.Mesh(roundedBoxGeom(0.92, 0.20, 0.30, 0.05), M.cabinInner);
+  con.position.set(0.32, FLOOR_Y + 0.10, 0);
+  const armrest = new THREE.Mesh(roundedBoxGeom(0.34, 0.06, 0.26, 0.03), M.seatAlt);
+  armrest.position.set(0.10, FLOOR_Y + 0.22, 0);
+  interior.add(con, armrest);
+}
+
+// dashboard, wood-free minimalist ledge + air vent slot
+const dash = new THREE.Group();
+{
+  const body = new THREE.Mesh(roundedBoxGeom(0.34, 0.26, 1.60, 0.07), M.cabinInner);
+  body.position.set(0.90, 0.86, 0);
+  body.rotation.z = -0.12;
+  const vent = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.026, 1.44), M.trimDark);
+  vent.position.set(0.755, 0.905, 0);
+  const ledge = new THREE.Mesh(roundedBoxGeom(0.20, 0.05, 1.58, 0.02), M.trimDark);
+  ledge.position.set(0.86, 0.985, 0);
+  dash.add(body, vent, ledge);
+  interior.add(dash);
+}
+
+/* --- centre display: drawn to a canvas every few frames --------------------- */
+const screenCanvas = document.createElement('canvas');
+screenCanvas.width = 512; screenCanvas.height = 320;
+const sctx = screenCanvas.getContext('2d');
+const screenTex = new THREE.CanvasTexture(screenCanvas);
+screenTex.colorSpace = THREE.SRGBColorSpace;
+const screenMat = new THREE.MeshStandardMaterial({
+  map: screenTex, emissive: 0xffffff, emissiveMap: screenTex, emissiveIntensity: 1.0,
+  roughness: 0.18, metalness: 0.0
+});
+{
+  const bezel = new THREE.Mesh(roundedBoxGeom(0.44, 0.28, 0.022, 0.012), M.trimDark);
+  bezel.position.set(0.716, 0.975, -0.06);
+  bezel.rotation.set(0, Math.PI / 2, 0);
+  const panel = new THREE.Mesh(new THREE.PlaneGeometry(0.42, 0.26), screenMat);
+  panel.position.set(0.704, 0.975, -0.06);
+  panel.rotation.y = -Math.PI / 2;
+  interior.add(bezel, panel);
+}
+
+function drawScreen(){
+  const w = screenCanvas.width, h = screenCanvas.height;
+  sctx.fillStyle = '#05080d'; sctx.fillRect(0, 0, w, h);
+
+  const on = carState.motorOn || carState.driving;
+  const accent = on ? '#5ec8ff' : '#4a5568';
+
+  // speed
+  sctx.fillStyle = '#eef4ff';
+  sctx.font = '700 108px ui-sans-serif, system-ui, sans-serif';
+  sctx.textAlign = 'right'; sctx.textBaseline = 'alphabetic';
+  sctx.fillText(String(Math.round(carState.speed)), 250, 150);
+  sctx.fillStyle = '#7f8b9e';
+  sctx.font = '500 26px ui-sans-serif, system-ui, sans-serif';
+  sctx.fillText('km/h', 250, 186);
+
+  // gear column
+  sctx.textAlign = 'left';
+  const gears = ['P', 'R', 'N', 'D'];
+  const active = carState.driving ? 3 : 0;
+  gears.forEach((g, i) => {
+    sctx.fillStyle = i === active ? '#eef4ff' : '#333c4a';
+    sctx.font = `${i === active ? 700 : 500} 30px ui-sans-serif, system-ui, sans-serif`;
+    sctx.fillText(g, 292 + i * 42, 70);
+  });
+
+  // battery bar
+  const bx = 292, by = 108, bw = 176, bh = 30;
+  sctx.strokeStyle = '#3a4655'; sctx.lineWidth = 3;
+  sctx.beginPath(); sctx.roundRect(bx, by, bw, bh, 6); sctx.stroke();
+  sctx.fillStyle = '#3a4655';
+  sctx.fillRect(bx + bw + 4, by + 9, 6, 12);
+  const pct = carState.battery / 100;
+  sctx.fillStyle = pct > 0.2 ? '#3ddc84' : '#ff5f57';
+  sctx.beginPath(); sctx.roundRect(bx + 4, by + 4, (bw - 8) * pct, bh - 8, 4); sctx.fill();
+  sctx.fillStyle = '#9fb0c6';
+  sctx.font = '600 22px ui-sans-serif, system-ui, sans-serif';
+  sctx.fillText(`${Math.round(carState.battery)}%  ·  ${Math.round(carState.battery * 4.6)} km`, bx, by + 58);
+
+  // plan-view car icon with live door state
+  const cx = 150, cy = 245, cw = 92, ch = 128;
+  sctx.strokeStyle = accent; sctx.lineWidth = 4;
+  sctx.beginPath(); sctx.roundRect(cx - cw/2, cy - ch/2, cw, ch, 26); sctx.stroke();
+  sctx.fillStyle = 'rgba(94,200,255,.10)'; sctx.fill();
+  const doorDots = [['FL', -1, -1], ['FR', 1, -1], ['RL', -1, 1], ['RR', 1, 1]];
+  for (const [id, sx, sy] of doorDots){
+    const openish = doors[id].t > 0.02;
+    sctx.strokeStyle = openish ? '#ffb347' : '#2f3a49';
+    sctx.lineWidth = 6;
+    sctx.beginPath();
+    const px = cx + sx * (cw/2), py = cy + sy * 22;
+    if (openish){
+      sctx.moveTo(px, py - 20);
+      sctx.lineTo(px + sx * 26, py + 6);
+    } else {
+      sctx.moveTo(px, py - 20); sctx.lineTo(px, py + 18);
+    }
+    sctx.stroke();
+  }
+  if (carState.hood.t > 0.02){
+    sctx.strokeStyle = '#ffb347'; sctx.lineWidth = 6;
+    sctx.beginPath(); sctx.moveTo(cx - 26, cy - ch/2 - 4); sctx.lineTo(cx + 26, cy - ch/2 - 18); sctx.stroke();
+  }
+  if (carState.trunk.t > 0.02){
+    sctx.strokeStyle = '#ffb347'; sctx.lineWidth = 6;
+    sctx.beginPath(); sctx.moveTo(cx - 26, cy + ch/2 + 4); sctx.lineTo(cx + 26, cy + ch/2 + 18); sctx.stroke();
+  }
+
+  // status strip
+  sctx.fillStyle = accent;
+  sctx.font = '600 22px ui-sans-serif, system-ui, sans-serif';
+  sctx.fillText(carState.motorOn ? 'DRIVE UNIT READY' : 'SYSTEM STANDBY', 292, 232);
+  sctx.fillStyle = carState.lights ? '#5ec8ff' : '#2f3a49';
+  sctx.fillText(carState.lights ? 'LIGHTS ON' : 'LIGHTS OFF', 292, 268);
+  sctx.fillStyle = '#2f3a49';
+  sctx.font = '500 18px ui-sans-serif, system-ui, sans-serif';
+  sctx.fillText('AURORA · PROCEDURAL', 292, 300);
+
+  screenTex.needsUpdate = true;
+}
+
+/* --- yoke ------------------------------------------------------------------- */
+{
+  const yoke = new THREE.Group();
+  yoke.position.set(0.66, 0.95, -0.40);
+  yoke.rotation.z = -0.42;                     // raked towards the driver
+  // flattened rim, rotated at geometry level so there is no Euler ambiguity
+  const ringGeo = new THREE.TorusGeometry(0.158, 0.022, 10, 30);
+  ringGeo.scale(1, 0.74, 1);
+  ringGeo.rotateY(Math.PI / 2);
+  const upper = new THREE.Mesh(ringGeo, M.trimDark);
+  const spokeG = roundedBoxGeom(0.28, 0.035, 0.03, 0.012);
+  spokeG.rotateY(Math.PI / 2);
+  const lower = new THREE.Mesh(spokeG, M.trimDark);
+  const hubY = new THREE.Mesh(roundedBoxGeom(0.10, 0.09, 0.05, 0.02), M.cabinInner);
+  hubY.rotation.y = Math.PI / 2;
+  const column = new THREE.Mesh(new THREE.CylinderGeometry(0.028, 0.034, 0.26, 12), M.trimDark);
+  column.rotation.z = Math.PI / 2 - 0.42;
+  column.position.set(0.13, 0.02, 0);
+  yoke.add(upper, lower, hubY, column);
+  interior.add(yoke);
+}
+
+/* ============================================================================
+   10. FRONT DRIVE UNIT — stator, coils, rotor, gearbox, inverter
+   ========================================================================== */
+
+const motor = {
+  group: new THREE.Group(),      // whole assembly (jitters when running)
+  rotor: new THREE.Group(),      // spins
+  coilMat: M.coil,
+  rpm: 0
+};
+{
+  const bay = new THREE.Group();
+  chassis.add(bay);
+
+  // bay tray + inner wheel-house walls so the frunk reads as a real cavity
+  const tray = new THREE.Mesh(new THREE.BoxGeometry(1.06, 0.035, 1.44), M.cabinInner);
+  tray.position.set(1.58, 0.505, 0);
+  const wallA = new THREE.Mesh(new THREE.BoxGeometry(1.06, 0.42, 0.03), M.cabinInner);
+  wallA.position.set(1.58, 0.72, 0.72);
+  const wallB = wallA.clone(); wallB.position.z = -0.72;
+  const front = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.40, 1.44), M.cabinInner);
+  front.position.set(2.09, 0.71, 0);
+  bay.add(tray, wallA, wallB, front);
+
+  motor.group.position.set(1.60, 0.755, -0.02);
+  motor.group.scale.setScalar(1.12);
+  bay.add(motor.group);
+
+  // stator housing: open half-shell so the windings stay visible
+  const shell = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.205, 0.205, 0.30, 26, 1, true, Math.PI * 1.5, Math.PI * 0.98),
+    M.motorCase);
+  shell.rotation.x = Math.PI / 2;
+  const ringL = new THREE.Mesh(new THREE.TorusGeometry(0.198, 0.014, 8, 30), M.motorCase);
+  ringL.position.z = 0.15;
+  const ringR = ringL.clone(); ringR.position.z = -0.15;
+  motor.group.add(shell, ringL, ringR);
+
+  // stator back-iron
+  const stator = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.185, 0.185, 0.26, 30, 1, true, Math.PI * 1.5, Math.PI * 0.99),
+    M.metalDark);
+  stator.rotation.x = Math.PI / 2;
+  stator.material.side = THREE.DoubleSide;
+  motor.group.add(stator);
+
+  // coil windings — one torus, instanced radially, pointing at the axis
+  const COILS = 18;
+  const coilGeo = new THREE.TorusGeometry(0.036, 0.015, 7, 14);
+  const coils = new THREE.InstancedMesh(coilGeo, M.coil, COILS);
+  const m = new THREE.Matrix4(), pos = new THREE.Vector3(), up = new THREE.Vector3(0, 0, 1);
+  const zero = new THREE.Vector3();
+  for (let k = 0; k < COILS; k++){
+    const a = (k / COILS) * Math.PI * 2;
+    pos.set(Math.cos(a) * 0.156, Math.sin(a) * 0.156, 0);
+    m.lookAt(pos, zero, up);      // torus axis points radially inward
+    m.setPosition(pos);
+    coils.setMatrixAt(k, m);
+  }
+  coils.instanceMatrix.needsUpdate = true;
+  motor.group.add(coils);
+
+  // rotor + surface magnets
+  const rotorBody = new THREE.Mesh(new THREE.CylinderGeometry(0.086, 0.086, 0.25, 24), M.metalDark);
+  rotorBody.rotation.x = Math.PI / 2;
+  const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.026, 0.44, 12), M.rim);
+  shaft.rotation.x = Math.PI / 2;
+  motor.rotor.add(rotorBody, shaft);
+
+  const MAGS = 12;
+  const magGeo = new THREE.BoxGeometry(0.026, 0.048, 0.23);
+  const mags = new THREE.InstancedMesh(magGeo, M.magnet, MAGS);
+  for (let k = 0; k < MAGS; k++){
+    const a = (k / MAGS) * Math.PI * 2;
+    m.makeRotationZ(a);
+    m.setPosition(Math.cos(a) * 0.098, Math.sin(a) * 0.098, 0);
+    mags.setMatrixAt(k, m);
+  }
+  mags.instanceMatrix.needsUpdate = true;
+  motor.rotor.add(mags);
+  // one bright reference blade so the spin is legible
+  const key = new THREE.Mesh(new THREE.BoxGeometry(0.024, 0.054, 0.24), M.caliper);
+  key.position.set(0, 0.098, 0);
+  motor.rotor.add(key);
+  motor.group.add(motor.rotor);
+
+  // gearbox + inverter + coolant hoses
+  const gearbox = new THREE.Mesh(roundedBoxGeom(0.30, 0.30, 0.22, 0.05), M.motorCase);
+  gearbox.position.set(0.0, -0.01, 0.30);
+  const gearFace = new THREE.Mesh(new THREE.CylinderGeometry(0.105, 0.105, 0.03, 20), M.metalDark);
+  gearFace.rotation.x = Math.PI / 2;
+  gearFace.position.set(0.0, -0.01, 0.42);
+  const inverter = new THREE.Mesh(roundedBoxGeom(0.32, 0.15, 0.46, 0.035), M.trimDark);
+  inverter.position.set(-0.30, 0.10, 0.0);
+  motor.group.add(gearbox, gearFace, inverter);
+
+  const hosePath = new THREE.CatmullRomCurve3([
+    new THREE.Vector3(-0.18, 0.20, 0.20), new THREE.Vector3(-0.34, 0.10, 0.42),
+    new THREE.Vector3(-0.46, -0.02, 0.58), new THREE.Vector3(-0.50, -0.14, 0.66)
+  ]);
+  const hose = new THREE.Mesh(new THREE.TubeGeometry(hosePath, 18, 0.022, 8), M.trimDark);
+  motor.group.add(hose);
+
+  // half-shafts running out to the front hubs
+  for (const sz of [1, -1]){
+    const shaftGeo = new THREE.CylinderGeometry(0.032, 0.032, 0.42, 10);
+    shaftGeo.rotateX(Math.PI / 2);
+    const hs = new THREE.Mesh(shaftGeo, M.metalDark);
+    hs.position.set(CAR.frontAxle, CAR.wheelR, sz * 0.50);
+    bay.add(hs);
+  }
+  motor.group.traverse(o => { if (o.isMesh || o.isInstancedMesh) pick(o, 'motor'); });
+}
+
+/* ============================================================================
+   11. LIGHT BARS, MIRRORS, DIFFUSER
+   ========================================================================== */
+
+/** Walks the loft picking the point closest to a target height on one side. */
+function edgePath(iFrom, iTo, targetY, side){
+  const pts = [], nrm = [];
+  const step = iTo > iFrom ? 1 : -1;
+  for (let i = iFrom; step > 0 ? i <= iTo : i >= iTo; i += step){
+    let best = -1, bestD = 1e9;
+    for (let j = 1; j < 7*K; j++){
+      const idx = side > 0 ? j : LOOP - j;
+      const d = Math.abs(grid[i][idx].y - targetY);
+      if (d < bestD){ bestD = d; best = idx; }
+    }
+    pts.push(grid[i][best]); nrm.push(gridN[i][best]);
+  }
+  return { pts, nrm };
+}
+
+/** Sweeps a thin rectangular bar along a path that hugs the body surface. */
+function sweepBar(pts, nrm, halfH, inset, outset){
+  const P = [], idx = [];
+  const t = new THREE.Vector3(), u = new THREE.Vector3(), tmp = new THREE.Vector3();
+  const n = pts.length;
+  for (let i = 0; i < n; i++){
+    const a = pts[Math.max(0, i - 1)], b = pts[Math.min(n - 1, i + 1)];
+    t.subVectors(b, a).normalize();
+    u.crossVectors(t, nrm[i]).normalize();          // across the bar, on the surface
+    for (const [hu, hn] of [[-1, inset], [1, inset], [1, outset], [-1, outset]]){
+      tmp.copy(pts[i]).addScaledVector(u, hu * halfH).addScaledVector(nrm[i], hn);
+      P.push(tmp.x, tmp.y, tmp.z);
+    }
+  }
+  for (let i = 0; i < n - 1; i++){
+    const a = i * 4, b = (i + 1) * 4;
+    for (let k = 0; k < 4; k++){
+      const k2 = (k + 1) % 4;
+      idx.push(a + k, b + k, b + k2, a + k, b + k2, a + k2);
+    }
+  }
+  // end caps
+  idx.push(0, 2, 1, 0, 3, 2);
+  const e = (n - 1) * 4;
+  idx.push(e + 0, e + 1, e + 2, e + 0, e + 2, e + 3);
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3));
+  g.setIndex(idx);
+  g.computeVertexNormals();
+  return g;
+}
+
+/** Relaxes a surface-hugging path so swept bars read as clean creases. */
+function smoothPath(pts, nrm, iters = 3){
+  let P = pts.map(p => p.clone()), N = nrm.map(n => n.clone());
+  for (let it = 0; it < iters; it++){
+    const P2 = P.map(p => p.clone()), N2 = N.map(n => n.clone());
+    for (let i = 1; i < P.length - 1; i++){
+      P2[i].copy(P[i-1]).addScaledVector(P[i], 2).add(P[i+1]).multiplyScalar(0.25);
+      N2[i].copy(N[i-1]).addScaledVector(N[i], 2).add(N[i+1]).normalize();
+    }
+    P = P2; N = N2;
+  }
+  return { pts: P, nrm: N };
+}
+
+const iOfX = x => {
+  let best = 0, bd = 1e9;
+  for (let i = 0; i < NI; i++){ const d = Math.abs(stations[i].x - x); if (d < bd){ bd = d; best = i; } }
+  return best;
+};
+
+const lightBars = { front: null, rear: null };
+{
+  // front bar wraps from the left fender, around the nose, to the right fender
+  const iNose = NI - 2, iSideF = iOfX(1.88);
+  const left  = edgePath(iSideF, iNose, 0.845, -1);
+  const right = edgePath(iNose, iSideF, 0.845, 1);
+  const f = smoothPath(left.pts.concat(right.pts), left.nrm.concat(right.nrm));
+  const fPts = f.pts, fNrm = f.nrm;
+  chassis.add(new THREE.Mesh(sweepBar(fPts, fNrm, 0.052, -0.004, 0.015), M.trimDark));
+  lightBars.front = new THREE.Mesh(sweepBar(fPts, fNrm, 0.024, 0.002, 0.022), M.headlight);
+  chassis.add(pick(lightBars.front, 'lights'));
+
+  // rear bar
+  const iTail = 1, iSideR = iOfX(-1.98);
+  const rl = edgePath(iSideR, iTail, 0.855, -1);
+  const rr = edgePath(iTail, iSideR, 0.855, 1);
+  const r = smoothPath(rl.pts.concat(rr.pts), rl.nrm.concat(rr.nrm));
+  const rPts = r.pts, rNrm = r.nrm;
+  chassis.add(new THREE.Mesh(sweepBar(rPts, rNrm, 0.048, -0.004, 0.014), M.trimDark));
+  lightBars.rear = new THREE.Mesh(sweepBar(rPts, rNrm, 0.022, 0.002, 0.021), M.taillight);
+  chassis.add(pick(lightBars.rear, 'lights'));
+
+  // battery-edge light strip along the rocker
+  const glowGeo = buildPatch(owner, (i, j, o) =>
+    o === 'body' && cellBand(j) >= GLOW_B0 && cellBand(j) <= GLOW_B1 && Math.abs(cellX(i)) < 1.30, 0.004);
+  if (glowGeo) chassis.add(new THREE.Mesh(glowGeo, M.batteryGlow));
+}
+
+// mirrors
+for (const sz of [1, -1]){
+  const g = new THREE.Group();
+  g.position.set(0.86, 0.925, sz * 0.895);
+  const stalk = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.030, 0.13, 10), M.trimDark);
+  stalk.rotation.x = sz * -0.9; stalk.rotation.z = 0.25;
+  stalk.position.set(0.02, 0.005, sz * 0.045);
+  const shellM = new THREE.Mesh(roundedBoxGeom(0.11, 0.085, 0.20, 0.035), M.paint);
+  shellM.position.set(-0.02, 0.035, sz * 0.115);
+  const glassM = new THREE.Mesh(new THREE.PlaneGeometry(0.15, 0.07), M.chrome);
+  glassM.rotation.y = Math.PI / 2 + (sz > 0 ? 0 : Math.PI);
+  glassM.position.set(-0.075, 0.035, sz * 0.115);
+  g.add(stalk, shellM, glassM);
+  chassis.add(g);
+}
+
+// front and rear valances, lifted straight off the shell so they cannot float
+trimBand(chassis, (i, j, o) => o === 'body' && cellBand(j) >= K && cellBand(j) <= BND.sill &&
+         (cellX(i) > 1.94 || cellX(i) < -1.94), M.trimDark, 0.006);
+
+// rear diffuser fins
+{
+  const finGeo = roundedBoxGeom(0.13, 0.075, 0.020, 0.008);
+  const fins = new THREE.InstancedMesh(finGeo, M.metalDark, 5);
+  const m = new THREE.Matrix4();
+  for (let k = 0; k < 5; k++){
+    m.makeRotationX(0).setPosition(-2.15, 0.325, -0.30 + k * 0.15);
+    fins.setMatrixAt(k, m);
+  }
+  fins.instanceMatrix.needsUpdate = true;
+  chassis.add(fins);
+}
+
+/* ============================================================================
+   12. RENDERER, SCENE, LIGHTING, CAMERA
+   ========================================================================== */
+
+const canvas = document.getElementById('scene');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 0.74;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+if ('transmissionResolutionScale' in renderer) renderer.transmissionResolutionScale = 0.6;
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0a0d12);
+scene.fog = new THREE.Fog(0x0a0d12, 24, 62);
+scene.add(car);
+
+// code-generated environment for believable paint and glass reflections
+const pmrem = new THREE.PMREMGenerator(renderer);
+pmrem.compileEquirectangularShader();
+const envRT = pmrem.fromScene(new RoomEnvironment(), 0.035);
+scene.environment = envRT.texture;
+scene.environmentIntensity = 0.60;
+pmrem.dispose();
+
+RectAreaLightUniformsLib.init();
+
+const keyLight = new THREE.DirectionalLight(0xffffff, 1.45);
+keyLight.position.set(5.2, 8.0, 4.4);
+keyLight.castShadow = true;
+keyLight.shadow.mapSize.set(2048, 2048);
+keyLight.shadow.camera.near = 1;
+keyLight.shadow.camera.far = 26;
+keyLight.shadow.camera.left = -4.2; keyLight.shadow.camera.right = 4.2;
+keyLight.shadow.camera.top = 4.2;   keyLight.shadow.camera.bottom = -4.2;
+keyLight.shadow.bias = -0.0006;
+keyLight.shadow.normalBias = 0.022;
+scene.add(keyLight, keyLight.target);
+
+const fillLight = new THREE.DirectionalLight(0x9dc4ff, 0.28);
+fillLight.position.set(-6, 4, -5);
+scene.add(fillLight);
+
+const hemi = new THREE.HemisphereLight(0xbcd6ff, 0x14181e, 0.40);
+scene.add(hemi);
+
+const rectLight = new THREE.RectAreaLight(0xffffff, 0.95, 7.5, 3.2);
+rectLight.position.set(0, 5.2, 0.4);
+rectLight.lookAt(0, 0.6, 0);
+scene.add(rectLight);
+
+// headlight beams (no shadows — they are for atmosphere, the emissive bar is the look)
+const beams = [];
+for (const sz of [1, -1]){
+  const s = new THREE.SpotLight(0xdcefff, 0, 26, 0.55, 0.82, 1.3);
+  s.position.set(2.25, 0.79, sz * 0.55);
+  s.target.position.set(11, -0.6, sz * 1.9);
+  scene.add(s, s.target);
+  beams.push(s);
+}
+
+// --- floor + contact shadow ---------------------------------------------------
+const floorMat = new THREE.MeshStandardMaterial({
+  map: makeFloorTexture(), roughness: 0.78, metalness: 0.04, envMapIntensity: 0.35
+});
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(90, 90), floorMat);
+floor.rotation.x = -Math.PI / 2;
+floor.receiveShadow = true;
+scene.add(floor);
+
+const contact = new THREE.Mesh(
+  new THREE.PlaneGeometry(6.2, 3.1),
+  new THREE.MeshBasicMaterial({
+    map: makeContactShadowTexture(), transparent: true, opacity: 0.85,
+    depthWrite: false, blending: THREE.NormalBlending
+  })
+);
+contact.rotation.x = -Math.PI / 2;
+contact.position.y = 0.006;
+contact.renderOrder = -1;
+scene.add(contact);
+
+// --- camera + controls --------------------------------------------------------
+const camera = new THREE.PerspectiveCamera(38, window.innerWidth / window.innerHeight, 0.1, 200);
+const HOME = new THREE.Vector3(6.4, 2.5, 5.6);
+camera.position.copy(HOME);
+
+/** Pull the camera back on narrow / portrait viewports so the car still fits. */
+function homeScale(){
+  const a = window.innerWidth / window.innerHeight;
+  return a < 0.72 ? 1.62 : a < 1.05 ? 1.3 : 1.0;
+}
+function goHome(resume = true){
+  const t = new THREE.Vector3(0, 0.72, 0);
+  camera.position.copy(t).addScaledVector(HOME.clone().sub(t), homeScale());
+  controls.target.copy(t);
+  if (resume) controls.autoRotate = true;
+  controls.update();
+}
+
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
+controls.dampingFactor = 0.055;
+controls.target.set(0, 0.72, 0);
+controls.minDistance = 3.6;
+controls.maxDistance = 15;
+controls.minPolarAngle = 0.12;
+controls.maxPolarAngle = Math.PI / 2 - 0.045;   // never dips under the floor
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.55;
+controls.enablePan = true;
+controls.screenSpacePanning = false;
+controls.update();
+
+const stopAuto = () => { controls.autoRotate = false; };
+controls.addEventListener('start', stopAuto);
+canvas.addEventListener('wheel', stopAuto, { passive: true });
+
+// --- post processing ----------------------------------------------------------
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+const bloom = new UnrealBloomPass(
+  new THREE.Vector2(window.innerWidth / 2, window.innerHeight / 2), 0.55, 0.44, 0.92);
+composer.addPass(bloom);
+composer.addPass(new OutputPass());
+
+/* ============================================================================
+   13. STATE + INTERACTION
+   ========================================================================== */
+
+const carState = {
+  lights: false, motorOn: false, driving: false, night: false, sound: true,
+  speed: 0, battery: 87, motorLevel: 0,
+  hood:  { t: 0, target: 0, state: 'closed' },
+  trunk: { t: 0, target: 0, state: 'closed' }
+};
+
+function togglePanel(p){
+  if (p.state === 'opening' || p.state === 'closing') return;   // ignore repeat clicks
+  p.target = p.target > 0.5 ? 0 : 1;
+  p.state  = p.target > 0.5 ? 'opening' : 'closing';
+}
+function stepPanel(p, dt, rate = 1.15){
+  if (p.t === p.target) return;
+  const dir = p.target > p.t ? 1 : -1;
+  p.t = clamp(p.t + dir * dt * rate, 0, 1);
+  if (p.t === p.target) p.state = p.target > 0.5 ? 'open' : 'closed';
+}
+
+const ACTIONS = {
+  doorFL: () => togglePanel(doors.FL), doorFR: () => togglePanel(doors.FR),
+  doorRL: () => togglePanel(doors.RL), doorRR: () => togglePanel(doors.RR),
+  hood:   () => togglePanel(carState.hood),
+  trunk:  () => togglePanel(carState.trunk),
+  lights: () => setLights(!carState.lights),
+  motor:  () => setMotor(!carState.motorOn)
+};
+
+function setLights(on){ carState.lights = on; syncUI(); }
+function setMotor(on){
+  carState.motorOn = on;
+  if (!on) carState.driving = false;
+  if (on) ensureAudio();
+  syncUI();
+}
+function setDrive(on){
+  carState.driving = on;
+  if (on){ carState.motorOn = true; ensureAudio(); }
+  syncUI();
+}
+function setNight(on){
+  carState.night = on;
+  scene.background.set(on ? 0x03050a : 0x0a0d12);
+  scene.fog.color.set(on ? 0x03050a : 0x0a0d12);
+  keyLight.intensity   = on ? 0.22 : 1.45;
+  fillLight.intensity  = on ? 0.06 : 0.28;
+  hemi.intensity       = on ? 0.10 : 0.40;
+  rectLight.intensity  = on ? 0.14 : 0.95;
+  scene.environmentIntensity = on ? 0.14 : 0.60;
+  renderer.toneMappingExposure = on ? 0.95 : 0.74;
+  bloom.strength = on ? 0.62 : 0.55;
+  contact.material.opacity = on ? 0.5 : 0.85;
+  if (on && !carState.lights) setLights(true);
+  syncUI();
+}
+
+// --- pointer picking ----------------------------------------------------------
+const raycaster = new THREE.Raycaster();
+const pointer = new THREE.Vector2();
+let downAt = null, hoverAction = null;
+
+function setPointer(e){
+  pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+  pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+}
+function castAction(){
+  raycaster.setFromCamera(pointer, camera);
+  const hits = raycaster.intersectObjects(pickables, false);
+  return hits.length ? hits[0].object.userData.action : null;
+}
+canvas.addEventListener('pointerdown', e => {
+  downAt = { x: e.clientX, y: e.clientY };
+  canvas.classList.add('grabbing');
+});
+canvas.addEventListener('pointerup', e => {
+  canvas.classList.remove('grabbing');
+  if (!downAt) return;
+  const moved = Math.hypot(e.clientX - downAt.x, e.clientY - downAt.y);
+  downAt = null;
+  if (moved > 7) return;                    // that was an orbit drag, not a click
+  setPointer(e);
+  const a = castAction();
+  if (a && ACTIONS[a]){ ACTIONS[a](); syncUI(); }
+});
+canvas.addEventListener('pointermove', e => {
+  if (e.pointerType !== 'mouse') return;
+  setPointer(e);
+  hoverAction = castAction();
+  canvas.classList.toggle('pointing', !!hoverAction);
+});
+canvas.addEventListener('pointerleave', () => { hoverAction = null; });
+
+/* --- synthesised drive-unit hum (Web Audio, no files) ----------------------- */
+const audio = { ctx: null, gain: null, oscA: null, oscB: null, filter: null };
+function ensureAudio(){
+  if (audio.ctx) { if (audio.ctx.state === 'suspended') audio.ctx.resume(); return; }
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC) return;
+  const ctx = audio.ctx = new AC();
+  const gain = audio.gain = ctx.createGain();
+  gain.gain.value = 0;
+  const filter = audio.filter = ctx.createBiquadFilter();
+  filter.type = 'lowpass'; filter.frequency.value = 900; filter.Q.value = 6;
+  const oscA = audio.oscA = ctx.createOscillator(); oscA.type = 'sawtooth'; oscA.frequency.value = 70;
+  const oscB = audio.oscB = ctx.createOscillator(); oscB.type = 'sine';     oscB.frequency.value = 140;
+  const g2 = ctx.createGain(); g2.gain.value = 0.35;
+  oscA.connect(filter); oscB.connect(g2); g2.connect(filter);
+  filter.connect(gain); gain.connect(ctx.destination);
+  oscA.start(); oscB.start();
+}
+function updateAudio(level){
+  if (!audio.ctx) return;
+  const t = audio.ctx.currentTime;
+  const vol = carState.sound ? level * 0.09 : 0;
+  audio.gain.gain.setTargetAtTime(vol, t, 0.12);
+  const f = 62 + level * 190 + carState.speed * 1.6;
+  audio.oscA.frequency.setTargetAtTime(f, t, 0.18);
+  audio.oscB.frequency.setTargetAtTime(f * 2.02, t, 0.18);
+  audio.filter.frequency.setTargetAtTime(520 + level * 1900, t, 0.2);
+}
+
+/* --- HUD wiring ------------------------------------------------------------- */
+const hud = {
+  toggles: [...document.querySelectorAll('[data-toggle]')],
+  acts:    [...document.querySelectorAll('[data-act]')],
+  mode:    document.getElementById('ro-mode'),
+  sub:     document.getElementById('ro-sub')
+};
+const panelOf = id => id === 'HOOD' ? carState.hood : id === 'TRUNK' ? carState.trunk : doors[id];
+
+hud.toggles.forEach(b => b.addEventListener('click', () => { togglePanel(panelOf(b.dataset.toggle)); syncUI(); }));
+hud.acts.forEach(b => b.addEventListener('click', () => {
+  switch (b.dataset.act){
+    case 'lights': setLights(!carState.lights); break;
+    case 'motor':  setMotor(!carState.motorOn); break;
+    case 'drive':  setDrive(!carState.driving); break;
+    case 'night':  setNight(!carState.night); break;
+    case 'sound':  carState.sound = !carState.sound; if (carState.sound) ensureAudio(); syncUI(); break;
+    case 'alldoors': {
+      const anyOpen = ['FL','FR','RL','RR'].some(id => doors[id].target > 0.5);
+      ['FL','FR','RL','RR'].forEach(id => {
+        const d = doors[id];
+        if (d.state === 'opening' || d.state === 'closing') return;
+        d.target = anyOpen ? 0 : 1;
+        d.state  = anyOpen ? 'closing' : 'opening';
+      });
+      syncUI();
+      break;
+    }
+    case 'reset': goHome(); break;
+  }
+}));
+
+// paint swatches
+const swWrap = document.getElementById('swatches');
+PAINTS.forEach((p, i) => {
+  const b = document.createElement('button');
+  b.className = 'btn sw';
+  b.style.background = '#' + p.color.toString(16).padStart(6, '0');
+  b.title = p.name;
+  b.setAttribute('aria-label', 'Paint: ' + p.name);
+  b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+  b.addEventListener('click', () => {
+    M.paint.color.setHex(p.color);
+    M.paint.metalness = p.metal;
+    M.paint.roughness = p.rough;
+    [...swWrap.children].forEach((c, k) => c.setAttribute('aria-pressed', k === i ? 'true' : 'false'));
+  });
+  swWrap.appendChild(b);
+});
+
+function syncUI(){
+  hud.toggles.forEach(b => b.setAttribute('aria-pressed', String(panelOf(b.dataset.toggle).target > 0.5)));
+  const st = { lights: carState.lights, motor: carState.motorOn, drive: carState.driving,
+               night: carState.night, sound: carState.sound };
+  hud.acts.forEach(b => { if (b.dataset.act in st) b.setAttribute('aria-pressed', String(st[b.dataset.act])); });
+  hud.mode.textContent = carState.driving ? 'DRIVE' : (carState.motorOn ? 'READY' : 'PARKED');
+  hud.sub.textContent =
+    `${carState.motorOn ? 'motor running' : 'motor idle'} · lights ${carState.lights ? 'on' : 'off'}`;
+}
+
+/* ============================================================================
+   14. RESIZE + ANIMATION LOOP
+   ========================================================================== */
+
+let resizeTimer = 0;
+function applyResize(){
+  const w = window.innerWidth, h = window.innerHeight;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(w, h);
+  composer.setSize(w, h);
+  bloom.setSize(w / 2, h / 2);
+}
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(applyResize, 110);
+});
+window.addEventListener('orientationchange', () => setTimeout(applyResize, 220));
+
+const clock = new THREE.Clock();
+const motorHome = motor.group.position.clone();
+let screenClock = 0;
+
+function animate(){
+  const dt = Math.min(clock.getDelta(), 0.05);
+  const t  = clock.getElapsedTime();
+
+  // ---- panels -------------------------------------------------------------
+  for (const id of ['FL', 'FR', 'RL', 'RR']){
+    const d = doors[id];
+    stepPanel(d, dt, 1.05);
+    d.group.rotation.y = easeInOutCubic(d.t) * d.def.angle;
+    // flush handle pops out when the pointer is over that door
+    const want = hoverAction === 'door' + id ? 1 : 0;
+    d.handle.userData.out = approach(d.handle.userData.out, want, 9, dt);
+    d.handle.position.z = d.handle.userData.restZ + d.def.side * 0.032 * d.handle.userData.out;
+  }
+  stepPanel(carState.hood, dt, 0.9);
+  {
+    const a = easeInOutCubic(carState.hood.t) * 0.62;
+    hoodGroup.rotation.z = a;
+    hoodGroup.position.set(hoodPivot.x + Math.sin(a) * 0.05,
+                           hoodPivot.y + Math.sin(a) * 0.16, hoodPivot.z);
+  }
+  stepPanel(carState.trunk, dt, 0.9);
+  {
+    const a = easeInOutCubic(carState.trunk.t) * 0.60;
+    trunkGroup.rotation.z = -a;
+    trunkGroup.position.set(trunkPivot.x - Math.sin(a) * 0.03,
+                            trunkPivot.y + Math.sin(a) * 0.14, trunkPivot.z);
+  }
+
+  // ---- drive unit ---------------------------------------------------------
+  const wantLevel = carState.motorOn ? (carState.driving ? 1.0 : 0.42) : 0;
+  carState.motorLevel = approach(carState.motorLevel, wantLevel, 1.5, dt);
+  const lvl = carState.motorLevel;
+  motor.rotor.rotation.z += dt * lvl * 26;
+  M.coil.emissiveIntensity = lvl * (1.35 + 0.65 * Math.sin(t * 7.5));
+  motor.group.position.set(
+    motorHome.x + (Math.random() - 0.5) * 0.0022 * lvl,
+    motorHome.y + (Math.random() - 0.5) * 0.0022 * lvl,
+    motorHome.z + (Math.random() - 0.5) * 0.0018 * lvl
+  );
+  updateAudio(lvl);
+
+  // ---- driving ------------------------------------------------------------
+  const targetSpeed = carState.driving ? 88 : 0;
+  carState.speed = approach(carState.speed, targetSpeed, carState.driving ? 0.45 : 1.1, dt);
+  if (carState.driving) carState.battery = Math.max(4, carState.battery - dt * 0.09);
+  // visual spin is capped so the spokes never strobe into nonsense
+  const omega = Math.min(carState.speed / 3.6 / CAR.wheelR, 13);
+  for (const w of wheels){
+    w.spin.rotation.z -= omega * dt * w.side;
+    if (w.front) w.steer.rotation.y = Math.sin(t * 0.6) * 0.06 * (carState.speed / 90);
+  }
+  // suspension bob on the body only — the wheels stay planted
+  const bob = carState.speed / 90;
+  chassis.position.y = Math.sin(t * 6.3) * 0.010 * bob + Math.sin(t * 2.7) * 0.006 * bob;
+  chassis.rotation.z = Math.sin(t * 3.1) * 0.0045 * bob;
+  chassis.rotation.y = Math.sin(t * 1.7) * 0.0025 * bob;
+
+  // ---- lighting state -----------------------------------------------------
+  const lit = carState.lights ? 1 : 0;
+  M.headlight.emissiveIntensity = approach(M.headlight.emissiveIntensity, lit ? 1.85 : 0.04, 8, dt);
+  M.taillight.emissiveIntensity = approach(M.taillight.emissiveIntensity,
+    lit ? (carState.driving ? 2.2 : 1.55) : 0.06, 8, dt);
+  M.batteryGlow.emissiveIntensity = approach(M.batteryGlow.emissiveIntensity,
+    carState.motorOn ? 1.7 + 0.45 * Math.sin(t * 1.8) : 0.28, 4, dt);
+  for (const b of beams) b.intensity = approach(b.intensity, lit ? (carState.night ? 46 : 20) : 0, 6, dt);
+  screenMat.emissiveIntensity = 1.0;
+
+  // ---- centre display -----------------------------------------------------
+  screenClock += dt;
+  if (screenClock > 0.12){ screenClock = 0; drawScreen(); }
+
+  controls.update();
+  composer.render();
+  requestAnimationFrame(animate);
+}
+
+// small scripting hook so the demo can be driven from the console
+window.aurora = {
+  THREE, scene, camera, controls, renderer, car, carState, doors, wheels, motor,
+  togglePanel, setLights, setMotor, setDrive, setNight,
+  paint: i => M.paint.color.setHex(PAINTS[i].color)
+};
+
+// first paint
+setNight(false);
+syncUI();
+drawScreen();
+applyResize();
+goHome();
+animate();
+requestAnimationFrame(() => {
+  const l = document.getElementById('loader');
+  l.classList.add('gone');
+  setTimeout(() => l.remove(), 700);
+});
+</script>
+</body>
+</html>
